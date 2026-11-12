@@ -13,38 +13,38 @@ Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) wi
 [0m
 cannot connect to daemon at tcp:5037: Connection refused
 ==> exporting APK
-Saving project files from res://scripts/world/npc_actor.gd.remap into assets/scripts/world/npc_actor.gd.remap
-Saving project files from res://scripts/world/resource_node.gd.remap into assets/scripts/world/resource_node.gd.remap
-Saving project files from res://scripts/world/world_builder.gd.remap into assets/scripts/world/world_builder.gd.remap
-Saving project files from res://scripts/world/world_clock.gd.remap into assets/scripts/world/world_clock.gd.remap
-Saving project files from res://scripts/world/world_simulation.gd.remap into assets/scripts/world/world_simulation.gd.remap
-Saving project files from res://.godot/global_script_class_cache.cfg into assets/.godot/global_script_class_cache.cfg
-Saving project files from res://icon.svg into assets/icon.svg
-Saving project files from res://.godot/uid_cache.bin into assets/.godot/uid_cache.bin
-Saving project files from res://project.binary into assets/project.binary
-[  97% ] [90m[1mexport[22m | Aligning APK...[39m[0m
-[  98% ] [90m[1mexport[22m | Signing debug APK...[39m[0m
-Could not find version of build tools that matches Target SDK, using 35.0.0
-Starting signing of the APK binary using /home/runner/android-sdk/build-tools/35.0.0/apksigner
-Signing debug binary using: 
-/home/runner/android-sdk/build-tools/35.0.0/apksigner sign --verbose --ks /home/runner/.android/debug.keystore --ks-pass pass:android --ks-key-alias androiddebugkey /home/runner/work/STICKMAN/STICKMAN/build/microworld-living-debug.apk
-Signed
+Using "default" pen tablet driver...
 
-[  99% ] [90m[1mexport[22m | Verifying APK...[39m[0m
-Verifying signed build using: 
-/home/runner/android-sdk/build-tools/35.0.0/apksigner verify --verbose /home/runner/work/STICKMAN/STICKMAN/build/microworld-living-debug.apk
-Verifies
-Verified using v1 scheme (JAR signing): false
-Verified using v2 scheme (APK Signature Scheme v2): true
-Verified using v3 scheme (APK Signature Scheme v3): true
-Verified using v3.1 scheme (APK Signature Scheme v3.1): false
-Verified using v4 scheme (APK Signature Scheme v4): false
-Verified for SourceStamp: false
-Number of signers: 1
-
-Successfully completed signing build.
-[92m[ DONE ][39m [1mexport[22m
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: /home/runner/.config/godot/editor_settings-4.7.tres remapped: /home/runner/.config/godot/editor_settings-4.7.tres
+Completed load for: '/home/runner/.config/godot/editor_settings-4.7.tres' remapped '/home/runner/.config/godot/editor_settings-4.7.tres' at thread -1
+EditorSettings: Load OK!
+EditorTheme: Generating new theme for the config '3810048042'.
+EditorTheme: Generating new icons.
+EditorTheme: Generating new fonts.
+EditorTheme: Generating new styles.
+Loading resource: /home/runner/.cache/godot/editor_doc_cache-4.7.res remapped: /home/runner/.cache/godot/editor_doc_cache-4.7.res
+Loaded system CA certificates
+Completed load for: '/home/runner/.cache/godot/editor_doc_cache-4.7.res' remapped '/home/runner/.cache/godot/editor_doc_cache-4.7.res' at thread -1
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
 [0m
+ERROR: Cannot export project with preset "Android Debug" due to configuration errors:
+"Min SDK" can only be overridden when "Use Gradle Build" is enabled.
+"Target SDK" can only be overridden when "Use Gradle Build" is enabled.
+
+   at: _fs_changed (editor/editor_node.cpp:1401)
+ERROR: Project export for preset "Android Debug" failed.
+   at: _fs_changed (editor/editor_node.cpp:1417)
 Script docs haven't been properly loaded or regenerated, so don't save them to disk.
 cannot connect to daemon at tcp:5037: Connection refused
 EditorSettings: Save OK!
@@ -53,5 +53,4 @@ XR: Removed interface "Native mobile"
 XR: Removed interface "OpenXR"
 Orphan StringName: Node (static: 3, total: 4)
 StringName: 1 unclaimed string names at exit.
-==> APK produced:
--rw-r--r-- 1 runner runner 101216959 Nov 12 16:31 build/microworld-living-debug.apk
+!! APK was not produced (godot exit 1)

@@ -1,27 +1,21 @@
-run=43259399806
-sha=07f3cd2e267f832899e0dddfc5ad2d2e5dd43db7
-status=success
-apk_size_bytes=101216959
+run=43261206751
+sha=749f7327d9e0676a89793dde02d264b748e39fc1
+status=failure
+apk_size_bytes=0
 godot=4.7.2-stable
 java=openjdk version "17.0.21" 2026-10-20
-APK_SIZE=101216959
+APK_SIZE=0
 ls:
-total 198500
-drwxr-xr-x  2 runner runner      4096 Nov 12 16:31 .
-drwxr-xr-x 12 runner runner      4096 Nov 12 16:31 ..
--rw-r--r--  1 runner runner 101216959 Nov 12 16:31 MICRO-WORLD-LIVING-13-debug.apk
--rw-r--r--  1 runner runner       100 Nov 12 16:31 apk.sha256
--rw-r--r--  1 runner runner 101216959 Nov 12 16:31 microworld-living-debug.apk
--rw-r--r--  1 runner runner    808371 Nov 12 16:31 microworld-living-debug.apk.idsig
+total 8
+drwxr-xr-x  2 runner runner 4096 Nov 12 16:41 .
+drwxr-xr-x 12 runner runner 4096 Nov 12 16:41 ..
 manifest_raw:
 ### APK listing
-total 99648
-drwxr-xr-x  2 runner runner      4096 Nov 12 16:31 .
-drwxr-xr-x 12 runner runner      4096 Nov 12 16:31 ..
--rw-r--r--  1 runner runner 101216959 Nov 12 16:31 microworld-living-debug.apk
--rw-r--r--  1 runner runner    808371 Nov 12 16:31 microworld-living-debug.apk.idsig
+total 8
+drwxr-xr-x  2 runner runner 4096 Nov 12 16:41 .
+drwxr-xr-x 12 runner runner 4096 Nov 12 16:41 ..
 
 ### zip contents
-Archive:  build/microworld-living-debug.apk
-  Length      Date    Time    Name
-----
+unzip:  cannot find or open build/microworld-living-debug.apk, build/microworld-living-debug.apk.zip or build/microworld-living-debug.apk.ZIP.
+
+### manifest strings

@@ -257,6 +257,9 @@ func spend_stamina(amount: float) -> bool:
 
 
 func regenerate(delta: float, in_combat: bool) -> void:
+	# A dead player must never be resurrected by passive regeneration.
+	if not is_alive():
+		return
 	mana = minf(max_mana(), mana + delta * (2.5 if not in_combat else 1.2))
 	stamina = minf(max_stamina(), stamina + delta * (12.0 if not in_combat else 6.0))
 	if not in_combat:

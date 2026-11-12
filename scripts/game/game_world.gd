@@ -1032,7 +1032,8 @@ func _process(delta: float) -> void:
 	clock.advance(delta)
 	state.time_of_day = clock.time_of_day
 	state.day = clock.day
-	state.regenerate(delta, combat.in_combat())
+	if state.is_alive():
+		state.regenerate(delta, combat.in_combat())
 	_scan_nearby()
 	_update_hud(delta)
 	_update_target_frame()

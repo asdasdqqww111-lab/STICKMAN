@@ -167,6 +167,8 @@ func _test_damage_and_healing() -> void:
 	state.take_damage(9999.0)
 	check_false(state.is_alive(), "lethal damage kills the player")
 	check_eq(int(state.stats.get("deaths", 0)), deaths + 1, "death is counted")
+	state.regenerate(1.0, false)
+	check_false(state.is_alive(), "passive regeneration never resurrects a dead player")
 	state.revive_at(Vector3(0, 0, 1))
 	check_true(state.is_alive(), "revive restores the player")
 	check_true(state.health < state.max_health(), "revive restores partial health")

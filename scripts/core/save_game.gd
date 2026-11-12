@@ -172,14 +172,12 @@ static func peek_metadata(primary: String = PRIMARY, backup: String = BACKUP) ->
 static func migrate(input: Dictionary) -> Dictionary:
 	var data := input.duplicate(true)
 	var version := int(data.get("version", 0))
-	if version < 1 or version > CURRENT_VERSION:
-		# Version 0 documents are the pre-release prototype format.
-		if not data.has("inventory") and data.has("herbs"):
-			version = 1
-		elif version > CURRENT_VERSION:
-			return {}
-		else:
-			version = maxi(version, 1)
+	if version > CURRENT_VERSION:
+		# A newer client wrote this file; never downgrade it.
+		return {}
+	if version < 1:
+		# Pre-versioned prototype documents carried stage flags (herbs/potions).
+		version = 1
 		data["version"] = version
 
 	# v1 -> v2: prototype stage script (quest/herb_quest) becomes a quest map.

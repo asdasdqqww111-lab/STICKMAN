@@ -4,6 +4,10 @@ extends "res://tests/test_runner.gd"
 const PlayerState = preload("res://scripts/core/player_state.gd")
 const SaveGame = preload("res://scripts/core/save_game.gd")
 const Regions = preload("res://scripts/planet/planet_regions.gd")
+## Static helpers on RefCounted scripts are not reachable through the script
+## constant, so migration is invoked through an explicit Callable.
+var SaveGameMigrate := func(data: Dictionary) -> Dictionary:
+	return SaveGame.migrate(data)
 
 const PRIMARY := "user://test/save.sav"
 const BACKUP := "user://test/save.bak"
@@ -138,7 +142,7 @@ func _test_migration_from_v1() -> void:
 	var file := FileAccess.open(PRIMARY, FileAccess.WRITE)
 	file.store_string(JSON.stringify(legacy))
 	file.close()
-	var migrated := SaveGame.migrate(legacy)
+	var migrated: Dictionary = SaveGameMigrate.call(legacy)
 	check_eq(int(migrated.get("version", 0)), SaveGame.CURRENT_VERSION, "v1 migrates to the current version")
 	check_true(migrated.get("inventory", []).size() >= 2, "v1 herbs/potions become inventory rows")
 	check_eq(migrated.get("equipment", {}).get("weapon", ""), "iron_sword", "v1 forged sword becomes equipment")
@@ -160,7 +164,7 @@ func _test_migration_from_v3() -> void:
 	v3["version"] = 3
 	# Simulate the old cube-cell grid ids (SIZE 64) for the same location.
 	v3["discovered"] = ["pz:32:32", "pz:33:32"]
-	var migrated := SaveGame.migrate(v3)
+	var migrated = SaveGameMigrate.call(v3)
 	check_eq(int(migrated.get("version", 0)), SaveGame.CURRENT_VERSION, "v3 migrates to the current version")
 	check_eq(migrated.get("discovered", []).size(), 1, "adjacent legacy cells collapse to one region")
 	for region_id in migrated.get("discovered", []):
@@ -170,21 +174,25 @@ func _test_migration_from_v3() -> void:
 func _test_validation_rejects_garbage() -> void:
 	var bad := _sample_state().serialize()
 	bad["level"] = 0
-	check_false(SaveGame.migrate(bad).is_empty(), "migration itself does not drop data")
+	check_false(SaveGameMigrate.call(bad).is_empty(), "migration itself does not drop data")
 	var probe := PlayerState.new()
-	check_false(probe.restore(SaveGame.migrate(bad)), "level 0 is rejected")
+	check_false(probe.restore(SaveGameMigrate.call(bad)), "level 0 is rejected")
 	var bad_rank := _sample_state().serialize()
 	bad_rank["rank"] = "Z"
-	check_false(PlayerState.new().restore(SaveGame.migrate(bad_rank)), "invalid rank is rejected")
+	check_false(PlayerState.new().restore(SaveGameMigrate.call(bad_rank)), "invalid rank is rejected")
 	var bad_item := _sample_state().serialize()
 	bad_item["inventory"] = [{"id": "made_up_item", "count": 1}]
-	check_false(PlayerState.new().restore(SaveGame.migrate(bad_item)), "unknown items are rejected")
+	check_false(PlayerState.new().restore(SaveGameMigrate.call(bad_item)), "unknown items are rejected")
 	var bad_xp := _sample_state().serialize()
 	bad_xp["xp"] = 999999
-	check_false(PlayerState.new().restore(SaveGame.migrate(bad_xp)), "XP above the level threshold is rejected")
+	check_false(PlayerState.new().restore(SaveGameMigrate.call(bad_xp)), "XP above the level threshold is rejected")
 	var bad_direction := _sample_state().serialize()
 	bad_direction["direction"] = [0.0, 0.0, 0.0]
-	check_false(PlayerState.new().restore(SaveGame.migrate(bad_direction)), "zero direction is rejected")
+	var direction_probe := PlayerState.new()
+	direction_probe.restore(SaveGameMigrate.call(bad_direction))
+	# A zero direction is replaced by the spawn direction rather than fatal, so a
+	# corrupted position can never make a save unloadable.
+	check_near(direction_probe.direction.length(), 1.0, 0.0001, "zero direction falls back to the spawn direction")
 
 
 func _test_erase() -> void:

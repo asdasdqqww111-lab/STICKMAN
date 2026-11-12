@@ -162,7 +162,7 @@ func _test_play_session() -> void:
 	game._talk_to_registrar()
 	await process_frame
 	game.quest_log.register_talk("registrar")
-	var ready := game.quest_log.turn_in_ready()
+	var ready: Array = game.quest_log.turn_in_ready()
 	check_true(ready.size() > 0, "the first contract can be turned in")
 	check_true(game.state.quests_completed() >= 1, "quest completion is recorded")
 	# --- crafting ----------------------------------------------------------

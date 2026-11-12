@@ -50,5 +50,5 @@ func _make_drop(entry: Dictionary, rng: RandomNumberGenerator) -> Dictionary:
 	var high: int = int(entry.get("max", low))
 	return {
 		"item_id": String(entry.get("item_id", "")),
-		"count": rng.randi_range(lowi(low, high), maxi(low, high)),
+		"count": rng.randi_range(mini(low, high), maxi(low, high)),
 	}

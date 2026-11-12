@@ -29,7 +29,7 @@ func _test_catalogue() -> void:
 		check_false(int(spec.get("objective", -1)) < 0, "quest has a valid objective: " + quest_id)
 		var required: String = spec.get("requires", "")
 		if required != "":
-			check_true(QuestDB.definition(required) != "", "quest prerequisite exists: %s -> %s" % [quest_id, required])
+			check_false(QuestDB.definition(required).is_empty(), "quest prerequisite exists: %s -> %s" % [quest_id, required])
 		var target: String = spec.get("target", "")
 		if int(spec.get("objective", -1)) == QuestData.Objective.COLLECT_ITEM:
 			check_true(ItemDB.exists(target), "collect target is a real item: " + target)
@@ -42,7 +42,7 @@ func _test_catalogue() -> void:
 	var visited := {}
 	for quest_id in ids.keys():
 		var chain: Array[String] = []
-		var cursor := quest_id
+		var cursor: String = quest_id
 		var guard := 0
 		while cursor != "" and guard < 40:
 			guard += 1

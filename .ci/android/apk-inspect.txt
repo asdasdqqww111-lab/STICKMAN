@@ -1,71 +1,71 @@
 ### APK listing
-total 99644
-drwxr-xr-x  2 runner runner      4096 Nov 12 16:24 .
-drwxr-xr-x 12 runner runner      4096 Nov 12 16:24 ..
--rw-r--r--  1 runner runner 101212863 Nov 12 16:24 microworld-living-debug.apk
--rw-r--r--  1 runner runner    808371 Nov 12 16:24 microworld-living-debug.apk.idsig
+total 99648
+drwxr-xr-x  2 runner runner      4096 Nov 12 16:27 .
+drwxr-xr-x 12 runner runner      4096 Nov 12 16:27 ..
+-rw-r--r--  1 runner runner 101216959 Nov 12 16:27 microworld-living-debug.apk
+-rw-r--r--  1 runner runner    808371 Nov 12 16:27 microworld-living-debug.apk.idsig
 
 ### zip contents
 Archive:  build/microworld-living-debug.apk
   Length      Date    Time    Name
 ---------  ---------- -----   ----
-  5711532  2026-11-12 16:24   classes.dex
-    28280  2026-11-12 16:24   classes10.dex
-    47076  2026-11-12 16:24   classes11.dex
-    39156  2026-11-12 16:24   classes12.dex
-     4348  2026-11-12 16:24   classes13.dex
-     1960  2026-11-12 16:24   classes2.dex
-    40204  2026-11-12 16:24   classes3.dex
-    64160  2026-11-12 16:24   classes4.dex
-    22304  2026-11-12 16:24   classes5.dex
-    49584  2026-11-12 16:24   classes6.dex
-   137052  2026-11-12 16:24   classes7.dex
-    20052  2026-11-12 16:24   classes8.dex
-     7772  2026-11-12 16:24   classes9.dex
-  1374336  2026-11-12 16:24   lib/arm64-v8a/libc++_shared.so
- 76181608  2026-11-12 16:24   lib/arm64-v8a/libgodot_android.so
-   963028  2026-11-12 16:24   lib/armeabi-v7a/libc++_shared.so
- 82451424  2026-11-12 16:24   lib/armeabi-v7a/libgodot_android.so
-  1337488  2026-11-12 16:24   lib/x86_64/libc++_shared.so
- 81186808  2026-11-12 16:24   lib/x86_64/libgodot_android.so
-     7880  2026-11-12 16:24   AndroidManifest.xml
-      364  2026-11-12 16:24   res/anim-v21/fragment_fast_out_extra_slow_in.xml
-     1128  2026-11-12 16:24   res/animator/fragment_close_enter.xml
-     1128  2026-11-12 16:24   res/animator/fragment_close_exit.xml
-      452  2026-11-12 16:24   res/animator/fragment_fade_enter.xml
-      452  2026-11-12 16:24   res/animator/fragment_fade_exit.xml
-     1128  2026-11-12 16:24   res/animator/fragment_open_enter.xml
-     1128  2026-11-12 16:24   res/animator/fragment_open_exit.xml
-      212  2026-11-12 16:24   res/drawable-hdpi-v4/notification_bg_low_normal.9.png
-      225  2026-11-12 16:24   res/drawable-hdpi-v4/notification_bg_low_pressed.9.png
-      212  2026-11-12 16:24   res/drawable-hdpi-v4/notification_bg_normal.9.png
-      225  2026-11-12 16:24   res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png
-      107  2026-11-12 16:24   res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png
-      215  2026-11-12 16:24   res/drawable-mdpi-v4/notification_bg_low_normal.9.png
-      223  2026-11-12 16:24   res/drawable-mdpi-v4/notification_bg_low_pressed.9.png
-      215  2026-11-12 16:24   res/drawable-mdpi-v4/notification_bg_normal.9.png
-      223  2026-11-12 16:24   res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png
-       98  2026-11-12 16:24   res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png
-     1180  2026-11-12 16:24   res/drawable-v21/notification_action_background.xml
-     1216  2026-11-12 16:24   res/drawable-v23/compat_splash_screen.xml
-     1076  2026-11-12 16:24   res/drawable-v23/compat_splash_screen_no_icon_background.xml
-      221  2026-11-12 16:24   res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
-      252  2026-11-12 16:24   res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
-      221  2026-11-12 16:24   res/drawable-xhdpi-v4/notification_bg_normal.9.png
-      247  2026-11-12 16:24   res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
-      138  2026-11-12 16:24   res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png
-      372  2026-11-12 16:24   res/drawable/icon_background.xml
-      532  2026-11-12 16:24   res/drawable/notification_bg.xml
-      532  2026-11-12 16:24   res/drawable/notification_bg_low.xml
-      372  2026-11-12 16:24   res/drawable/notification_icon_background.xml
-      304  2026-11-12 16:24   res/drawable/notification_tile_bg.xml
-      102  2026-11-12 16:24   res/drawable/splash_branding_image.webp
-    51178  2026-11-12 16:24   res/drawable/splash_icon.webp
-     1052  2026-11-12 16:24   res/layout-v21/notification_action.xml
-     1228  2026-11-12 16:24   res/layout-v21/notification_action_tombstone.xml
-     2456  2026-11-12 16:24   res/layout-v21/notification_template_custom_big.xml
-      988  2026-11-12 16:24   res/layout-v21/notification_template_icon_group.xml
-      612  2026-11-12 16:24   res/layout/custom_dialog.xml
+  5711532  2026-11-12 16:27   classes.dex
+    28280  2026-11-12 16:27   classes10.dex
+    47076  2026-11-12 16:27   classes11.dex
+    39156  2026-11-12 16:27   classes12.dex
+     4348  2026-11-12 16:27   classes13.dex
+     1960  2026-11-12 16:27   classes2.dex
+    40204  2026-11-12 16:27   classes3.dex
+    64160  2026-11-12 16:27   classes4.dex
+    22304  2026-11-12 16:27   classes5.dex
+    49584  2026-11-12 16:27   classes6.dex
+   137052  2026-11-12 16:27   classes7.dex
+    20052  2026-11-12 16:27   classes8.dex
+     7772  2026-11-12 16:27   classes9.dex
+  1374336  2026-11-12 16:27   lib/arm64-v8a/libc++_shared.so
+ 76181608  2026-11-12 16:27   lib/arm64-v8a/libgodot_android.so
+   963028  2026-11-12 16:27   lib/armeabi-v7a/libc++_shared.so
+ 82451424  2026-11-12 16:27   lib/armeabi-v7a/libgodot_android.so
+  1337488  2026-11-12 16:27   lib/x86_64/libc++_shared.so
+ 81186808  2026-11-12 16:27   lib/x86_64/libgodot_android.so
+     7880  2026-11-12 16:27   AndroidManifest.xml
+      364  2026-11-12 16:27   res/anim-v21/fragment_fast_out_extra_slow_in.xml
+     1128  2026-11-12 16:27   res/animator/fragment_close_enter.xml
+     1128  2026-11-12 16:27   res/animator/fragment_close_exit.xml
+      452  2026-11-12 16:27   res/animator/fragment_fade_enter.xml
+      452  2026-11-12 16:27   res/animator/fragment_fade_exit.xml
+     1128  2026-11-12 16:27   res/animator/fragment_open_enter.xml
+     1128  2026-11-12 16:27   res/animator/fragment_open_exit.xml
+      212  2026-11-12 16:27   res/drawable-hdpi-v4/notification_bg_low_normal.9.png
+      225  2026-11-12 16:27   res/drawable-hdpi-v4/notification_bg_low_pressed.9.png
+      212  2026-11-12 16:27   res/drawable-hdpi-v4/notification_bg_normal.9.png
+      225  2026-11-12 16:27   res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png
+      107  2026-11-12 16:27   res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png
+      215  2026-11-12 16:27   res/drawable-mdpi-v4/notification_bg_low_normal.9.png
+      223  2026-11-12 16:27   res/drawable-mdpi-v4/notification_bg_low_pressed.9.png
+      215  2026-11-12 16:27   res/drawable-mdpi-v4/notification_bg_normal.9.png
+      223  2026-11-12 16:27   res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png
+       98  2026-11-12 16:27   res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png
+     1180  2026-11-12 16:27   res/drawable-v21/notification_action_background.xml
+     1216  2026-11-12 16:27   res/drawable-v23/compat_splash_screen.xml
+     1076  2026-11-12 16:27   res/drawable-v23/compat_splash_screen_no_icon_background.xml
+      221  2026-11-12 16:27   res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+      252  2026-11-12 16:27   res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+      221  2026-11-12 16:27   res/drawable-xhdpi-v4/notification_bg_normal.9.png
+      247  2026-11-12 16:27   res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+      138  2026-11-12 16:27   res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png
+      372  2026-11-12 16:27   res/drawable/icon_background.xml
+      532  2026-11-12 16:27   res/drawable/notification_bg.xml
+      532  2026-11-12 16:27   res/drawable/notification_bg_low.xml
+      372  2026-11-12 16:27   res/drawable/notification_icon_background.xml
+      304  2026-11-12 16:27   res/drawable/notification_tile_bg.xml
+      102  2026-11-12 16:27   res/drawable/splash_branding_image.webp
+    51178  2026-11-12 16:27   res/drawable/splash_icon.webp
+     1052  2026-11-12 16:27   res/layout-v21/notification_action.xml
+     1228  2026-11-12 16:27   res/layout-v21/notification_action_tombstone.xml
+     2456  2026-11-12 16:27   res/layout-v21/notification_template_custom_big.xml
+      988  2026-11-12 16:27   res/layout-v21/notification_template_icon_group.xml
+      612  2026-11-12 16:27   res/layout/custom_dialog.xml
 
 ### manifest strings
 (4L^v

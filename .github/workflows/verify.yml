@@ -1,0 +1,20 @@
+name: verify
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '**.md'
+jobs:
+  headless:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot (pinned)
+        run: WITH_TEMPLATES=0 bash tools/ci/install_godot.sh
+      - name: Import project
+        run: |
+          set -o pipefail
+          godot --headless --path . --import 2>&1 | tee import.log
+          ! grep -qE "SCRIPT ERROR|Parse Error|ERROR: Failed to load" import.log
+      - name: Run test suites
+        run: bash tools/ci/run_tests.sh

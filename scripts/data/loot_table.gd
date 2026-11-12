@@ -8,10 +8,10 @@ class_name LootTable
 ##   item_id: String, weight: float, min: int, max: int,
 ##   chance: float (0..1, optional exact probability instead of weight),
 ##   unique: bool (at most one per table roll)
-@export var entries: Array[Dictionary] = []
+@export var entries: Array = []
 
 ## Always granted when the table rolls.
-@export var guaranteed: Array[Dictionary] = []
+@export var guaranteed: Array = []
 
 ## Roll count bounds (e.g. a chest rolls 2-4 times).
 @export var min_rolls: int = 1
@@ -19,8 +19,8 @@ class_name LootTable
 
 
 ## Deterministic sample: `rng` is passed in so tests can reproduce results.
-func roll(rng: RandomNumberGenerator) -> Array[Dictionary]:
-	var drops: Array[Dictionary] = []
+func roll(rng: RandomNumberGenerator) -> Array:
+	var drops: Array = []
 	for entry in guaranteed:
 		drops.append(_make_drop(entry, rng))
 	var rolls := rng.randi_range(maxi(1, min_rolls), maxi(1, max_rolls))

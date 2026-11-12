@@ -17,7 +17,7 @@ var model_scale := 0.85
 var animator: Node
 
 ## Schedule: array of {from: float(hour), to: float(hour), anchor: Vector3, label: String}
-var schedule: Array[Dictionary] = []
+var schedule: Array = []
 var home_direction := Vector3.ZERO
 var current_direction := Vector3.ZERO
 var target_direction := Vector3.ZERO
@@ -29,14 +29,14 @@ var _idle_offset := 0.0
 var _rng := RandomNumberGenerator.new()
 
 
-func configure(id: String, name_text: String, role_text: String, home: Vector3, schedule_rows: Array[Dictionary]) -> void:
+func configure(id: String, name_text: String, role_text: String, home: Vector3, schedule_rows: Array) -> void:
 	npc_id = id
 	display_name = name_text
 	role = role_text
 	home_direction = home.normalized()
 	current_direction = home_direction
 	target_direction = home_direction
-	schedule = schedule_rows
+	schedule.assign(schedule_rows)
 	_idle_offset = _rng.randf() * TAU
 	name = "NPC_" + id
 

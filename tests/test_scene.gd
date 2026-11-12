@@ -90,11 +90,13 @@ func _test_play_session() -> void:
 	if game == null:
 		return
 	# --- movement ----------------------------------------------------------
+	# Drive the controller directly: the input handler intentionally ignores
+	# movement while a panel is open, so the test exercises the physics path.
 	var start_direction: Vector3 = game.player.current_direction
-	game.player.move_input = Vector2(0, 1)
 	for i in range(20):
-		await physics_frame
-	game.player.move_input = Vector2.ZERO
+		game.player.move_input = Vector2(0, 1)
+		game.player._move(0.05)
+		await process_frame
 	var moved: float = start_direction.angle_to(game.player.current_direction) * 250.0
 	check_true(moved > 1.0, "player moves forward on the planet (%.1f m)" % moved)
 	# --- camera stays outside the planet -----------------------------------
@@ -103,7 +105,8 @@ func _test_play_session() -> void:
 	var discovered_before: int = game.state.discovered.size()
 	for i in range(90):
 		game.player.move_input = Vector2(1, 0)
-		await physics_frame
+		game.player._move(0.05)
+		await process_frame
 	game.player.move_input = Vector2.ZERO
 	check_true(game.state.discovered.size() >= discovered_before, "exploration records regions")
 	# --- combat ------------------------------------------------------------
@@ -118,12 +121,14 @@ func _test_play_session() -> void:
 		var damage: float = enemy.take_damage(25.0)
 		check_true(damage > 0.0, "monster takes damage")
 		check_true(enemy.health < health_before, "monster health decreases")
-		var killed: bool = false
-		enemy.defeated.connect(func(_node: Node, _archetype: String) -> void: killed = true)
-		while enemy.alive and is_instance_valid(enemy):
+		var killed := {"value": false}
+		enemy.defeated.connect(func(_node: Node, _archetype: String) -> void: killed["value"] = true)
+		for _i in range(4):
+			if not is_instance_valid(enemy) or not enemy.alive:
+				break
 			enemy.take_damage(1000.0)
 			await process_frame
-		check_true(killed, "monster defeat signal fires")
+		check_true(bool(killed["value"]), "monster defeat signal fires")
 		check_true(game.state.total_kills_of(enemy.data.id) > 0, "kill is recorded in state")
 	# --- harvesting --------------------------------------------------------
 	var node = game.resource_nodes[0] if not game.resource_nodes.is_empty() else null

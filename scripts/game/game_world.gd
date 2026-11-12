@@ -347,11 +347,12 @@ func _build_npcs() -> void:
 		var npc: Node3D = (load("res://scripts/world/npc_actor.gd") as GDScript).new()
 		npc.name = "NPC_" + row["id"]
 		entities_root.add_child(npc)
-		npc.configure(row["id"], row["name"], row["role"], home, [
+		var schedule: Array[Dictionary] = [
 			{"from": 0.0, "to": 8.0, "anchor": home},
 			{"from": 8.0, "to": 18.0, "anchor": WorldBuilder.village_direction()},
 			{"from": 18.0, "to": 24.0, "anchor": home},
-		])
+		]
+		npc.configure(row["id"], row["name"], row["role"], home, schedule)
 		npc.build_visual()
 		npc.interacted.connect(_on_npc_interacted)
 		npcs.append(npc)
@@ -549,7 +550,8 @@ func _spawn_enemy_at_position(archetype: String, world_position: Vector3, instan
 	enemy.phase_changed.connect(_on_boss_phase)
 	enemy.damaged.connect(func(node: Node, _amount: float) -> void: combat.register_enemy(node))
 	enemies.append(enemy)
-	combat.register_enemy(enemy)
+	if combat != null:
+		combat.register_enemy(enemy)
 	if simulation != null:
 		simulation.register_monster(enemy)
 	return enemy
@@ -585,7 +587,9 @@ func _on_attack(heavy: bool) -> void:
 
 
 func _on_player_attacked(heavy: bool) -> void:
-	var hits: int = combat.resolve_melee(heavy)
+	var hits: int = 0
+	if combat != null:
+		hits = combat.resolve_melee(heavy)
 	if hits == 0 and audio != null:
 		audio.play_attack()
 
@@ -688,13 +692,13 @@ func _open_chest(node: Node3D) -> void:
 	rng.randomize()
 	table.min_rolls = 2
 	table.max_rolls = 3
-	table.entries = [
+	table.entries.assign([
 		{"item_id": "healing_potion", "weight": 3.0, "min": 1, "max": 2},
 		{"item_id": "iron_ore", "weight": 3.0, "min": 1, "max": 3},
 		{"item_id": "purple_herb", "weight": 2.0, "min": 1, "max": 2},
 		{"item_id": "crystal_shard", "weight": 1.0, "min": 1, "max": 1},
 		{"item_id": "amber_resin", "weight": 1.0, "min": 1, "max": 1},
-	]
+	])
 	if node.id == "dungeon_chest" or node.id == "chest_barrow":
 		table.entries.append({"item_id": "bone_shard", "weight": 2.5, "min": 2, "max": 3})
 		table.entries.append({"item_id": "greatsword", "weight": 1.0, "min": 1, "max": 1})
@@ -798,7 +802,8 @@ func _on_enemy_defeated(enemy: Node, archetype: String) -> void:
 		hud.show_notice("Defeated %s · +%d XP, +%d G%s" % [data.display_name, xp, gold, (", " + ", ".join(lines)) if not lines.is_empty() else ""], 3.0)
 	if audio != null:
 		audio.play_hit()
-	combat.unregister_enemy(enemy)
+	if combat != null:
+		combat.unregister_enemy(enemy)
 	if simulation != null:
 		simulation.unregister_monster(enemy)
 	enemies.erase(enemy)
@@ -812,16 +817,16 @@ func _loot_for(table_id: String) -> Resource:
 	var table: Resource = (load("res://scripts/data/loot_table.gd") as GDScript).new()
 	match table_id:
 		"slime":
-			table.entries = [{"item_id": "purple_herb", "weight": 3.0, "min": 1, "max": 1}, {"item_id": "healing_potion", "weight": 1.0, "min": 1, "max": 1}]
+			table.entries.assign([{"item_id": "purple_herb", "weight": 3.0, "min": 1, "max": 1}, {"item_id": "healing_potion", "weight": 1.0, "min": 1, "max": 1}])
 		"skeleton":
-			table.entries = [{"item_id": "bone_shard", "weight": 3.0, "min": 1, "max": 2}, {"item_id": "iron_ore", "weight": 1.5, "min": 1, "max": 1}]
+			table.entries.assign([{"item_id": "bone_shard", "weight": 3.0, "min": 1, "max": 2}, {"item_id": "iron_ore", "weight": 1.5, "min": 1, "max": 1}])
 		"mage":
-			table.entries = [{"item_id": "crystal_shard", "weight": 2.0, "min": 1, "max": 1}, {"item_id": "mana_potion", "weight": 2.0, "min": 1, "max": 1}]
+			table.entries.assign([{"item_id": "crystal_shard", "weight": 2.0, "min": 1, "max": 1}, {"item_id": "mana_potion", "weight": 2.0, "min": 1, "max": 1}])
 		"golem":
-			table.entries = [{"item_id": "iron_ore", "weight": 3.0, "min": 2, "max": 3}, {"item_id": "amber_resin", "weight": 1.0, "min": 1, "max": 1}]
+			table.entries.assign([{"item_id": "iron_ore", "weight": 3.0, "min": 2, "max": 3}, {"item_id": "amber_resin", "weight": 1.0, "min": 1, "max": 1}])
 		"boss":
-			table.guaranteed = [{"item_id": "bone_shard", "min": 3, "max": 5}, {"item_id": "elixir", "min": 1, "max": 1}]
-			table.entries = [{"item_id": "greatsword", "weight": 1.0, "min": 1, "max": 1}, {"item_id": "bone_plate", "weight": 1.0, "min": 1, "max": 1}]
+			table.guaranteed.assign([{"item_id": "bone_shard", "min": 3, "max": 5}, {"item_id": "elixir", "min": 1, "max": 1}])
+			table.entries.assign([{"item_id": "greatsword", "weight": 1.0, "min": 1, "max": 1}, {"item_id": "bone_plate", "weight": 1.0, "min": 1, "max": 1}])
 		_:
 			return table
 	return table

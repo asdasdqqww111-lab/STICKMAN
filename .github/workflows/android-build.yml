@@ -78,16 +78,28 @@ jobs:
           strings /tmp/manifest.bin >> /tmp/manifest-strings.txt 2>/dev/null || true
           echo "--- manifest strings ---"; head -40 /tmp/manifest-strings.txt
           grep -q "com.microworld.living" /tmp/manifest-strings.txt || { echo "::error::package id missing from manifest"; FAIL=1; }
-          # Android 9 (API 28) compatibility: the manifest must forbid < 28 installs
-          # and must still target the current SDK level.
-          grep -q "minSdkVersion" /tmp/manifest-raw.txt || echo "note: minSdkVersion binary-encoded, see idefix output below"
-          if command -v aapt2 >/dev/null 2>&1; then aapt2 dump badging "$APK" | head -20 || true; fi
+          # Record the real SDK levels baked into the APK.  The Gradle-less export
+          # path uses the prebuilt template's values, so we measure instead of
+          # pretending we can override them (Godot refuses the override without Gradle).
+          AAPT2=$(find "$ANDROID_HOME/build-tools" -name aapt2 -type f | head -1)
+          if [ -n "$AAPT2" ]; then
+            "$AAPT2" dump badging "$APK" > build/badging.txt 2>&1 || true
+            head -20 build/badging.txt || true
+            MIN_SDK=$(grep -o "sdkVersion:'[0-9]*'" build/badging.txt | head -1 || true)
+            TARGET_SDK=$(grep -o "targetSdkVersion:'[0-9]*'" build/badging.txt | head -1 || true)
+            echo "MIN_SDK=$MIN_SDK" >> build/apk-facts.txt
+            echo "TARGET_SDK=$TARGET_SDK" >> build/apk-facts.txt
+          else
+            echo "::warning::aapt2 not found; SDK level not recorded"
+          fi
           grep -q "MICRO WORLD" /tmp/manifest-strings.txt || { echo "::warning::app label not found in manifest strings"; }
           exit $FAIL
 
       - name: Generate SHA-256 checksum
         run: |
           sha256sum build/microworld-living-debug.apk | tee build/apk.sha256
+          echo "APK_SIZE_BYTES=$(stat -c %s build/microworld-living-debug.apk)" >> build/apk-facts.txt
+          cat build/apk-facts.txt || true
           cp build/microworld-living-debug.apk "build/MICRO-WORLD-LIVING-${GITHUB_RUN_NUMBER}-debug.apk"
           ls -la build/
 

@@ -2,12 +2,6 @@
 =========== tests/test_combat.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
-SCRIPT ERROR: Parse Error: Function "lowi()" not found in base self.
-          at: GDScript::reload (res://scripts/data/loot_table.gd:53)
-SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
-          at: GDScript::reload (res://tests/test_combat.gd:0)
-ERROR: Failed to load script "res://tests/test_combat.gd" with error "Compilation failed".
-   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
 PASS  ten or more monster archetypes are defined (10)
 PASS  monster definition builds: meadow_slime
 PASS  monster id matches: meadow_slime (expected meadow_slime, got meadow_slime)
@@ -124,12 +118,16 @@ PASS  unknown monster id returns null
 PASS  the boss has boss-scale health
 PASS  the boss is flagged as a boss
 PASS  peaceful wildlife is declared
-SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
-          at: _test_loot_tables (res://tests/test_combat.gd:50)
-          GDScript backtrace (most recent call first):
-              [0] _test_loot_tables (res://tests/test_combat.gd:50)
-              [1] _tests (res://tests/test_combat.gd:15)
-              [2] _run (res://tests/test_runner.gd:22)
+PASS  guaranteed drop plus two rolls (expected 3, got 3)
+PASS  loot refers to a real item: bone_shard
+PASS  loot count is positive
+PASS  loot refers to a real item: purple_herb
+PASS  loot count is positive
+PASS  loot refers to a real item: iron_ore
+PASS  loot count is positive
+PASS  guaranteed drops appear
+PASS  loot rolls are reproducible for a seed (expected 3, got 3)
+PASS  an empty table drops nothing (expected 0, got 0)
 PASS  six spells ship (expected 6, got 6)
 PASS  spell builds: ember_bolt
 PASS  spell costs mana: ember_bolt
@@ -189,7 +187,7 @@ PASS  item model exists: battle_axe
 PASS  item model exists: apprentice_staff
 PASS  item model exists: frost_staff
 PASS  item model exists: round_shield
-RESULT combat: 175 checks, 0 failures (3 ms)
+RESULT combat: 185 checks, 0 failures (5 ms)
 
 =========== tests/test_planet.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -259,7 +257,7 @@ PASS  every vertex has a colour (expected 25, got 25)
 PASS  all vertices stay near the planet radius
 PASS  index buffer is in range
 PASS  adjacent cube faces meet at the seam (expected 0.000000 ± 0.010000, got 0.000000)
-RESULT planet: 65 checks, 0 failures (9 ms)
+RESULT planet: 65 checks, 0 failures (11 ms)
 
 =========== tests/test_player.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -359,19 +357,261 @@ PASS  description names the next rank
 PASS  fully qualified player can promote
 PASS  promotion succeeds
 PASS  rank advanced to E (expected E, got E)
-RESULT player: 95 checks, 1 failures (3 ms)
+RESULT player: 95 checks, 1 failures (6 ms)
 !!! tests/test_player.gd exited with 1
 
 =========== tests/test_quests.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
-SCRIPT ERROR: Parse Error: Invalid operands "Dictionary" and "String" for "!=" operator.
-          at: GDScript::reload (res://tests/test_quests.gd:32)
-SCRIPT ERROR: Parse Error: Cannot infer the type of "cursor" variable because the value doesn't have a set type.
-          at: GDScript::reload (res://tests/test_quests.gd:45)
-ERROR: Failed to load script "res://tests/test_quests.gd" with error "Parse error".
-   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
-!!! tests/test_quests.gd exited with 1
+PASS  fifteen quests ship in the launch slice (expected 15, got 15)
+PASS  quest id is unique: welcome_to_havenbrook
+PASS  quest has a title: welcome_to_havenbrook
+PASS  quest has a target count: welcome_to_havenbrook
+PASS  quest has a valid objective: welcome_to_havenbrook
+PASS  quest id is unique: slime_cull
+PASS  quest has a title: slime_cull
+PASS  quest has a target count: slime_cull
+PASS  quest has a valid objective: slime_cull
+PASS  quest prerequisite exists: slime_cull -> welcome_to_havenbrook
+PASS  quest id is unique: moonbell_harvest
+PASS  quest has a title: moonbell_harvest
+PASS  quest has a target count: moonbell_harvest
+PASS  quest has a valid objective: moonbell_harvest
+PASS  quest prerequisite exists: moonbell_harvest -> slime_cull
+PASS  collect target is a real item: purple_herb
+PASS  quest id is unique: survey_the_sphere
+PASS  quest has a title: survey_the_sphere
+PASS  quest has a target count: survey_the_sphere
+PASS  quest has a valid objective: survey_the_sphere
+PASS  quest prerequisite exists: survey_the_sphere -> moonbell_harvest
+PASS  quest id is unique: bones_in_the_meadow
+PASS  quest has a title: bones_in_the_meadow
+PASS  quest has a target count: bones_in_the_meadow
+PASS  quest has a valid objective: bones_in_the_meadow
+PASS  quest prerequisite exists: bones_in_the_meadow -> survey_the_sphere
+PASS  quest id is unique: shrine_light
+PASS  quest has a title: shrine_light
+PASS  quest has a target count: shrine_light
+PASS  quest has a valid objective: shrine_light
+PASS  quest prerequisite exists: shrine_light -> bones_in_the_meadow
+PASS  quest id is unique: wolf_pelts
+PASS  quest has a title: wolf_pelts
+PASS  quest has a target count: wolf_pelts
+PASS  quest has a valid objective: wolf_pelts
+PASS  quest prerequisite exists: wolf_pelts -> shrine_light
+PASS  collect target is a real item: wolf_pelt
+PASS  quest id is unique: rank_e_trial
+PASS  quest has a title: rank_e_trial
+PASS  quest has a target count: rank_e_trial
+PASS  quest has a valid objective: rank_e_trial
+PASS  quest prerequisite exists: rank_e_trial -> wolf_pelts
+PASS  quest id is unique: forge_fire
+PASS  quest has a title: forge_fire
+PASS  quest has a target count: forge_fire
+PASS  quest has a valid objective: forge_fire
+PASS  quest prerequisite exists: forge_fire -> rank_e_trial
+PASS  quest id is unique: skeleton_warriors
+PASS  quest has a title: skeleton_warriors
+PASS  quest has a target count: skeleton_warriors
+PASS  quest has a valid objective: skeleton_warriors
+PASS  quest prerequisite exists: skeleton_warriors -> forge_fire
+PASS  quest id is unique: into_the_barrow
+PASS  quest has a title: into_the_barrow
+PASS  quest has a target count: into_the_barrow
+PASS  quest has a valid objective: into_the_barrow
+PASS  quest prerequisite exists: into_the_barrow -> skeleton_warriors
+PASS  quest id is unique: the_bone_warden
+PASS  quest has a title: the_bone_warden
+PASS  quest has a target count: the_bone_warden
+PASS  quest has a valid objective: the_bone_warden
+PASS  quest prerequisite exists: the_bone_warden -> into_the_barrow
+PASS  quest id is unique: sigil_bearer
+PASS  quest has a title: sigil_bearer
+PASS  quest has a target count: sigil_bearer
+PASS  quest has a valid objective: sigil_bearer
+PASS  quest prerequisite exists: sigil_bearer -> the_bone_warden
+PASS  collect target is a real item: warden_sigil
+PASS  quest id is unique: rank_d_trial
+PASS  quest has a title: rank_d_trial
+PASS  quest has a target count: rank_d_trial
+PASS  quest has a valid objective: rank_d_trial
+PASS  quest prerequisite exists: rank_d_trial -> sigil_bearer
+PASS  quest id is unique: earthbound_golem
+PASS  quest has a title: earthbound_golem
+PASS  quest has a target count: earthbound_golem
+PASS  quest has a valid objective: earthbound_golem
+PASS  quest prerequisite exists: earthbound_golem -> rank_d_trial
+PASS  quest sort order is unique: 0
+PASS  quest sort order is unique: 1
+PASS  quest sort order is unique: 2
+PASS  quest sort order is unique: 3
+PASS  quest sort order is unique: 4
+PASS  quest sort order is unique: 5
+PASS  quest sort order is unique: 6
+PASS  quest sort order is unique: 7
+PASS  quest sort order is unique: 8
+PASS  quest sort order is unique: 9
+PASS  quest sort order is unique: 10
+PASS  quest sort order is unique: 11
+PASS  quest sort order is unique: 12
+PASS  quest sort order is unique: 13
+PASS  quest sort order is unique: 14
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at skeleton_warriors
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at into_the_barrow
+PASS  no prerequisite cycle at skeleton_warriors
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at the_bone_warden
+PASS  no prerequisite cycle at into_the_barrow
+PASS  no prerequisite cycle at skeleton_warriors
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at sigil_bearer
+PASS  no prerequisite cycle at the_bone_warden
+PASS  no prerequisite cycle at into_the_barrow
+PASS  no prerequisite cycle at skeleton_warriors
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at rank_d_trial
+PASS  no prerequisite cycle at sigil_bearer
+PASS  no prerequisite cycle at the_bone_warden
+PASS  no prerequisite cycle at into_the_barrow
+PASS  no prerequisite cycle at skeleton_warriors
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  no prerequisite cycle at earthbound_golem
+PASS  no prerequisite cycle at rank_d_trial
+PASS  no prerequisite cycle at sigil_bearer
+PASS  no prerequisite cycle at the_bone_warden
+PASS  no prerequisite cycle at into_the_barrow
+PASS  no prerequisite cycle at skeleton_warriors
+PASS  no prerequisite cycle at forge_fire
+PASS  no prerequisite cycle at rank_e_trial
+PASS  no prerequisite cycle at wolf_pelts
+PASS  no prerequisite cycle at shrine_light
+PASS  no prerequisite cycle at bones_in_the_meadow
+PASS  no prerequisite cycle at survey_the_sphere
+PASS  no prerequisite cycle at moonbell_harvest
+PASS  no prerequisite cycle at slime_cull
+PASS  no prerequisite cycle at welcome_to_havenbrook
+PASS  first quest is available (expected 1, got 1)
+PASS  second quest starts locked (expected 0, got 0)
+PASS  registrar hands out the first quest: New contract: Welcome to Havenbrook — Another hopeful. Sign the ledger and I'll find you work.
+PASS  quest is active after accepting (expected 2, got 2)
+PASS  talking to the registrar completes the objective (expected 3, got 3)
+PASS  one contract is turned in (expected 1, got 1)
+PASS  quest is completed (expected 4, got 4)
+PASS  gold reward is granted (expected 5, got 5)
+PASS  XP reward is granted
+PASS  completion counter increments (expected 1, got 1)
+PASS  next quest unlocks after completion (expected 1, got 1)
+PASS  contracts cannot be turned in twice
+PASS  kill progress is measured from real kills (expected 1, got 1)
+PASS  kill quest becomes ready at the target count (expected 3, got 3)
+PASS  kill quest pays its gold reward (expected 20, got 20)
+PASS  completed quests stay completed (expected 4, got 4)
+PASS  collect quest unlocks (expected 1, got 1)
+PASS  collect progress tracks inventory (expected 2, got 2)
+PASS  collect quest becomes ready (expected 3, got 3)
+PASS  ready state survives using collected items (expected 3, got 3)
+PASS  most quests are gated at the start
+PASS  rank quest remains gated
+SCRIPT ERROR: Invalid assignment of property or key 'item_rewards' with value of type 'Array' on a base object of type 'Resource (QuestData)'.
+          at: create (res://scripts/data/quest_database.gd:132)
+          GDScript backtrace (most recent call first):
+              [0] create (res://scripts/data/quest_database.gd:132)
+              [1] _test_gating (res://tests/test_quests.gd:136)
+              [2] _tests (res://tests/test_quests.gd:17)
+              [3] _run (res://tests/test_runner.gd:22)
+SCRIPT ERROR: Invalid call. Nonexistent function 'objective_text' in base 'Nil'.
+          at: _test_gating (res://tests/test_quests.gd:137)
+          GDScript backtrace (most recent call first):
+              [0] _test_gating (res://tests/test_quests.gd:137)
+              [1] _tests (res://tests/test_quests.gd:17)
+              [2] _run (res://tests/test_runner.gd:22)
+RESULT quests: 235 checks, 0 failures (6 ms)
 
 =========== tests/test_save.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -425,19 +665,58 @@ PASS  level 0 is rejected
 PASS  invalid rank is rejected
 PASS  unknown items are rejected
 PASS  XP above the level threshold is rejected
-FAIL  zero direction is rejected
+PASS  zero direction falls back to the spawn direction (expected 1.000000 ± 0.000100, got 1.000000)
 PASS  save exists before erase
 PASS  save files can be removed
-RESULT save: 52 checks, 7 failures (9 ms)
-!!! tests/test_save.gd exited with 7
+RESULT save: 52 checks, 6 failures (12 ms)
+!!! tests/test_save.gd exited with 6
 
 =========== tests/test_scene.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
-SCRIPT ERROR: Parse Error: Cannot infer the type of "ready" variable because the value doesn't have a set type.
-          at: GDScript::reload (res://tests/test_scene.gd:165)
-ERROR: Failed to load script "res://tests/test_scene.gd" with error "Parse error".
+PASS  scene exists: res://scenes/Game.tscn
+SCRIPT ERROR: Parse Error: Cannot infer the type of "home" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/game/game_world.gd:346)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot assign a value of type SaveResult to variable "result" with specified type Dictionary.
+          at: GDScript::reload (res://scripts/game/game_world.gd:1014)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+ERROR: Failed to load script "res://scripts/game/game_world.gd" with error "Parse error".
    at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _test_scene_files (res://tests/test_scene.gd:31)
+       [1] _run_scene_tests (res://tests/test_scene.gd:20)
+PASS  scene resource loads: res://scenes/Game.tscn
+PASS  scene instantiates: res://scenes/Game.tscn
+PASS  scene exists: res://scenes/App.tscn
+PASS  scene resource loads: res://scenes/App.tscn
+PASS  scene instantiates: res://scenes/App.tscn
+PASS  scene exists: res://scenes/AssetShowcase.tscn
+PASS  scene resource loads: res://scenes/AssetShowcase.tscn
+PASS  scene instantiates: res://scenes/AssetShowcase.tscn
+PASS  main menu is created
+PASS  menu has a continue button
+FAIL  continue is enabled when a save exists
+PASS  menu defaults the hero name (expected Wanderer, got Wanderer)
+SCRIPT ERROR: Invalid assignment of property or key 'start_mode' with value of type 'String' on a base object of type 'Node3D'.
+          at: _test_game_scene (res://tests/test_scene.gd:59)
+          GDScript backtrace (most recent call first):
+              [0] _test_game_scene (res://tests/test_scene.gd:59)
+              [1] _run_scene_tests (res://tests/test_scene.gd:22)
+              [2] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid access to property or key 'player' on a base object of type 'Node3D'.
+          at: _test_play_session (res://tests/test_scene.gd:92)
+          GDScript backtrace (most recent call first):
+              [0] _test_play_session (res://tests/test_scene.gd:92)
+              [1] _run_scene_tests (res://tests/test_scene.gd:23)
+              [2] _test_app_scene (res://tests/test_scene.gd:51)
+RESULT scene: 13 checks, 1 failures
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
 !!! tests/test_scene.gd exited with 1
 
 Ran 6 suites.

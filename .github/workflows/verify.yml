@@ -57,7 +57,7 @@ jobs:
         if: always()
         run: |
           mkdir -p ci-artifacts
-          cp -f import.log tests.log showcase.log asset-check.log /tmp/current_test.log ci-artifacts/ 2>/dev/null || true
+          cp -f import.log tests.log showcase.log asset-check.log benchmark.log /tmp/current_test.log ci-artifacts/ 2>/dev/null || true
           ls -la ci-artifacts
           # Sandboxes cannot reach the artifact CDN, so the run also publishes its
           # raw logs into the repository under .ci/ (ignored by git and by this

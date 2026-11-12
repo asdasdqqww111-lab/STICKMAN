@@ -42,6 +42,7 @@ var invert_look := false
 var audio_enabled := true
 var fullscreen := true
 var language := "en"
+var show_fps := false
 
 
 func load_settings() -> void:
@@ -56,6 +57,7 @@ func load_settings() -> void:
 	audio_enabled = bool(config.get_value("audio", "enabled", audio_enabled))
 	fullscreen = bool(config.get_value("display", "fullscreen", fullscreen))
 	language = String(config.get_value("display", "language", language))
+	show_fps = bool(config.get_value("display", "show_fps", show_fps))
 
 
 func save() -> void:
@@ -66,6 +68,7 @@ func save() -> void:
 	config.set_value("audio", "enabled", audio_enabled)
 	config.set_value("display", "fullscreen", fullscreen)
 	config.set_value("display", "language", language)
+	config.set_value("display", "show_fps", show_fps)
 	config.save(PATH)
 
 

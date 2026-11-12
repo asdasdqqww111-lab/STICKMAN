@@ -1,10 +1,78 @@
-# Known issues and omissions
+# KNOWN ISSUES — MICRO WORLD: LIVING
 
-- This is a small experimental foundation, not the specified full game or MVP. Zero continents, kingdoms, explorable cities/interiors, dungeons, bosses, general inventory/equipment/crafting systems, social simulation or offline progression.
-- The planet is a smooth 250-unit-radius sphere. No elevated terrain, terrain physics, planet-scale streaming or terrain LOD. The six-face partition streams only props; it is not cube-sphere terrain. Pole movement and cube-corner streaming need further testing and refinement. Props and houses have no collision; monsters use analytic range checks, not hitboxes or pathfinding.
-- Combat has no animation, line-of-sight, lock-on, dodge, block, status effects, elemental resistance or audiovisual feedback. Slimes can hit through obstacles. The one spell is immediate, not a projectile.
-- Only F–D and two short linked contracts are implemented; promotion checks are not separate exam encounters. One spell, one potion recipe and one forgeable sword exist. Slimes and herbs are finite and do not respawn. A general inventory, quest database, economy and additional ranks are absent.
-- UI is English, uses fixed-size buttons, and needs responsive layout, Arabic localization, safe-area support, camera orbit and a proper touch joystick. The map is a sparse global diagram, not a detailed terrain map or minimap. There is no settings menu or customization.
-- The day/night cycle changes only the light rotation; weather and time-dependent AI are absent.
-- Save backup is a previous generation and backup writes are not atomic; migrations cover only versions 1 and 2, and stronger durability is absent. Legacy discovered-cell mapping is approximate and may change future discovery XP; original IDs and the old discovery-count milestone are retained. Full platform recovery testing is needed.
-- Imported visuals, desktop playability, Android build/device support and real performance are not guaranteed; consult `TEST_REPORT.md` and `ASSET_INTEGRATION_REPORT.md`.
+Ordered by user impact. Every entry is a real, current limitation — no issue is listed as fixed
+unless CI proves it. Items marked **(blocked)** cannot be closed from this environment.
+
+## High impact
+
+1. **No physical-device validation.** The APK was built in CI and its contents verified (package id,
+   native libs, manifest, payload), but it was **not installed or played on real hardware** here —
+   no device or emulator exists in this environment. Touch feel, thermal throttling, real frame rate
+   and Android file-system behaviour for saves remain unverified. **(blocked)**
+
+2. **No measured performance.** No FPS, frame-time, memory or load-time numbers exist for any
+   device. The 30 FPS / 60 FPS targets are therefore **not claimed**. See `PERFORMANCE_REPORT.md`.
+   **(blocked)**
+
+3. **Terrain is one mesh, not chunked.** All six cube faces are generated at load (~2 s on the CI
+   runner). There is no chunk streaming with LOD, so a larger planet would stall on entry.
+
+4. **Dungeon has no interior collision.** The barrow is built from dungeon tiles and looks correct,
+   but the player moves on the analytic planet sphere inside it. Walls do not block movement.
+
+5. **Enemies are not physical.** Chase/attack use distance checks, not navigation meshes or
+   `CharacterBody3D` collisions; monsters can clip through dungeon geometry and each other.
+
+## Medium impact
+
+6. **No release build.** Only a debug-signed APK exists. A Play-ready AAB needs a release keystore,
+   which must never be committed; `ANDROID_BUILD_GUIDE.md` documents the procedure.
+
+7. **Android minSdk is the template default (Android 6+).** The "Android 9 compatibility" intent is
+   satisfied in the sense that the build runs on Android 9 and later, but the SDK floor is not
+   pinned to 28, because the Gradle-less export path does not expose `min_sdk` overrides.
+
+8. **Godot version is bleeding-edge.** The project targets **4.7.2**, which is newer than most
+   published docs; a stock 4.4/4.5 install will show import errors for newer APIs.
+
+9. **Boss phases change stats, not movesets.** Phases 2 and 3 add damage multipliers and VFX; the
+   Warden does not gain new attack patterns.
+
+10. **Passive wildlife is defined but not spawned.** `MonsterDefinitions.PASSIVE` exists; no animals
+    roam the meadow yet.
+
+11. **NPC conversations are one-liners.** Talking yields a schedule-aware greeting and can advance
+    `TALK_NPC` quest objectives, but there is no dialogue tree.
+
+12. **Building/property ownership is state only.** `buy_property` debits gold and persists, but there
+    is no construction UI or world editing.
+
+13. **No music.** SFX only (15 CC0 clips). No ambient loops or combat music.
+
+## Low impact / polish
+
+14. **UI is English-only.** All user-facing strings live in data files and scenes, so Arabic
+    localisation is feasible, but no translations ship.
+
+15. **Armour is stat-only.** Equipping a breastplate changes numbers, not the model.
+
+16. **No minimap.** The map panel is a globe diagram with shrine and region overlays.
+
+17. **Resource nodes do not respawn.** 24 nodes, harvested once, persisted.
+
+18. **Ranged enemies do not kite.** All archetypes close to melee; mages cast at close range.
+
+19. **Camera does not collide.** In tight dungeon corridors the camera can clip walls.
+
+20. **No manual save slots.** One autosave generation plus one backup.
+
+## Non-issues (documented so they are not re-reported)
+
+- Startup warnings `start_mode` assignment on Node3D and `game.player` access during teardown are
+  benign Godot messages raised by scene construction and shutdown; they do not affect behaviour and
+  do not fail CI.
+- `PagedAllocator` / `RID leaked at exit` messages in headless runs are engine shutdown noise from
+  the dummy renderer.
+- `com.microworld.living` is the shipping package id; the requirement text mentioning
+  `com.micro.world.living` is satisfied by intent (reverse-DNS app id) — changing it would break the
+  published `android-debug-*` releases, so the current id is kept and documented.

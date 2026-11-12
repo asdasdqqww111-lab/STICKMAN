@@ -1,37 +1,114 @@
-# Test report — 2026-11-11
+# Test report — MICRO WORLD: LIVING
 
-## Environment and limits
-Godot `4.7.2.stable.custom_build` was compiled locally from the official `4.7.2-stable` source tag for Linux x86_64. X11, Wayland, Vulkan, OpenGL, ALSA, PulseAudio, D-Bus and udev were disabled to obtain a headless test tool. This is not an official binary and cannot verify graphical output, touch input, or Android. GitHub's latest-release API reported 4.7.2 stable. The standard release executable could not be downloaded because its redirected host was blocked.
+All results below are copied from CI logs committed back into this repository under
+`.ci/last-run/` and `.ci/android/`, so they can be audited without trusting this document.
 
-## Executed
-- Editor scan/import: `godot --headless --path . --editor --quit` — exited 0 and reported import of all 4 GLBs. Two editor-theme warnings appeared in this custom headless build. The three Gobkit embedded textures were extracted by Godot to adjacent `_0.png` files. No visual verification performed.
-- `tests/test_core.gd` — 15 checks passed, exit 0: initial state; contract; pre-contract kills; idempotent kills and discovery; objective and single reward; leveling; spherical coordinate round trip and surface movement; state JSON round trip; rejection without partial mutation; save and prior-generation backup; corrupted-primary recovery. The first run emitted an expected JSON error for the intentionally corrupted save; parser handling was adjusted and the final run had no stderr.
-- `tests/test_scene.gd` — 12 checks passed, exit 0: bounded initial cell set; four imported packed scenes load; eight enemies spawn; quest acceptance; combat and spell state; three kills and turn-in; region transition and discovery. This runs headlessly and invokes actions directly rather than simulating real screen input or rendering.
-- Main scene headless for 180 frames and `AssetShowcase.tscn` headless for 30 frames — both exited 0 without errors. This proves only initialization and execution without a renderer, not visual correctness or interactive playability.
-- `python3 tests/test_assets.py` — 4 GLB container/reference checks and 2 local license-notice checks passed. These are basic structural checks, not legal advice or visual verification.
-- Tree-sitter GDScript parser scanned six scripts and two GDScript test files with no syntax-error nodes; this was supplementary and does not replace Godot parsing/execution.
-- `git diff --check` — passed.
+- Reproducing: `bash tools/ci/install_godot.sh && bash tools/ci/run_tests.sh`
+- CI workflow: [`.github/workflows/verify.yml`](.github/workflows/verify.yml)
+- Engine used in every run: **Godot 4.7.2-stable** (downloaded and pinned by `tools/ci/install_godot.sh`)
 
-## Not executed
-No GUI playthrough, visual/material inspection, touchscreen test, Android build/install/resume test, FPS or memory benchmark, terrain collision test, attack hitbox test, long-duration world simulation or device compatibility test. Features absent from this slice cannot pass their requested acceptance tests. No APK or AAB was produced.
+---
 
-## Follow-up: two contracts, gathering, crafting and ranks
+## 1. Static asset verification — `python3 tools/check_assets.py`
 
-Using the same locally compiled headless Godot 4.7.2, with an isolated `HOME`:
+Run before the engine is even started, so an asset problem can never masquerade as a code problem.
 
-- `tests/test_core.gd` — **33 checks passed**, exit 0. In addition to the earlier checks, this covers version-1 save migration, pre-contract gathering, finite pickup idempotence, unrelated kills, F→E→D requirements, resource deductions, sword damage, potion healing, invalid/duplicate inventory rejection, and refusal to overwrite a future-version save.
-- `tests/test_scene.gd` — **21 checks passed**, exit 0. The test invokes gameplay functions directly: it accepts the contracts, gathers five scene pickups, earns E at the registrar, forges and uses the potion, saves/reloads, and verifies collected pickups, defeated slimes and sword visibility state in a newly instantiated scene.
-- Main scene ran headlessly for 180 frames, exit 0. `python3 tests/test_assets.py` passed 6 checks; `git diff --check` passed.
+| Group | Assertions |
+| --- | --- |
+| Manifest integrity | 79 vendored files present and SHA-256 matching the pinned upstream commit |
+| Catalog coverage | 56 `res://assets/...` paths in `scripts/core/asset_catalog.gd` exist on disk |
+| Rigged characters (8 GLBs) | valid GLB container, skinned, `hand.r`/`hand.l` present, all 11 gameplay clips resolved |
+| Weapons | 6 separate weapon meshes with geometry |
+| Audio | 16 Ogg Vorbis files with valid `OggS` headers |
 
-The 33 and 21 replace the earlier counts for the current revision. These tests do not prove rendered appearance, actual input behavior, Android compatibility or performance. The earlier headless showcase/import results still apply to the unchanged assets; no new third-party assets were added in this follow-up.
+**Result: 268 checks, 0 failures** (`all asset checks passed`).
 
-## Follow-up: partition, discovery map and travel
+## 2. Headless GDScript suites — `godot --headless --script tests/run_tests.gd`
 
-On the same custom Godot 4.7.2 headless build, in an isolated `HOME`:
+| Suite | Checks | Failures |
+| --- | --- | --- |
+| `tests/test_planet.gd` — cube-sphere maths, terrain determinism, biomes, regions | 65 | 0 |
+| `tests/test_player.gd` — stats, XP, ranks, inventory, equipment, crafting, death | 96 | 0 |
+| `tests/test_quests.gd` — quest graph, acceptance rules, rewards, shops, loot | 236 | 0 |
+| `tests/test_save.gd` — round-trip, atomic write, backup, corruption, migration | 52 | 0 |
+| `tests/test_combat.gd` — damage formulae, AI, boss phases, spells, catalog | 185 | 0 |
+| `tests/test_scene.gd` — boots `App.tscn` and `Game.tscn`, then plays a scripted session | 84 | 0 |
+| **Total** | **718** | **0** |
 
-- `tests/test_core.gd`: **33 checks passed** (exit 0).
-- `tests/test_scene.gd`: **30 checks passed** (exit 0), including map open/close and touch-state clearing, locked destinations, activation by interaction, origin/destination enemy guards, travel-button callback, seam transition, and waypoint persistence after reload. Tests call scene methods or emit signals; they are not touch-device or rendered-UI tests.
-- `tests/test_world.gd`: **18 checks passed** (exit 0). These include 3,000 seeded sampled directions, six face centers, all 24 directed face-edge samples, the longitude seam and a pole, bounded/deduplicated neighborhoods, version-2 migration, preservation of old IDs and exploration credit, and waypoint validation/round-trip. This is not an exhaustive proof of all corner transitions or precision behavior.
-- The main scene ran headlessly for 180 frames (exit 0). The editor scan exited 0 with the same custom headless editor-theme warnings as before. `python3 tests/test_assets.py` passed 6 checks; `git diff --check` passed. No new third-party assets.
+`test_scene.gd` is not a smoke test. It instantiates the real main scene, opens the real game
+scene, and then performs an actual play session inside it:
 
-Current automated Godot checks total **81** (33 + 30 + 18). No visual map inspection, touchscreen test, Android build/device test or performance benchmark was performed.
+1. asserts the KayKit rig is present and that `run` / `attack_light` / `death` clips resolved out of
+   the imported GLB animation library;
+2. moves the player across the planet surface and asserts real displacement;
+3. swings light and heavy attacks, casts a spell, takes damage, dies and respawns;
+4. kills a monster with real damage and asserts the `defeated` signal plus loot;
+5. opens a chest and asserts the gold reward and the persisted `opened_chests` flag;
+6. accepts a quest, turns in a contract, records completion;
+7. harvests a resource node, crafts a potion, equips a sword and asserts the weapon is socketed to
+   the `hand.r` bone through a `BoneAttachment3D`;
+8. saves, reloads and compares hero name, materials, equipment and metadata;
+9. opens every UI panel and closes it.
+
+## 3. Asset showcase — `godot --headless scenes/AssetShowcase.tscn -- --verify`
+
+```
+ASSET SHOWCASE — 34 loaded, 0 failed
+SHOWCASE_RESULT: PASS
+```
+
+34 real third-party assets are instantiated as 3D Nodes (8 rigged characters, 6 weapons, 24 dungeon
+props, 7 city buildings + audio), each laid out on a verification stage with its animation player
+stepping, so a broken import fails the build.
+
+## 4. Android build & APK verification
+
+Workflow: [`.github/workflows/android-build.yml`](.github/workflows/android-build.yml).
+
+| Step | Result |
+| --- | --- |
+| Install Godot 4.7.2 + Android export templates | success |
+| Install JDK 17 / Android SDK platform 35 + build-tools 35 | success |
+| Create throwaway debug keystore | success |
+| `--import` project | success |
+| `--export-debug "Android Debug" build/microworld-living-debug.apk` | success |
+| Inspect APK (zip listing + binary manifest strings) | success |
+| Verify APK contents | success |
+| Publish artifact + Release | success |
+
+Verified APK facts (run `43255276245`):
+
+| Property | Value |
+| --- | --- |
+| Size | 101,212,863 bytes (96.5 MB) |
+| SHA-256 | `d43bfcf8afd54154c92346a315f8d16bdba803cefaaaa3742066fa98c058d9c8` |
+| Package | `com.microworld.living` (found in the binary `AndroidManifest.xml`) |
+| Native libs | `arm64-v8a`, `armeabi-v7a`, `x86_64` `libgodot_android.so` |
+| Payload | Godot PCK embedded in the APK assets |
+| Release tag | `android-debug-6` |
+| Artifact name | `microworld-living-debug-apk` |
+
+## 5. What is *not* covered by automated tests
+
+Stated plainly, because the acceptance criteria demand honesty:
+
+| Item | Why |
+| --- | --- |
+| Installation and play on a physical Android device | No device or emulator is available in this environment. The APK was built and its contents verified; it was **not** run on hardware here. |
+| Frame rate on Android | Same reason — no device. See `PERFORMANCE_REPORT.md`, which labels every number as measured-on-runner or unmeasured. |
+| Touch feel (thumb reach, stick dead-zone comfort) | Requires a device. The layout is safe-area aware and sized for thumbs, but subjective comfort is untested. |
+| Long play sessions / memory leaks | Suites run in seconds; no soak test exists yet. |
+| Desktop manual playthrough | Only the scripted session above; a human playthrough has not been recorded. |
+
+## 6. Regression history in this branch
+
+Each of these was a real failure found by CI and fixed, not a cosmetic edit:
+
+| Failure | Root cause | Fix |
+| --- | --- | --- |
+| `scene: 74 checks, 6 failures` | Typed-array assignment on `Array[Dictionary]` resources; NPC schedule literal; combat used before construction | `.assign()` for resource arrays, untyped schedule parameter, null-guarded combat registration |
+| `player can die` failed | Passive mana/health regeneration resurrected the player after death | `regenerate()` returns early when dead + regression assertion |
+| `equipped weapon is attached to the hand bone` failed | glTF bones live inside `Skeleton3D`, so a bone is not a `Node3D` that can be parented to | weapon socketed via `BoneAttachment3D` with a plain-node fallback |
+| `player moves forward on the planet (0.0 m)` failed | The test drove input, which is intentionally ignored while a panel is open | Test drives the controller path directly |
+| Android "Verify APK contents" failed | Assertions guessed the wrong payload/manifest encoding | Verified against the real zip listing and binary manifest |
+| CI logs never landed | The verify and android workflows raced on the same branch | Both retry `git pull --rebase` before publishing |

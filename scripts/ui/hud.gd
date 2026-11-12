@@ -27,6 +27,7 @@ var clock_label: Label
 var region_label: Label
 var damage_flash: ColorRect
 var interaction_prompt: Label
+var perf_label: Label
 
 var notice_timer := 0.0
 var _flash_timer := 0.0
@@ -90,6 +91,10 @@ func _build() -> void:
 	region_label = UITheme.label("Havenbrook", 15, UITheme.MUTED)
 	region_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	info.add_child(region_label)
+	perf_label = UITheme.label("", 14, UITheme.MUTED)
+	perf_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	perf_label.visible = false
+	info.add_child(perf_label)
 
 	# --- quest tracker (top centre) ----------------------------------------
 	quest_label = RichTextLabel.new()
@@ -255,3 +260,16 @@ func _process(delta: float) -> void:
 		damage_flash.color = Color(0.7, 0.1, 0.1, clampf(_flash_timer, 0.0, 0.32) * 0.9)
 	else:
 		damage_flash.color = Color(0.7, 0.1, 0.1, 0.0)
+
+
+## Live performance readout.  Values are measured from the running frame loop, so
+## this doubles as an on-device profiler when the overlay is enabled in Settings.
+func set_performance_readout(enabled: bool) -> void:
+	if perf_label != null:
+		perf_label.visible = enabled
+
+
+func update_performance(fps_text: String, detail_text: String) -> void:
+	if perf_label == null or not perf_label.visible:
+		return
+	perf_label.text = fps_text + (("\n" + detail_text) if detail_text != "" else "")

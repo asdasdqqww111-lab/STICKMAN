@@ -113,6 +113,15 @@ func active_region_count() -> int:
 	return last_active.size()
 
 
+## Monsters currently running full AI this frame (used by the performance overlay).
+func active_monster_count() -> int:
+	var count := 0
+	for monster in monsters:
+		if is_instance_valid(monster) and monster.alive and monster.is_physics_processing():
+			count += 1
+	return count
+
+
 func total_monsters() -> int:
 	var count := 0
 	for monster in monsters:

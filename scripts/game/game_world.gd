@@ -453,6 +453,8 @@ func _build_ui() -> void:
 	panels = (load("res://scripts/ui/game_panels.gd") as GDScript).new()
 	canvas.add_child(panels)
 	panels.bind(state, quest_log, player, settings)
+	panels.settings_changed.connect(_on_settings_changed)
+	hud.set_performance_readout(settings.show_fps)
 
 
 func _bind_events() -> void:
@@ -965,6 +967,7 @@ func _on_panel_action(action: String, payload: Dictionary) -> void:
 		"settings_applied":
 			audio.enabled = settings.audio_on()
 			settings.apply_to_viewport()
+			hud.set_performance_readout(settings.show_fps)
 		"respawn":
 			_respawn()
 		"quit":
@@ -1039,6 +1042,7 @@ func _process(delta: float) -> void:
 	_update_target_frame()
 	_autosave(delta)
 	_sample_fps(delta)
+	_update_performance_readout()
 
 
 func _scan_nearby() -> void:
@@ -1104,6 +1108,30 @@ func _sample_fps(delta: float) -> void:
 	_fps_samples.append(1.0 / delta)
 	if _fps_samples.size() > 600:
 		_fps_samples.remove_at(0)
+
+
+func _on_settings_changed() -> void:
+	audio.enabled = settings.audio_on()
+	settings.apply_to_viewport()
+	hud.set_performance_readout(settings.show_fps)
+
+
+func _update_performance_readout() -> void:
+	if hud == null or not settings.show_fps:
+		return
+	var fps := Engine.get_frames_per_second()
+	var objects := 0
+	if simulation != null:
+		objects = simulation.active_monster_count()
+	hud.update_performance(
+		"FPS %d · avg %d · 1%% low %d" % [fps, int(round(average_fps())), int(round(low_fps_percentile()))],
+		"draw %d · nodes %d · active monsters %d · quality %s" % [
+			Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
+			Performance.get_monitor(Performance.OBJECT_NODE_COUNT),
+			objects,
+			settings.quality,
+		]
+	)
 
 
 func average_fps() -> float:

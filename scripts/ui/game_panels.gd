@@ -5,6 +5,7 @@ extends Control
 
 signal closed
 signal action_requested(action: String, payload: Dictionary)
+signal settings_changed
 
 const UITheme = preload("res://scripts/ui/ui_theme.gd")
 const ItemDB = preload("res://scripts/data/item_database.gd")
@@ -461,6 +462,15 @@ func _build_settings() -> void:
 	audio_check.button_pressed = settings.audio_enabled
 	audio_check.toggled.connect(func(pressed: bool) -> void: settings.audio_enabled = pressed)
 	_body.add_child(audio_check)
+
+	var fps_check := CheckBox.new()
+	fps_check.text = "Performance overlay (FPS, draw calls)"
+	fps_check.button_pressed = settings.show_fps
+	fps_check.toggled.connect(func(pressed: bool) -> void:
+		settings.show_fps = pressed
+		settings.save()
+		settings_changed.emit())
+	_body.add_child(fps_check)
 
 	var invert_check := CheckBox.new()
 	invert_check.text = "Invert vertical camera drag"

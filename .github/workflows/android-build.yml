@@ -35,7 +35,7 @@ jobs:
 
       - name: Install Android SDK (cmdline tools, platform 35, build-tools 35)
         run: |
-          set -euo pipefail
+          set -eo pipefail
           SDK_ROOT="${HOME}/android-sdk"
           mkdir -p "${SDK_ROOT}/cmdline-tools"
           curl -fsSL --retry 3 -o /tmp/cmdline.zip \
@@ -44,7 +44,7 @@ jobs:
           mv "${SDK_ROOT}/cmdline-tools/cmdline-tools" "${SDK_ROOT}/cmdline-tools/latest"
           export ANDROID_SDK_ROOT="${SDK_ROOT}"
           export ANDROID_HOME="${SDK_ROOT}"
-          yes | "${SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null
+          ( yes || true ) | "${SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null
           "${SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" \
             "platform-tools" "platforms;android-35" "build-tools;35.0.0" | tail -5
           echo "ANDROID_SDK_ROOT=${SDK_ROOT}" >> "${GITHUB_ENV}"

@@ -61,6 +61,7 @@ func _test_game_scene() -> void:
 	root.add_child(game)
 	await process_frame
 	await process_frame
+	check_true(game.get_script() != null, "game scene has its script attached")
 	check_true(game.state != null, "game creates a PlayerState")
 	check_eq(game.state.hero_name, "Tester", "hero name is applied")
 	check_true(game.player != null, "player node exists")

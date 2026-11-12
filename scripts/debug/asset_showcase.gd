@@ -51,10 +51,10 @@ func _build_environment() -> void:
 	floor_mesh.material_override = material
 	add_child(floor_mesh)
 	var camera := Camera3D.new()
-	camera.position = Vector3(0, 11, 20)
-	camera.look_at(Vector3(0, 1.0, 1.0))
-	camera.current = true
 	add_child(camera)
+	camera.position = Vector3(0, 11, 20)
+	camera.look_at_from_position(Vector3(0, 11, 20), Vector3(0, 1.0, 1.0), Vector3.UP)
+	camera.current = true
 
 
 func _spawn(path: String, position: Vector3, scale_value: float = 1.0, animate: bool = false) -> Node3D:

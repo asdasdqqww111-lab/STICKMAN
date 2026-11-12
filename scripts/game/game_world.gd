@@ -698,7 +698,7 @@ func _open_chest(node: Node3D) -> void:
 	if node.id == "dungeon_chest" or node.id == "chest_barrow":
 		table.entries.append({"item_id": "bone_shard", "weight": 2.5, "min": 2, "max": 3})
 		table.entries.append({"item_id": "greatsword", "weight": 1.0, "min": 1, "max": 1})
-	var drops := table.roll(rng)
+	var drops: Array = table.roll(rng)
 	var lines: Array[String] = []
 	for drop in drops:
 		state.add_item(String(drop["item_id"]), int(drop["count"]))

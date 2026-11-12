@@ -42,6 +42,9 @@ jobs:
       - name: Run GDScript test suites
         run: bash tools/ci/run_tests.sh 2>&1 | tee tests.log
 
+      - name: Performance benchmark (world generation cost)
+        run: timeout 300 godot --headless --path . --script tests/benchmark.gd 2>&1 | tee benchmark.log || true
+
       - name: Browser-free asset verification scene
         run: |
           set -o pipefail

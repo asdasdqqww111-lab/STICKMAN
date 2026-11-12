@@ -53,6 +53,13 @@ jobs:
       - name: Build debug APK
         run: bash tools/ci/build_android.sh 2>&1 | tee build.log
 
+      - name: Describe produced APK
+        if: always()
+        run: |
+          APK=build/microworld-living-debug.apk
+          { echo "### APK listing"; ls -la build/ || true; echo; echo "### zip contents"; unzip -l "$APK" 2>&1 | head -60 || true; echo; echo "### manifest strings"; unzip -p "$APK" AndroidManifest.xml 2>/dev/null | tr -d '\0' | strings | head -40 || true; } > apk-inspect.txt 2>&1
+          cat apk-inspect.txt
+
       - name: Verify APK contents
         run: |
           set -euo pipefail
@@ -88,6 +95,7 @@ jobs:
           set -euo pipefail
           mkdir -p .ci/android
           cp -f build.log .ci/android/ 2>/dev/null || true
+          cp -f apk-inspect.txt .ci/android/ 2>/dev/null || true
           cp -f export.log .ci/android/ 2>/dev/null || true
           cat > .ci/android/summary.txt <<SUMMARY
           run=${GITHUB_RUN_ID}

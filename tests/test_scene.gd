@@ -198,6 +198,10 @@ func _test_play_session() -> void:
 	check_true(game.state.equip("iron_sword"), "equipping a weapon works in the live session")
 	game.player.refresh_equipment()
 	await process_frame
+	check_true(game.player._weapon_node != null, "equipped weapon is socketed to the hand bone")
+	if game.player._weapon_node != null:
+		check_true(game.player._weapon_node is BoneAttachment3D, "the socket follows the rigged bone (BoneAttachment3D)")
+		check_eq((game.player._weapon_node as BoneAttachment3D).bone_name, "hand.r", "the weapon rides the right hand")
 	# --- save & reload -----------------------------------------------------
 	game._save_now(false)
 	await process_frame

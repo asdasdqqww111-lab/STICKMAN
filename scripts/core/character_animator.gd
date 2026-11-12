@@ -166,7 +166,23 @@ func reset() -> void:
 
 
 ## Attach a weapon/prop to a hand bone.  Returns the parented node (or null).
+##
+## Imported glTF characters keep their bones *inside* a Skeleton3D, so a bone is
+## not a scene node that can be parented to.  We therefore attach through a
+## BoneAttachment3D, which follows the bone's global transform every frame.
+## A plain node search is kept as a fallback for non-skinned props.
 func attach_to_hand(prop: Node3D, hand := "hand.r", offset := Vector3(0, 0, 0), rotation := Vector3.ZERO, scale_value := 1.0) -> Node3D:
+	var skeleton := find_skeleton(model)
+	if skeleton != null and skeleton.find_bone(hand) >= 0:
+		var attachment := BoneAttachment3D.new()
+		attachment.name = "WeaponSocket"
+		skeleton.add_child(attachment)
+		attachment.bone_name = hand
+		attachment.position = offset
+		attachment.rotation = rotation
+		attachment.scale = Vector3.ONE * scale_value
+		attachment.add_child(prop)
+		return attachment
 	var bone := find_bone_node(hand)
 	if bone == null:
 		return null
@@ -178,6 +194,18 @@ func attach_to_hand(prop: Node3D, hand := "hand.r", offset := Vector3(0, 0, 0), 
 	bone.add_child(holder)
 	holder.add_child(prop)
 	return holder
+
+
+func find_skeleton(node: Node) -> Skeleton3D:
+	if node is Skeleton3D:
+		return node
+	if node == null:
+		return null
+	for child in node.get_children():
+		var found := find_skeleton(child)
+		if found != null:
+			return found
+	return null
 
 
 func find_bone_node(bone_name: String) -> Node3D:

@@ -1,9 +1,9 @@
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 
-PERF  terrain elevation+moisture: 20000 samples in 637.7 ms (31.88 us/sample, checksum 140764.0)
-PERF  planet_regions.region_of: 50000 lookups in 73.8 ms (1.48 us/lookup), 832 unique regions
-PERF  planet mesh 12x12 per face: 1014 verts / 1728 tris in 123.8 ms
-PERF  planet mesh 16x16 per face: 1734 verts / 3072 tris in 213.2 ms
-PERF  TOTAL planet generation pipeline: 1048.6 ms
+PERF  terrain elevation+moisture: 20000 samples in 617.2 ms (30.86 us/sample, checksum 140764.0)
+PERF  planet_regions.region_of: 50000 lookups in 71.2 ms (1.42 us/lookup), 832 unique regions
+PERF  planet mesh 12x12 per face: 1014 verts / 1728 tris in 126.5 ms
+PERF  planet mesh 16x16 per face: 1734 verts / 3072 tris in 211.5 ms
+PERF  TOTAL planet generation pipeline: 1026.5 ms
 BENCHMARK_DONE

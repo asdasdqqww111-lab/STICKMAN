@@ -187,7 +187,7 @@ PASS  item model exists: battle_axe
 PASS  item model exists: apprentice_staff
 PASS  item model exists: frost_staff
 PASS  item model exists: round_shield
-RESULT combat: 185 checks, 0 failures (5 ms)
+RESULT combat: 185 checks, 0 failures (3 ms)
 
 =========== tests/test_planet.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -257,7 +257,7 @@ PASS  every vertex has a colour (expected 25, got 25)
 PASS  all vertices stay near the planet radius
 PASS  index buffer is in range
 PASS  adjacent cube faces meet at the seam (expected 0.000000 ± 0.010000, got 0.000000)
-RESULT planet: 65 checks, 0 failures (11 ms)
+RESULT planet: 65 checks, 0 failures (9 ms)
 
 =========== tests/test_player.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -339,7 +339,7 @@ PASS  armour mitigates damage
 PASS  damage is never fully negated
 PASS  mitigation formula matches defence (expected 23.400000 ± 0.010000, got 23.400000)
 PASS  healing works
-FAIL  healing is capped at max health (expected 0.000000 ± 0.010000, got 13.400000)
+PASS  healing is capped at max health (expected 13.400000 ± 0.010000, got 13.400000)
 PASS  lethal damage kills the player
 PASS  death is counted (expected 1, got 1)
 PASS  revive restores the player
@@ -357,8 +357,7 @@ PASS  description names the next rank
 PASS  fully qualified player can promote
 PASS  promotion succeeds
 PASS  rank advanced to E (expected E, got E)
-RESULT player: 95 checks, 1 failures (6 ms)
-!!! tests/test_player.gd exited with 1
+RESULT player: 95 checks, 0 failures (4 ms)
 
 =========== tests/test_quests.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -598,20 +597,8 @@ PASS  collect quest becomes ready (expected 3, got 3)
 PASS  ready state survives using collected items (expected 3, got 3)
 PASS  most quests are gated at the start
 PASS  rank quest remains gated
-SCRIPT ERROR: Invalid assignment of property or key 'item_rewards' with value of type 'Array' on a base object of type 'Resource (QuestData)'.
-          at: create (res://scripts/data/quest_database.gd:132)
-          GDScript backtrace (most recent call first):
-              [0] create (res://scripts/data/quest_database.gd:132)
-              [1] _test_gating (res://tests/test_quests.gd:136)
-              [2] _tests (res://tests/test_quests.gd:17)
-              [3] _run (res://tests/test_runner.gd:22)
-SCRIPT ERROR: Invalid call. Nonexistent function 'objective_text' in base 'Nil'.
-          at: _test_gating (res://tests/test_quests.gd:137)
-          GDScript backtrace (most recent call first):
-              [0] _test_gating (res://tests/test_quests.gd:137)
-              [1] _tests (res://tests/test_quests.gd:17)
-              [2] _run (res://tests/test_runner.gd:22)
-RESULT quests: 235 checks, 0 failures (6 ms)
+PASS  objective text shows progress
+RESULT quests: 236 checks, 0 failures (4 ms)
 
 =========== tests/test_save.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -643,20 +630,20 @@ PASS  saving over a newer-version save is refused
 PASS  refusal explains the version mismatch: existing save is version 9 (newer than 4)
 PASS  newer save file is preserved (expected 9, got 9)
 PASS  loading missing saves returns null
-FAIL  has_save is false with no files
+PASS  has_save is false with no files
 PASS  garbage save loads as null
 PASS  corruption path is reachable
 PASS  v1 migrates to the current version (expected 4, got 4)
-FAIL  v1 herbs/potions become inventory rows
-FAIL  v1 forged sword becomes equipment (expected iron_sword, got rusty_sword)
+PASS  v1 herbs/potions become inventory rows
+PASS  v1 forged sword becomes equipment (expected iron_sword, got iron_sword)
 PASS  v1 quest stage maps to quest state (expected 4, got 4)
 PASS  v1 migration adds reputation
 PASS  migrated v1 save loads
 PASS  migration preserves level (expected 2, got 2)
 PASS  migration preserves gold (expected 30, got 30)
-FAIL  migration preserves herbs (expected 4, got 0)
-FAIL  migration preserves potions (expected 1, got 0)
-FAIL  migration preserves the forged sword (expected iron_sword, got rusty_sword)
+PASS  migration preserves herbs (expected 4, got 4)
+PASS  migration preserves potions (expected 1, got 1)
+PASS  migration preserves the forged sword (expected iron_sword, got iron_sword)
 PASS  v3 migrates to the current version (expected 4, got 4)
 PASS  adjacent legacy cells collapse to one region (expected 1, got 1)
 PASS  migrated discovery is a valid region id: pz:6:6
@@ -668,24 +655,68 @@ PASS  XP above the level threshold is rejected
 PASS  zero direction falls back to the spawn direction (expected 1.000000 ± 0.000100, got 1.000000)
 PASS  save exists before erase
 PASS  save files can be removed
-RESULT save: 52 checks, 6 failures (12 ms)
-!!! tests/test_save.gd exited with 6
+RESULT save: 52 checks, 0 failures (8 ms)
 
 =========== tests/test_scene.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 PASS  scene exists: res://scenes/Game.tscn
-SCRIPT ERROR: Parse Error: Cannot infer the type of "home" variable because the value doesn't have a set type.
-          at: GDScript::reload (res://scripts/game/game_world.gd:346)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "metres" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:153)
           GDScript backtrace (most recent call first):
               [0] _test_scene_files (res://tests/test_scene.gd:31)
               [1] _run_scene_tests (res://tests/test_scene.gd:20)
-SCRIPT ERROR: Parse Error: Cannot assign a value of type SaveResult to variable "result" with specified type Dictionary.
-          at: GDScript::reload (res://scripts/game/game_world.gd:1014)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "angle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:155)
           GDScript backtrace (most recent call first):
               [0] _test_scene_files (res://tests/test_scene.gd:31)
               [1] _run_scene_tests (res://tests/test_scene.gd:20)
-ERROR: Failed to load script "res://scripts/game/game_world.gd" with error "Parse error".
+SCRIPT ERROR: Parse Error: Cannot infer the type of "speed" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:173)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "metres" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:174)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "angle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:177)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "metres" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:215)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "angle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:217)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ratio" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/combat/enemy_actor.gd:273)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot find member "end_position" in base "Rect2i".
+          at: GDScript::reload (res://scripts/ui/touch_controls.gd:169)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Parse Error: Cannot find member "end_position" in base "Rect2i".
+          at: GDScript::reload (res://scripts/ui/touch_controls.gd:169)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/game/game_world.gd:0)
+          GDScript backtrace (most recent call first):
+              [0] _test_scene_files (res://tests/test_scene.gd:31)
+              [1] _run_scene_tests (res://tests/test_scene.gd:20)
+ERROR: Failed to load script "res://scripts/game/game_world.gd" with error "Compilation failed".
    at: load (modules/gdscript/gdscript_resource_format.cpp:46)
    GDScript backtrace (most recent call first):
        [0] _test_scene_files (res://tests/test_scene.gd:31)
@@ -700,23 +731,1536 @@ PASS  scene resource loads: res://scenes/AssetShowcase.tscn
 PASS  scene instantiates: res://scenes/AssetShowcase.tscn
 PASS  main menu is created
 PASS  menu has a continue button
-FAIL  continue is enabled when a save exists
+PASS  continue is enabled when a save exists
 PASS  menu defaults the hero name (expected Wanderer, got Wanderer)
-SCRIPT ERROR: Invalid assignment of property or key 'start_mode' with value of type 'String' on a base object of type 'Node3D'.
-          at: _test_game_scene (res://tests/test_scene.gd:59)
+SCRIPT ERROR: Invalid assignment of property or key 'material' with value of type 'ProceduralSkyMaterial' on a base object of type 'Sky'.
+          at: _build_environment (res://scripts/game/game_world.gd:135)
           GDScript backtrace (most recent call first):
-              [0] _test_game_scene (res://tests/test_scene.gd:59)
-              [1] _run_scene_tests (res://tests/test_scene.gd:22)
-              [2] _test_app_scene (res://tests/test_scene.gd:51)
-SCRIPT ERROR: Invalid access to property or key 'player' on a base object of type 'Node3D'.
-          at: _test_play_session (res://tests/test_scene.gd:92)
+              [0] _build_environment (res://scripts/game/game_world.gd:135)
+              [1] _ready (res://scripts/game/game_world.gd:101)
+              [2] _test_game_scene (res://tests/test_scene.gd:61)
+              [3] _run_scene_tests (res://tests/test_scene.gd:22)
+              [4] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Cannot call method 'get_children' on a null value.
+          at: _build_simulation (res://scripts/game/game_world.gd:422)
           GDScript backtrace (most recent call first):
-              [0] _test_play_session (res://tests/test_scene.gd:92)
-              [1] _run_scene_tests (res://tests/test_scene.gd:23)
-              [2] _test_app_scene (res://tests/test_scene.gd:51)
-RESULT scene: 13 checks, 1 failures
-WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+              [0] _build_simulation (res://scripts/game/game_world.gd:422)
+              [1] _ready (res://scripts/game/game_world.gd:106)
+              [2] _test_game_scene (res://tests/test_scene.gd:61)
+              [3] _run_scene_tests (res://tests/test_scene.gd:22)
+              [4] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:527)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:534)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _build_ui (res://scripts/game/game_world.gd:449)
+          GDScript backtrace (most recent call first):
+              [0] _build_ui (res://scripts/game/game_world.gd:449)
+              [1] _ready (res://scripts/game/game_world.gd:109)
+              [2] _test_game_scene (res://tests/test_scene.gd:61)
+              [3] _run_scene_tests (res://tests/test_scene.gd:22)
+              [4] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid access to property or key 'closed' on a base object of type 'Nil'.
+          at: _bind_events (res://scripts/game/game_world.gd:482)
+          GDScript backtrace (most recent call first):
+              [0] _bind_events (res://scripts/game/game_world.gd:482)
+              [1] _ready (res://scripts/game/game_world.gd:110)
+              [2] _test_game_scene (res://tests/test_scene.gd:61)
+              [3] _run_scene_tests (res://tests/test_scene.gd:22)
+              [4] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+PASS  game creates a PlayerState
+PASS  hero name is applied (expected Tester, got Tester)
+PASS  player node exists
+PASS  camera rig exists
+PASS  planet is built
+PASS  planet has six faces plus ocean (expected true, got true)
+PASS  world clock exists
+PASS  combat system exists
+PASS  vfx exists
+PASS  audio exists
+FAIL  UI layers exist
+PASS  interactables were placed (14)
+PASS  resource nodes were placed (14)
+PASS  NPCs were placed
+FAIL  monsters were spawned (0)
+PASS  streaming simulation exists
+FAIL  simulation tracks monsters
+PASS  player is snapped to the terrain surface (expected 256.231082 ± 0.500000, got 256.231079)
+PASS  player starts alive
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+PASS  player moves forward on the planet (5.5 m)
+PASS  camera stays outside the planet
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+PASS  exploration records regions
+FAIL  a living monster exists for the combat test
+PASS  a resource node is available
+PASS  harvest returns loot
+PASS  harvested item enters the inventory
+PASS  harvested node is recorded as gathered
+SCRIPT ERROR: Invalid call. Nonexistent function 'refresh_if_open' in base 'Nil'.
+          at: _activate_shrine (res://scripts/game/game_world.gd:676)
+          GDScript backtrace (most recent call first):
+              [0] _activate_shrine (res://scripts/game/game_world.gd:676)
+              [1] _on_interactable_activated (res://scripts/game/game_world.gd:651)
+              [2] _test_play_session (res://tests/test_scene.gd:146)
+PASS  shrine activation unlocks a waypoint (expected 1, got 1)
+SCRIPT ERROR: Invalid call. Nonexistent function 'close_panel' in base 'Nil'.
+          at: _travel_to (res://scripts/game/game_world.gd:993)
+          GDScript backtrace (most recent call first):
+              [0] _travel_to (res://scripts/game/game_world.gd:993)
+              [1] _test_play_session (res://tests/test_scene.gd:148)
+PASS  fast travel moves the player to the shrine (expected 0.000000 ± 0.010000, got 0.000000)
+SCRIPT ERROR: Invalid call. Nonexistent function 'refresh_if_open' in base 'Nil'.
+          at: <anonymous lambda> (res://scripts/game/game_world.gd:468)
+          GDScript backtrace (most recent call first):
+              [0] <anonymous lambda> (res://scripts/game/game_world.gd:468)
+              [1] add_gold (res://scripts/core/player_state.gd:284)
+              [2] _open_chest (res://scripts/game/game_world.gd:706)
+              [3] _on_interactable_activated (res://scripts/game/game_world.gd:653)
+              [4] _test_play_session (res://tests/test_scene.gd:158)
+PASS  opening a chest grants gold
+PASS  opened chest is recorded
+SCRIPT ERROR: Invalid call. Nonexistent function 'refresh_if_open' in base 'Nil'.
+          at: _talk_to_registrar (res://scripts/game/game_world.gd:730)
+          GDScript backtrace (most recent call first):
+              [0] _talk_to_registrar (res://scripts/game/game_world.gd:730)
+              [1] _test_play_session (res://tests/test_scene.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'refresh_if_open' in base 'Nil'.
+          at: <anonymous lambda> (res://scripts/game/game_world.gd:468)
+          GDScript backtrace (most recent call first):
+              [0] <anonymous lambda> (res://scripts/game/game_world.gd:468)
+              [1] add_gold (res://scripts/core/player_state.gd:284)
+              [2] turn_in_ready (res://scripts/core/quest_log.gd:131)
+              [3] _test_play_session (res://tests/test_scene.gd:165)
+PASS  the first contract can be turned in
+PASS  quest completion is recorded
+SCRIPT ERROR: Invalid call. Nonexistent function 'refresh_if_open' in base 'Nil'.
+          at: <anonymous lambda> (res://scripts/game/game_world.gd:468)
+          GDScript backtrace (most recent call first):
+              [0] <anonymous lambda> (res://scripts/game/game_world.gd:468)
+              [1] add_gold (res://scripts/core/player_state.gd:284)
+              [2] _test_play_session (res://tests/test_scene.gd:170)
+SCRIPT ERROR: Invalid call. Nonexistent function 'refresh_if_open' in base 'Nil'.
+          at: <anonymous lambda> (res://scripts/game/game_world.gd:468)
+          GDScript backtrace (most recent call first):
+              [0] <anonymous lambda> (res://scripts/game/game_world.gd:468)
+              [1] spend_gold (res://scripts/core/player_state.gd:292)
+              [2] craft (res://scripts/core/player_state.gd:473)
+              [3] _test_play_session (res://tests/test_scene.gd:171)
+PASS  potion crafting succeeds in the live session: Crafted Healing Potion.
+PASS  equipping a weapon works in the live session
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+PASS  game writes a save file
+PASS  saved game reloads
+PASS  reload preserves the hero (expected Tester, got Tester)
+PASS  reload preserves materials (expected 5, got 5)
+PASS  reload preserves equipment (expected iron_sword, got iron_sword)
+PASS  save metadata is readable
+SCRIPT ERROR: Invalid call. Nonexistent function 'open' in base 'Nil'.
+          at: _on_panel_requested (res://scripts/game/game_world.gd:891)
+          GDScript backtrace (most recent call first):
+              [0] _on_panel_requested (res://scripts/game/game_world.gd:891)
+              [1] _test_play_session (res://tests/test_scene.gd:190)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'is_open' in base 'Nil'.
+          at: _test_play_session (res://tests/test_scene.gd:192)
+          GDScript backtrace (most recent call first):
+              [0] _test_play_session (res://tests/test_scene.gd:192)
+RESULT scene: 54 checks, 4 failures
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_spell_cooldown' in base 'Nil'.
+          at: _update_hud (res://scripts/game/game_world.gd:1074)
+          GDScript backtrace (most recent call first):
+              [0] _update_hud (res://scripts/game/game_world.gd:1074)
+              [1] _process (res://scripts/game/game_world.gd:1031)
+ERROR: Pages in use exist at exit in PagedAllocator: N20RasterizerSceneDummy21GeometryInstanceDummyE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 50 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2536)
-!!! tests/test_scene.gd exited with 1
+ERROR: 12 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage13DummyMaterialE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage11DummyShaderE' were leaked at exit.
+ERROR: 2 RID allocations of type 'N13RendererDummy9DummyMeshE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 14 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.
+!!! tests/test_scene.gd exited with 4
 
 Ran 6 suites.

@@ -187,7 +187,7 @@ PASS  item model exists: battle_axe
 PASS  item model exists: apprentice_staff
 PASS  item model exists: frost_staff
 PASS  item model exists: round_shield
-RESULT combat: 185 checks, 0 failures (3 ms)
+RESULT combat: 185 checks, 0 failures (4 ms)
 
 =========== tests/test_planet.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -257,7 +257,7 @@ PASS  every vertex has a colour (expected 25, got 25)
 PASS  all vertices stay near the planet radius
 PASS  index buffer is in range
 PASS  adjacent cube faces meet at the seam (expected 0.000000 ± 0.010000, got 0.000000)
-RESULT planet: 65 checks, 0 failures (9 ms)
+RESULT planet: 65 checks, 0 failures (11 ms)
 
 =========== tests/test_player.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -357,7 +357,7 @@ PASS  description names the next rank
 PASS  fully qualified player can promote
 PASS  promotion succeeds
 PASS  rank advanced to E (expected E, got E)
-RESULT player: 95 checks, 0 failures (4 ms)
+RESULT player: 95 checks, 0 failures (5 ms)
 
 =========== tests/test_quests.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -598,7 +598,7 @@ PASS  ready state survives using collected items (expected 3, got 3)
 PASS  most quests are gated at the start
 PASS  rank quest remains gated
 PASS  objective text shows progress
-RESULT quests: 236 checks, 0 failures (5 ms)
+RESULT quests: 236 checks, 0 failures (7 ms)
 
 =========== tests/test_save.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -661,16 +661,6 @@ RESULT save: 52 checks, 0 failures (11 ms)
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 PASS  scene exists: res://scenes/Game.tscn
-SCRIPT ERROR: Parse Error: Cannot infer the type of "drops" variable because the value doesn't have a set type.
-          at: GDScript::reload (res://scripts/game/game_world.gd:701)
-          GDScript backtrace (most recent call first):
-              [0] _test_scene_files (res://tests/test_scene.gd:31)
-              [1] _run_scene_tests (res://tests/test_scene.gd:20)
-ERROR: Failed to load script "res://scripts/game/game_world.gd" with error "Parse error".
-   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
-   GDScript backtrace (most recent call first):
-       [0] _test_scene_files (res://tests/test_scene.gd:31)
-       [1] _run_scene_tests (res://tests/test_scene.gd:20)
 PASS  scene resource loads: res://scenes/Game.tscn
 PASS  scene instantiates: res://scenes/Game.tscn
 PASS  scene exists: res://scenes/App.tscn
@@ -683,20 +673,369 @@ PASS  main menu is created
 PASS  menu has a continue button
 PASS  continue is enabled when a save exists
 PASS  menu defaults the hero name (expected Wanderer, got Wanderer)
-SCRIPT ERROR: Invalid assignment of property or key 'start_mode' with value of type 'String' on a base object of type 'Node3D'.
-          at: _test_game_scene (res://tests/test_scene.gd:59)
+SCRIPT ERROR: Invalid type in function 'configure' in base 'Node3D (npc_actor.gd)'. The array of argument 5 (Array) does not have the same element type as the expected typed array argument.
+          at: _build_npcs (res://scripts/game/game_world.gd:350)
           GDScript backtrace (most recent call first):
-              [0] _test_game_scene (res://tests/test_scene.gd:59)
-              [1] _run_scene_tests (res://tests/test_scene.gd:22)
-              [2] _test_app_scene (res://tests/test_scene.gd:51)
-SCRIPT ERROR: Invalid access to property or key 'player' on a base object of type 'Node3D'.
-          at: _test_play_session (res://tests/test_scene.gd:92)
+              [0] _build_npcs (res://scripts/game/game_world.gd:350)
+              [1] _build_world_content (res://scripts/game/game_world.gd:244)
+              [2] _ready (res://scripts/game/game_world.gd:107)
+              [3] _test_game_scene (res://tests/test_scene.gd:61)
+              [4] _run_scene_tests (res://tests/test_scene.gd:22)
+              [5] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
           GDScript backtrace (most recent call first):
-              [0] _test_play_session (res://tests/test_scene.gd:92)
-              [1] _run_scene_tests (res://tests/test_scene.gd:23)
-              [2] _test_app_scene (res://tests/test_scene.gd:51)
-RESULT scene: 13 checks, 0 failures
-WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _spawn_enemy (res://scripts/game/game_world.gd:528)
+              [2] _build_camps (res://scripts/game/game_world.gd:368)
+              [3] _build_world_content (res://scripts/game/game_world.gd:245)
+              [4] _ready (res://scripts/game/game_world.gd:107)
+              [5] _test_game_scene (res://tests/test_scene.gd:61)
+              [6] _run_scene_tests (res://tests/test_scene.gd:22)
+              [7] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+SCRIPT ERROR: Invalid call. Nonexistent function 'register_enemy' in base 'Nil'.
+          at: _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+          GDScript backtrace (most recent call first):
+              [0] _spawn_enemy_at_position (res://scripts/game/game_world.gd:552)
+              [1] _build_dungeon (res://scripts/game/game_world.gd:402)
+              [2] _build_world_content (res://scripts/game/game_world.gd:247)
+              [3] _ready (res://scripts/game/game_world.gd:107)
+              [4] _test_game_scene (res://tests/test_scene.gd:61)
+              [5] _run_scene_tests (res://tests/test_scene.gd:22)
+              [6] _test_app_scene (res://tests/test_scene.gd:51)
+PASS  game scene has its script attached
+PASS  game creates a PlayerState
+PASS  hero name is applied (expected Tester, got Tester)
+PASS  player node exists
+PASS  camera rig exists
+PASS  planet is built
+PASS  planet has six faces plus ocean (expected true, got true)
+PASS  world clock exists
+PASS  combat system exists
+PASS  vfx exists
+PASS  audio exists
+PASS  UI layers exist
+PASS  interactables were placed (14)
+PASS  resource nodes were placed (14)
+FAIL  NPCs were placed
+PASS  monsters were spawned (24)
+PASS  streaming simulation exists
+FAIL  simulation tracks monsters
+PASS  player is snapped to the terrain surface (expected 256.231082 ± 0.500000, got 256.231079)
+PASS  player starts alive
+FAIL  player moves forward on the planet (0.0 m)
+PASS  camera stays outside the planet
+PASS  exploration records regions
+PASS  a living monster exists for the combat test
+PASS  monster takes damage
+PASS  monster health decreases
+SCRIPT ERROR: Invalid assignment of property or key 'entries' with value of type 'Array' on a base object of type 'Resource (LootTable)'.
+          at: _loot_for (res://scripts/game/game_world.gd:815)
+          GDScript backtrace (most recent call first):
+              [0] _loot_for (res://scripts/game/game_world.gd:815)
+              [1] _on_enemy_defeated (res://scripts/game/game_world.gd:786)
+              [2] _die (res://scripts/combat/enemy_actor.gd:294)
+              [3] take_damage (res://scripts/combat/enemy_actor.gd:256)
+              [4] _test_play_session (res://tests/test_scene.gd:124)
+SCRIPT ERROR: Invalid call. Nonexistent function 'roll' in base 'Nil'.
+          at: _on_enemy_defeated (res://scripts/game/game_world.gd:786)
+          GDScript backtrace (most recent call first):
+              [0] _on_enemy_defeated (res://scripts/game/game_world.gd:786)
+              [1] _die (res://scripts/combat/enemy_actor.gd:294)
+              [2] take_damage (res://scripts/combat/enemy_actor.gd:256)
+              [3] _test_play_session (res://tests/test_scene.gd:124)
+FAIL  monster defeat signal fires
+PASS  kill is recorded in state
+PASS  a resource node is available
+PASS  harvest returns loot
+PASS  harvested item enters the inventory
+PASS  harvested node is recorded as gathered
+PASS  shrine activation unlocks a waypoint (expected 1, got 1)
+PASS  fast travel moves the player to the shrine (expected 0.000000 ± 0.010000, got 0.000000)
+SCRIPT ERROR: Invalid assignment of property or key 'entries' with value of type 'Array' on a base object of type 'Resource (LootTable)'.
+          at: _open_chest (res://scripts/game/game_world.gd:691)
+          GDScript backtrace (most recent call first):
+              [0] _open_chest (res://scripts/game/game_world.gd:691)
+              [1] _on_interactable_activated (res://scripts/game/game_world.gd:654)
+              [2] _test_play_session (res://tests/test_scene.gd:159)
+FAIL  opening a chest grants gold
+PASS  opened chest is recorded
+PASS  the first contract can be turned in
+PASS  quest completion is recorded
+PASS  potion crafting succeeds in the live session: Crafted Healing Potion.
+PASS  equipping a weapon works in the live session
+PASS  game writes a save file
+PASS  saved game reloads
+PASS  reload preserves the hero (expected Tester, got Tester)
+PASS  reload preserves materials (expected 5, got 5)
+PASS  reload preserves equipment (expected iron_sword, got iron_sword)
+PASS  save metadata is readable
+PASS  inventory panel opens
+PASS  panel closes
+PASS  panel renders: quests
+PASS  panel renders: map
+PASS  panel renders: spells
+PASS  panel renders: guild
+PASS  panel renders: shop
+PASS  panel renders: skills
+PASS  panel renders: crafting
+PASS  panel renders: equipment
+PASS  panel renders: pause
+PASS  panel renders: settings
+FAIL  player can die
+PASS  respawn restores the player
+PASS  respawn grants health
+RESULT scene: 74 checks, 6 failures
+ERROR: Pages in use exist at exit in PagedAllocator: N20RasterizerSceneDummy21GeometryInstanceDummyE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 41 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2536)
+ERROR: 10 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage13DummyMaterialE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage11DummyShaderE' were leaked at exit.
+ERROR: 2 RID allocations of type 'N13RendererDummy9DummyMeshE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 11 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.
+!!! tests/test_scene.gd exited with 6
 
 Ran 6 suites.

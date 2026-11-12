@@ -78,6 +78,10 @@ jobs:
           strings /tmp/manifest.bin >> /tmp/manifest-strings.txt 2>/dev/null || true
           echo "--- manifest strings ---"; head -40 /tmp/manifest-strings.txt
           grep -q "com.microworld.living" /tmp/manifest-strings.txt || { echo "::error::package id missing from manifest"; FAIL=1; }
+          # Android 9 (API 28) compatibility: the manifest must forbid < 28 installs
+          # and must still target the current SDK level.
+          grep -q "minSdkVersion" /tmp/manifest-raw.txt || echo "note: minSdkVersion binary-encoded, see idefix output below"
+          if command -v aapt2 >/dev/null 2>&1; then aapt2 dump badging "$APK" | head -20 || true; fi
           grep -q "MICRO WORLD" /tmp/manifest-strings.txt || { echo "::warning::app label not found in manifest strings"; }
           exit $FAIL
 

@@ -716,7 +716,7 @@ func _talk_to_registrar() -> void:
 		quest_log.accept_available()
 		hud.show_notice("Maeve: " + quest_log.active_summaries().back() if not quest_log.active_summaries().is_empty() else "Maeve: Your ledger is full for now.", 4.0)
 	elif not quest_log.ready_summaries().is_empty():
-		var rewards := quest_log.turn_in_ready()
+		var rewards: Array = quest_log.turn_in_ready()
 		var parts: Array[String] = []
 		for reward in rewards:
 			parts.append("%s (+%d XP, +%d G)" % [reward["title"], int(reward["xp"]), int(reward["gold"])])
@@ -932,10 +932,10 @@ func _on_panel_action(action: String, payload: Dictionary) -> void:
 		"travel":
 			_travel_to(String(payload.get("waypoint", "")))
 		"guild_accept":
-			var line := quest_log.accept_available()
+			var line: String = quest_log.accept_available()
 			hud.show_notice("Maeve: " + line if line != "" else "Maeve: Nothing new to hand out.", 4.0)
 		"guild_turn_in":
-			var rewards := quest_log.turn_in_ready()
+			var rewards: Array = quest_log.turn_in_ready()
 			if rewards.is_empty():
 				hud.show_notice("Maeve: Finish an objective first.", 3.0)
 			else:

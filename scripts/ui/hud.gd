@@ -203,8 +203,8 @@ func _refresh_quests() -> void:
 	if quest_log == null:
 		return
 	var lines: Array[String] = []
-	var ready := quest_log.ready_summaries()
-	var active := quest_log.active_summaries()
+	var ready: Array = quest_log.ready_summaries()
+	var active: Array = quest_log.active_summaries()
 	if not ready.is_empty():
 		lines.append("[color=#e8c27a]◆ Ready to turn in[/color]")
 		for title in ready:

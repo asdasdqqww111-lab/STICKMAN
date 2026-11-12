@@ -28,7 +28,7 @@ func refresh() -> void:
 		return
 	for spec in QuestDB.ordered():
 		var quest_id: String = spec.get("id", "")
-		var current := state.quest_state(quest_id)
+		var current: int = state.quest_state(quest_id)
 		if current == QuestData.State.LOCKED and _requirements_met(spec):
 			state.set_quest_state(quest_id, QuestData.State.AVAILABLE)
 			emit_signal("quest_available", quest_id)
@@ -53,7 +53,7 @@ func _requirements_met(spec: Dictionary) -> bool:
 ## Recompute the progress counter of every active/ready quest from world facts.
 func _update_progress() -> void:
 	for quest_id in state.quests.keys():
-		var current := state.quest_state(quest_id)
+		var current: int = state.quest_state(quest_id)
 		if current != QuestData.State.ACTIVE and current != QuestData.State.READY:
 			continue
 		var spec := QuestDB.definition(quest_id)

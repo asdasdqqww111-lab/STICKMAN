@@ -138,7 +138,7 @@ func _clear(node: Node) -> void:
 # ---------------------------------------------------------------------------
 
 func _build_inventory() -> void:
-	var rows := state.inventory_rows()
+	var rows: Array = state.inventory_rows()
 	if rows.is_empty():
 		_body.add_child(UITheme.label("Your pack is empty. Harvest herbs and ore in the meadows.", 18, UITheme.MUTED))
 	else:
@@ -205,7 +205,7 @@ func _build_quests() -> void:
 	var any := false
 	for spec in QuestDB.ordered():
 		var quest_id: String = spec["id"]
-		var quest_state := state.quest_state(quest_id)
+		var quest_state: int = state.quest_state(quest_id)
 		if quest_state == QuestData.State.LOCKED:
 			continue
 		any = true
@@ -267,7 +267,8 @@ func _draw_map(canvas: Control) -> void:
 		canvas.draw_circle(_map_point(direction, size), 4.5, Color("83b586"))
 	for entry in WorldBuilder.SHRINES:
 		var direction: Vector3 = Math3D.direction(entry["lon"], entry["lat"])
-		var colour := Color("dcbf76") if entry["id"] in state.waypoints else Color("4a4636")
+		var visited: bool = entry["id"] in state.waypoints
+		var colour := Color("dcbf76") if visited else Color("4a4636")
 		canvas.draw_circle(_map_point(direction, size), 6.0, colour)
 	for row in WorldBuilder.CAMPS:
 		var direction: Vector3 = Math3D.direction(row[1], row[2])
@@ -290,7 +291,7 @@ func _build_spells() -> void:
 			var spell := SpellDB.create(spell_id)
 			if spell.school != school_id:
 				continue
-			var known := state.knows_spell(spell_id)
+			var known: bool = state.knows_spell(spell_id)
 			var row := HBoxContainer.new()
 			row.add_theme_constant_override("separation", 12)
 			var name_label := UITheme.label(spell.display_name, 18, UITheme.PARCHMENT if known else UITheme.MUTED)
@@ -389,7 +390,7 @@ func _build_crafting() -> void:
 		var missing := false
 		for input_id in recipe["inputs"].keys():
 			var needed: int = recipe["inputs"][input_id]
-			var have := state.item_count(input_id)
+			var have: int = state.item_count(input_id)
 			inputs.append("%s %d/%d" % [ItemDB.display_name(input_id), have, needed])
 			if have < needed:
 				missing = true

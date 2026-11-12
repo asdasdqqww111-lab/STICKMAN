@@ -131,7 +131,8 @@ func attack_power() -> float:
 
 
 func spell_power() -> float:
-	var total := 1.0 + (level - 1) * 0.06 + skills.get("focus", 0) * 0.08
+	var focus_skill: float = float(skills.get("focus", 0))
+	var total := 1.0 + (level - 1) * 0.06 + focus_skill * 0.08
 	var weapon := weapon_item()
 	if weapon != null:
 		total += weapon.power * 0.05
@@ -320,7 +321,7 @@ func add_item(item_id: String, count: int = 1) -> bool:
 		for row in inventory:
 			if row.get("id", "") != item_id:
 				continue
-			var space := definition.max_stack - int(row.get("count", 0))
+			var space: int = definition.max_stack - int(row.get("count", 0))
 			if space <= 0:
 				continue
 			var moved := mini(space, remaining)
@@ -777,7 +778,7 @@ func restore(data: Dictionary) -> bool:
 	return true
 
 
-static func validate(candidate: PlayerState) -> bool:
+static func validate(candidate: RefCounted) -> bool:
 	if candidate.level < 1 or candidate.level > MAX_LEVEL:
 		return false
 	if candidate.xp < 0 or candidate.xp >= candidate.xp_needed():
@@ -805,7 +806,7 @@ static func validate(candidate: PlayerState) -> bool:
 	return true
 
 
-func _assign_from(other: PlayerState) -> void:
+func _assign_from(other: RefCounted) -> void:
 	hero_name = other.hero_name
 	level = other.level
 	xp = other.xp

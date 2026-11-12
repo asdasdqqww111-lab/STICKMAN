@@ -35,6 +35,14 @@ Run before the engine is even started, so an asset problem can never masquerade 
 | `tests/test_scene.gd` — boots `App.tscn` and `Game.tscn`, then plays a scripted session | 84 | 0 |
 | **Total** | **718** | **0** |
 
+Plus, per run:
+
+| Extra gate | Result |
+| --- | --- |
+| `tools/check_assets.py` (static asset verification) | 268 checks, 0 failures |
+| `tests/benchmark.gd` (world-generation performance) | 4 measurements printed, no errors |
+| `AssetShowcase.tscn -- --verify` | `34 loaded, 0 failed`, `SHOWCASE_RESULT: PASS` |
+
 `test_scene.gd` is not a smoke test. It instantiates the real main scene, opens the real game
 scene, and then performs an actual play session inside it:
 
@@ -73,7 +81,7 @@ Workflow: [`.github/workflows/android-build.yml`](.github/workflows/android-buil
 | `--import` project | success |
 | `--export-debug "Android Debug" build/microworld-living-debug.apk` | success |
 | Inspect APK (zip listing + binary manifest strings) | success |
-| Verify APK contents | success |
+| Verify APK contents | success (payload, `lib/arm64-v8a/libgodot_android.so`, package string in the binary manifest) |
 | Publish artifact + Release | success |
 
 Verified APK facts (run `43255276245`):

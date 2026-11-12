@@ -36,6 +36,7 @@ signing key.
 | --- | --- |
 | Planet | Cube-sphere of radius 250 m, 6 faces × 16×16 quads, deterministic FBM terrain, 7 biomes, faceted ocean shell |
 | Streaming | 6×12×12 = 864 streamed regions; props culled by region, monsters switch to simulation LOD beyond 45 m |
+| Measured cost | full planet mesh 215 ms CPU (3,072 tris); terrain 31 µs/sample — see `PERFORMANCE_REPORT.md` |
 | Player | KayKit Knight GLB (76 clips), walk / run / jump / dodge / light + heavy attack / spell cast |
 | Camera | Spherical third-person rig with orbit, pitch, zoom and a planet-overview mode |
 | Combat | Cone-swept melee with crits, 6 spells in 3 schools, hit reactions, damage numbers, boss phases |
@@ -45,6 +46,7 @@ signing key.
 | Saving | Versioned (v4) JSON, atomic rename, backup rotation, corruption recovery, v1/v2/v3 migration |
 | UI | Main menu, HUD, inventory, equipment, quests, map, grimoire, guild, shop, skills, forge, pause, settings |
 | Android | Landscape, virtual stick, action buttons, safe-area aware, Low/Medium/High quality presets |
+| Instrumentation | Settings → Performance overlay: live FPS, 1 % low, draw calls, active monsters |
 
 ---
 

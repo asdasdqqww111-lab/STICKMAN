@@ -3,3 +3,4 @@
 *.aab
 *.keystore
 *.jks
+.ci/

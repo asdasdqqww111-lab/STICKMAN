@@ -1,7 +1,5 @@
 ### APK listing
-total 8
-drwxr-xr-x  2 runner runner 4096 Nov 12 16:41 .
-drwxr-xr-x 12 runner runner 4096 Nov 12 16:41 ..
+ls: cannot access 'build/': No such file or directory
 
 ### zip contents
 unzip:  cannot find or open build/microworld-living-debug.apk, build/microworld-living-debug.apk.zip or build/microworld-living-debug.apk.ZIP.

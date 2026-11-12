@@ -1,19 +1,15 @@
-run=43261206751
-sha=749f7327d9e0676a89793dde02d264b748e39fc1
-status=failure
+run=43262621186
+sha=bdaa1a7b01922c9a529cf587717e9c33dfb34294
+status=cancelled
 apk_size_bytes=0
 godot=4.7.2-stable
 java=openjdk version "17.0.21" 2026-10-20
 APK_SIZE=0
 ls:
-total 8
-drwxr-xr-x  2 runner runner 4096 Nov 12 16:41 .
-drwxr-xr-x 12 runner runner 4096 Nov 12 16:41 ..
+ls: cannot access 'build': No such file or directory
 manifest_raw:
 ### APK listing
-total 8
-drwxr-xr-x  2 runner runner 4096 Nov 12 16:41 .
-drwxr-xr-x 12 runner runner 4096 Nov 12 16:41 ..
+ls: cannot access 'build/': No such file or directory
 
 ### zip contents
 unzip:  cannot find or open build/microworld-living-debug.apk, build/microworld-living-debug.apk.zip or build/microworld-living-debug.apk.ZIP.

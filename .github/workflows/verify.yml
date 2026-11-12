@@ -42,8 +42,13 @@ jobs:
       - name: Browser-free asset verification scene
         run: |
           set -o pipefail
-          timeout 240 godot --headless --path . --quit-after 120 scenes/AssetShowcase.tscn 2>&1 | tee showcase.log || true
-          grep -E "SHOWCASE_RESULT" showcase.log || echo "showcase did not report (see log)"
+          timeout 300 godot --headless --path . --quit-after 240 scenes/AssetShowcase.tscn -- --verify 2>&1 | tee showcase.log || true
+          if grep -q "SHOWCASE_RESULT: PASS" showcase.log; then
+            echo "asset showcase: PASS"
+          else
+            echo "::error::asset showcase failed"
+            exit 1
+          fi
 
       - name: Collect logs
         if: always()

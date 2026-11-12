@@ -65,6 +65,11 @@ func _test_game_scene() -> void:
 	check_true(game.state != null, "game creates a PlayerState")
 	check_eq(game.state.hero_name, "Tester", "hero name is applied")
 	check_true(game.player != null, "player node exists")
+	check_true(game.player.animator != null, "player uses the KayKit rigged GLB with an AnimationPlayer")
+	if game.player.animator != null:
+		check_true(game.player.animator.has_clip("run"), "running animation resolved from the GLB library")
+		check_true(game.player.animator.has_clip("attack_light"), "attack animation resolved from the GLB library")
+		check_true(game.player.animator.has_clip("death"), "death animation resolved from the GLB library")
 	check_true(game.camera_rig != null and game.camera_rig.camera != null, "camera rig exists")
 	check_true(game.planet_root != null, "planet is built")
 	check_eq(game.planet_root.get_child_count() >= 6, true, "planet has six faces plus ocean")
@@ -77,8 +82,20 @@ func _test_game_scene() -> void:
 	check_true(game.resource_nodes.size() >= 10, "resource nodes were placed (%d)" % game.resource_nodes.size())
 	check_true(game.npcs.size() >= 3, "NPCs were placed")
 	check_true(game.enemies.size() >= 10, "monsters were spawned (%d)" % game.enemies.size())
+	var animated_enemies := 0
+	for enemy in game.enemies:
+		if is_instance_valid(enemy) and enemy.animator != null:
+			animated_enemies += 1
+	check_true(animated_enemies >= game.enemies.size() - 1, "monsters use rigged GLB models (%d/%d)" % [animated_enemies, game.enemies.size()])
 	check_true(game.simulation != null, "streaming simulation exists")
 	check_true(game.simulation.total_monsters() > 0, "simulation tracks monsters")
+	# Real equipment visuals: arming a weapon must produce a socketed model.
+	check_true(game.player._weapon_node == null or is_instance_valid(game.player._weapon_node), "weapon attachment state is consistent")
+	game.state.add_item("iron_sword", 1)
+	game.state.equip("iron_sword")
+	game.player.refresh_equipment()
+	await process_frame
+	check_true(game.player._weapon_node != null, "equipped weapon is attached to the hand bone")
 	# The player must be standing on the terrain surface.
 	var altitude: float = game.player.global_position.length()
 	var expected: float = 250.0 + preload("res://scripts/planet/terrain.gd").elevation(game.player.current_direction)

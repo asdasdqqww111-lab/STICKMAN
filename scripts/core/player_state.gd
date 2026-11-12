@@ -726,7 +726,7 @@ func serialize() -> Dictionary:
 ## Restore from a *validated, migrated* dictionary.  Returns false on bad data
 ## without mutating any live state.
 func restore(data: Dictionary) -> bool:
-	var next := PlayerState.new()
+	var next: RefCounted = get_script().new()
 	next.hero_name = String(data.get("hero_name", "Wanderer"))
 	next.level = int(data.get("level", 1))
 	next.xp = int(data.get("xp", 0))
@@ -770,7 +770,7 @@ func restore(data: Dictionary) -> bool:
 	next.health = clampf(next.health, 0.0, next.max_health())
 	next.mana = clampf(next.mana, 0.0, next.max_mana())
 	next.stamina = clampf(next.stamina, 0.0, next.max_stamina())
-	if not PlayerState.validate(next):
+	if not validate(next):
 		return false
 	_assign_from(next)
 	emit_signal("stats_changed")

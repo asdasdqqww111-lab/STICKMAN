@@ -61,7 +61,13 @@ jobs:
           git config user.email "ci@users.noreply.github.com"
           git add -f .ci/last-run
           git commit -q -m "ci: publish run ${GITHUB_RUN_ID} logs [skip ci]" || true
-          git push -q origin "HEAD:${GITHUB_REF_NAME}" || echo "log publish failed (non-fatal)"
+          for attempt in 1 2 3 4; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" 2>/dev/null || true
+            if git push -q origin "HEAD:${GITHUB_REF_NAME}" 2>/dev/null; then
+              echo "published logs (attempt ${attempt})"; break
+            fi
+            sleep 8
+          done
         env:
           JOB_STATUS: ${{ job.status }}
 

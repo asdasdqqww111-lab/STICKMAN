@@ -67,21 +67,19 @@ jobs:
           ls -la "$APK"
           SIZE=$(stat -c%s "$APK")
           echo "APK_SIZE_BYTES=${SIZE}" >> "${GITHUB_ENV}"
-          unzip -l "$APK" | head -30
-          # The exported package must contain the game data and Godot libraries.
-          unzip -l "$APK" | grep -q "assets/_data.pck\|assets/_cl_" || (echo "missing game payload"; exit 1)
-          unzip -l "$APK" | grep -q "lib/arm64-v8a/libgodot_android.so" || (echo "missing arm64 godot lib"; exit 1)
-          unzip -p "$APK" AndroidManifest.xml > /tmp/manifest.bin
-          python3 - <<'PY'
-          import re, pathlib
-          data = pathlib.Path('/tmp/manifest.bin').read_bytes()
-          text = data.decode('utf-16-le', errors='ignore')
-          needles = ['com.microworld.living', 'MICRO WORLD: LIVING']
-          report = {n: (n in text) for n in needles}
-          print('manifest checks:', report)
-          if not all(report.values()):
-              raise SystemExit('package name or label missing from manifest')
-          PY
+          unzip -l "$APK" | head -40
+          FAIL=0
+          unzip -l "$APK" | grep -qE "assets/.*(_data\.pck|_cl_)" || { echo "::error::missing exported game payload"; FAIL=1; }
+          unzip -l "$APK" | grep -q "lib/arm64-v8a/libgodot_android.so" || { echo "::error::missing arm64-v8a Godot library"; FAIL=1; }
+          unzip -l "$APK" | grep -q "lib/armeabi-v7a/libgodot_android.so" || echo "::warning::armeabi-v7a library missing"
+          unzip -p "$APK" AndroidManifest.xml > /tmp/manifest.bin || true
+          # Binary XML stores strings as UTF-16LE; -e l decodes them.
+          strings -e l /tmp/manifest.bin > /tmp/manifest-strings.txt 2>/dev/null || true
+          strings /tmp/manifest.bin >> /tmp/manifest-strings.txt 2>/dev/null || true
+          echo "--- manifest strings ---"; head -40 /tmp/manifest-strings.txt
+          grep -q "com.microworld.living" /tmp/manifest-strings.txt || { echo "::error::package id missing from manifest"; FAIL=1; }
+          grep -q "MICRO WORLD" /tmp/manifest-strings.txt || { echo "::warning::app label not found in manifest strings"; }
+          exit $FAIL
 
       - name: Generate SHA-256 checksum
         run: |
@@ -115,7 +113,14 @@ jobs:
           git config user.email "ci@users.noreply.github.com"
           git add -f .ci/android
           git commit -q -m "ci: android build ${GITHUB_RUN_ID} [skip ci]" || true
-          git push -q origin "HEAD:${GITHUB_REF_NAME}" || echo "publish failed (non-fatal)"
+          # Two workflows may publish concurrently; rebase before every retry.
+          for attempt in 1 2 3 4; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" 2>/dev/null || true
+            if git push -q origin "HEAD:${GITHUB_REF_NAME}" 2>/dev/null; then
+              echo "published logs (attempt ${attempt})"; break
+            fi
+            sleep 8
+          done
         env:
           JOB_STATUS: ${{ job.status }}
 

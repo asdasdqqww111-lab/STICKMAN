@@ -1,0 +1,443 @@
+
+=========== tests/test_combat.gd ===========
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Function "lowi()" not found in base self.
+          at: GDScript::reload (res://scripts/data/loot_table.gd:53)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://tests/test_combat.gd:0)
+ERROR: Failed to load script "res://tests/test_combat.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+PASS  ten or more monster archetypes are defined (10)
+PASS  monster definition builds: meadow_slime
+PASS  monster id matches: meadow_slime (expected meadow_slime, got meadow_slime)
+PASS  monster has a name: meadow_slime
+PASS  monster has health: meadow_slime
+PASS  monster deals damage: meadow_slime
+PASS  monster can move: meadow_slime
+PASS  monster has an aggro radius: meadow_slime
+PASS  monster grants XP: meadow_slime
+PASS  monster has a model: meadow_slime
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  gold range is valid: meadow_slime
+PASS  monster definition builds: skeleton_minion
+PASS  monster id matches: skeleton_minion (expected skeleton_minion, got skeleton_minion)
+PASS  monster has a name: skeleton_minion
+PASS  monster has health: skeleton_minion
+PASS  monster deals damage: skeleton_minion
+PASS  monster can move: skeleton_minion
+PASS  monster has an aggro radius: skeleton_minion
+PASS  monster grants XP: skeleton_minion
+PASS  monster has a model: skeleton_minion
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  gold range is valid: skeleton_minion
+PASS  monster definition builds: skeleton_warrior
+PASS  monster id matches: skeleton_warrior (expected skeleton_warrior, got skeleton_warrior)
+PASS  monster has a name: skeleton_warrior
+PASS  monster has health: skeleton_warrior
+PASS  monster deals damage: skeleton_warrior
+PASS  monster can move: skeleton_warrior
+PASS  monster has an aggro radius: skeleton_warrior
+PASS  monster grants XP: skeleton_warrior
+PASS  monster has a model: skeleton_warrior
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  gold range is valid: skeleton_warrior
+PASS  monster definition builds: skeleton_rogue
+PASS  monster id matches: skeleton_rogue (expected skeleton_rogue, got skeleton_rogue)
+PASS  monster has a name: skeleton_rogue
+PASS  monster has health: skeleton_rogue
+PASS  monster deals damage: skeleton_rogue
+PASS  monster can move: skeleton_rogue
+PASS  monster has an aggro radius: skeleton_rogue
+PASS  monster grants XP: skeleton_rogue
+PASS  monster has a model: skeleton_rogue
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Rogue.glb
+PASS  gold range is valid: skeleton_rogue
+PASS  monster definition builds: skeleton_mage
+PASS  monster id matches: skeleton_mage (expected skeleton_mage, got skeleton_mage)
+PASS  monster has a name: skeleton_mage
+PASS  monster has health: skeleton_mage
+PASS  monster deals damage: skeleton_mage
+PASS  monster can move: skeleton_mage
+PASS  monster has an aggro radius: skeleton_mage
+PASS  monster grants XP: skeleton_mage
+PASS  monster has a model: skeleton_mage
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Mage.glb
+PASS  gold range is valid: skeleton_mage
+PASS  monster definition builds: forest_wolf
+PASS  monster id matches: forest_wolf (expected forest_wolf, got forest_wolf)
+PASS  monster has a name: forest_wolf
+PASS  monster has health: forest_wolf
+PASS  monster deals damage: forest_wolf
+PASS  monster can move: forest_wolf
+PASS  monster has an aggro radius: forest_wolf
+PASS  monster grants XP: forest_wolf
+PASS  monster has a model: forest_wolf
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Rogue.glb
+PASS  gold range is valid: forest_wolf
+PASS  monster definition builds: earth_golem
+PASS  monster id matches: earth_golem (expected earth_golem, got earth_golem)
+PASS  monster has a name: earth_golem
+PASS  monster has health: earth_golem
+PASS  monster deals damage: earth_golem
+PASS  monster can move: earth_golem
+PASS  monster has an aggro radius: earth_golem
+PASS  monster grants XP: earth_golem
+PASS  monster has a model: earth_golem
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  gold range is valid: earth_golem
+PASS  monster definition builds: wraith
+PASS  monster id matches: wraith (expected wraith, got wraith)
+PASS  monster has a name: wraith
+PASS  monster has health: wraith
+PASS  monster deals damage: wraith
+PASS  monster can move: wraith
+PASS  monster has an aggro radius: wraith
+PASS  monster grants XP: wraith
+PASS  monster has a model: wraith
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Mage.glb
+PASS  gold range is valid: wraith
+PASS  monster definition builds: boar
+PASS  monster id matches: boar (expected boar, got boar)
+PASS  monster has a name: boar
+PASS  monster has health: boar
+PASS  monster deals damage: boar
+PASS  monster can move: boar
+PASS  monster has an aggro radius: boar
+PASS  monster grants XP: boar
+PASS  monster has a model: boar
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  gold range is valid: boar
+PASS  monster definition builds: boss_bone_warden
+PASS  monster id matches: boss_bone_warden (expected boss_bone_warden, got boss_bone_warden)
+PASS  monster has a name: boss_bone_warden
+PASS  monster has health: boss_bone_warden
+PASS  monster deals damage: boss_bone_warden
+PASS  monster can move: boss_bone_warden
+PASS  monster has an aggro radius: boss_bone_warden
+PASS  monster grants XP: boss_bone_warden
+PASS  monster has a model: boss_bone_warden
+PASS  monster model exists: res://assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  gold range is valid: boss_bone_warden
+PASS  exactly one boss ships in the launch slice (expected 1, got 1)
+PASS  unknown monster id returns null
+PASS  the boss has boss-scale health
+PASS  the boss is flagged as a boss
+PASS  peaceful wildlife is declared
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _test_loot_tables (res://tests/test_combat.gd:50)
+          GDScript backtrace (most recent call first):
+              [0] _test_loot_tables (res://tests/test_combat.gd:50)
+              [1] _tests (res://tests/test_combat.gd:15)
+              [2] _run (res://tests/test_runner.gd:22)
+PASS  six spells ship (expected 6, got 6)
+PASS  spell builds: ember_bolt
+PASS  spell costs mana: ember_bolt
+PASS  spell has a cooldown: ember_bolt
+PASS  spell has a level gate: ember_bolt
+PASS  spell has a description: ember_bolt
+PASS  spell does something: ember_bolt
+PASS  spell builds: flame_wave
+PASS  spell costs mana: flame_wave
+PASS  spell has a cooldown: flame_wave
+PASS  spell has a level gate: flame_wave
+PASS  spell has a description: flame_wave
+PASS  spell does something: flame_wave
+PASS  spell builds: frost_bolt
+PASS  spell costs mana: frost_bolt
+PASS  spell has a cooldown: frost_bolt
+PASS  spell has a level gate: frost_bolt
+PASS  spell has a description: frost_bolt
+PASS  spell does something: frost_bolt
+PASS  spell builds: glacial_spike
+PASS  spell costs mana: glacial_spike
+PASS  spell has a cooldown: glacial_spike
+PASS  spell has a level gate: glacial_spike
+PASS  spell has a description: glacial_spike
+PASS  spell does something: glacial_spike
+PASS  spell builds: arcane_shot
+PASS  spell costs mana: arcane_shot
+PASS  spell has a cooldown: arcane_shot
+PASS  spell has a level gate: arcane_shot
+PASS  spell has a description: arcane_shot
+PASS  spell does something: arcane_shot
+PASS  spell builds: mending_light
+PASS  spell costs mana: mending_light
+PASS  spell has a cooldown: mending_light
+PASS  spell has a level gate: mending_light
+PASS  spell has a description: mending_light
+PASS  spell does something: mending_light
+PASS  three magic schools exist (expected 3, got 3)
+PASS  unknown spell returns null
+PASS  every required asset exists (missing: []) (expected 0, got 0)
+PASS  the catalogue tracks 40+ assets
+PASS  monster model is catalogued: meadow_slime
+PASS  monster model is catalogued: skeleton_minion
+PASS  monster model is catalogued: skeleton_warrior
+PASS  monster model is catalogued: skeleton_rogue
+PASS  monster model is catalogued: skeleton_mage
+PASS  monster model is catalogued: forest_wolf
+PASS  monster model is catalogued: earth_golem
+PASS  monster model is catalogued: wraith
+PASS  monster model is catalogued: boar
+PASS  monster model is catalogued: boss_bone_warden
+PASS  item model exists: rusty_sword
+PASS  item model exists: iron_sword
+PASS  item model exists: greatsword
+PASS  item model exists: dagger
+PASS  item model exists: battle_axe
+PASS  item model exists: apprentice_staff
+PASS  item model exists: frost_staff
+PASS  item model exists: round_shield
+RESULT combat: 175 checks, 0 failures (3 ms)
+
+=========== tests/test_planet.gd ===========
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  direction() returns a unit vector (expected 1.000000 ± 0.000100, got 1.000000)
+PASS  longitude round-trips (expected 0.750000 ± 0.000100, got 0.750000)
+PASS  latitude round-trips (expected 0.300000 ± 0.000100, got 0.300000)
+PASS  north is tangent (expected 0.000000 ± 0.000100, got -0.000000)
+PASS  east is tangent (expected 0.000000 ± 0.000100, got 0.000000)
+PASS  movement stays on the sphere (expected 1.000000 ± 0.000100, got 1.000000)
+PASS  movement covers the requested distance (expected 25.000000 ± 0.010000, got 24.999999)
+PASS  opposite moves cancel out (expected 0.000000 ± 0.050000, got 0.000000)
+PASS  zero distance to self (expected 0.000000 ± 0.000100, got 0.000000)
+PASS  frame Y axis is planet-up (expected 1.000000 ± 0.000100, got 1.000000)
+PASS  frame is orthogonal (expected 0.000000 ± 0.000100, got 0.000000)
+PASS  north at the pole is finite
+PASS  north at the pole is well defined
+PASS  terrain elevation is deterministic (expected 8.49376921070195, got 8.49376921070195)
+PASS  elevation respects the sea floor
+PASS  elevation respects the cap
+PASS  spawn point is dry land
+PASS  spawn point is not water
+PASS  ground_point matches elevation (expected 258.493769 ± 0.001000, got 258.493774)
+PASS  terrain normal points away from the planet core
+PASS  terrain normal is normalised (expected 1.000000 ± 0.010000, got 1.000000)
+PASS  at least three biomes exist on the planet
+PASS  grassland biomes exist
+PASS  oceans exist
+PASS  biome 5 has a name
+PASS  biome 4 has a name
+PASS  biome 2 has a name
+PASS  biome 0 has a name
+PASS  biome 1 has a name
+PASS  biome 3 has a name
+PASS  region_of returns an id
+PASS  region id has three parts (expected 3, got 3)
+PASS  region face is valid
+PASS  region id validates
+PASS  region centre is on the sphere (expected 1.000000 ± 0.000100, got 1.000000)
+PASS  region lookup round-trips (expected pz:6:6, got pz:6:6)
+PASS  neighbourhood returns at least 8 regions
+PASS  neighbourhood contains the current region
+PASS  neighbour id is valid: pz:5:5
+PASS  neighbour id is valid: pz:6:5
+PASS  neighbour id is valid: pz:7:5
+PASS  neighbour id is valid: pz:5:6
+PASS  neighbour id is valid: pz:6:6
+PASS  neighbour id is valid: pz:7:6
+PASS  neighbour id is valid: pz:5:7
+PASS  neighbour id is valid: pz:6:7
+PASS  neighbour id is valid: pz:7:7
+PASS  neighbours are unique (expected 9, got 9)
+PASS  face axis maps to a region
+PASS  face axis maps to a region
+PASS  face axis maps to a region
+PASS  face axis maps to a region
+PASS  face axis maps to a region
+PASS  face axis maps to a region
+PASS  all six cube faces are addressable (expected 6, got 6)
+PASS  zero direction has no region (expected , got )
+PASS  invalid region id returns zero (expected (0.0, 0.0, 0.0), got (0.0, 0.0, 0.0))
+PASS  region radius is about 33 m (expected 32.720000 ± 1.000000, got 32.724923)
+PASS  mesh payload has all arrays (expected 13, got 13)
+PASS  4x4 grid has 25 vertices (expected 25, got 25)
+PASS  4x4 grid has 96 indices (expected 96, got 96)
+PASS  every vertex has a colour (expected 25, got 25)
+PASS  all vertices stay near the planet radius
+PASS  index buffer is in range
+PASS  adjacent cube faces meet at the seam (expected 0.000000 ± 0.010000, got 0.000000)
+RESULT planet: 65 checks, 0 failures (9 ms)
+
+=========== tests/test_player.gd ===========
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  new player starts at level 1 (expected 1, got 1)
+PASS  new player starts with 0 XP (expected 0, got 0)
+PASS  new player starts with 0 gold (expected 0, got 0)
+PASS  new player starts at rank F (expected F, got F)
+PASS  new player starts at full health (expected 100.000000 ± 0.001000, got 100.000000)
+PASS  new player owns the starter sword (expected rusty_sword, got rusty_sword)
+PASS  new player knows one spell
+PASS  new inventory is empty (expected 0, got 0)
+PASS  new player is alive
+PASS  level 1 requires 40 XP (expected 40, got 40)
+PASS  new player cannot promote immediately
+PASS  39 XP is not enough to level up (expected 1, got 1)
+PASS  40 XP levels up once (expected 2, got 2)
+PASS  leftover XP is carried correctly (expected 0, got 0)
+PASS  max health grows with level (expected 112.000000 ± 0.001000, got 112.000000)
+PASS  large XP grants levels
+PASS  level is capped
+PASS  XP remainder stays below the next threshold
+PASS  level ups grant skill points
+PASS  skill point can be spent
+PASS  toughness raises max health
+PASS  unknown skill cannot be upgraded
+PASS  adding a known item succeeds
+PASS  item count reflects the add (expected 3, got 3)
+PASS  unknown items cannot be added
+PASS  adding zero is rejected
+PASS  removing held items succeeds
+PASS  removal updates the count (expected 1, got 1)
+PASS  cannot remove more than held
+PASS  stack overflow creates extra rows
+PASS  total count survives stacking (expected 251, got 251)
+PASS  non-stackable items accumulate as rows (expected 2, got 2)
+PASS  healing potion restores health: Used Healing Potion: +45 HP
+PASS  used potion is consumed (expected 0, got 0)
+PASS  using a missing item reports it (expected You have no Healing Potion., got You have no Healing Potion.)
+PASS  can hold an iron sword
+PASS  iron sword equips
+PASS  weapon slot updated (expected iron_sword, got iron_sword)
+PASS  equipping a weapon raises attack
+PASS  equipped item leaves the bag
+PASS  previous weapon returns to the bag (expected 1, got 1)
+PASS  armour equips
+PASS  armour raises defence
+PASS  armour can be unequipped
+PASS  armour slot is empty again (expected , got )
+PASS  materials cannot be equipped
+PASS  shield equips to the offhand (expected round_shield, got round_shield)
+PASS  two-handed weapon clears the offhand (expected , got )
+PASS  two-handed weapon equips (expected greatsword, got greatsword)
+PASS  cannot craft without materials
+PASS  cannot craft without gold
+PASS  crafting becomes possible with materials and gold
+PASS  craft reports success: Crafted Guild Leathers.
+PASS  crafted item enters the bag (expected 1, got 1)
+PASS  inputs are consumed (expected 0, got 0)
+PASS  gold cost is charged (expected 0, got 0)
+PASS  crafting is tracked for quests (expected 1, got 1)
+PASS  rank-gated recipe blocked at rank F
+PASS  unknown recipe is rejected (expected Unknown recipe., got Unknown recipe.)
+PASS  ember bolt exists
+PASS  ember bolt mana cost matches data (expected 8.0, got 8.0)
+PASS  flame wave is not known at level 1
+PASS  spells respect level and rank gates
+PASS  spell damage derives from spell power
+PASS  spell starts off cooldown
+PASS  cooldown blocks recasting
+PASS  cooldown expires
+PASS  mana can be spent
+PASS  mana decreases (expected 52.0, got 52.0)
+PASS  cannot overspend mana
+PASS  levelled enough for flame wave
+PASS  frost bolt unlocked by level
+PASS  six spells ship in the roster (expected 6, got 6)
+PASS  armour mitigates damage
+PASS  damage is never fully negated
+PASS  mitigation formula matches defence (expected 23.400000 ± 0.010000, got 23.400000)
+PASS  healing works
+FAIL  healing is capped at max health (expected 0.000000 ± 0.010000, got 13.400000)
+PASS  lethal damage kills the player
+PASS  death is counted (expected 1, got 1)
+PASS  revive restores the player
+PASS  revive restores partial health
+PASS  revive restores full mana (expected 60.000000 ± 0.010000, got 60.000000)
+PASS  F promotes to E (expected E, got E)
+PASS  E promotes to D (expected D, got D)
+PASS  S has no next rank (expected , got )
+PASS  D is at least F
+PASS  F is not at least D
+PASS  unknown rank comparisons fail safely
+PASS  rank E needs more than kills
+PASS  rank E requirements can be met
+PASS  description names the next rank
+PASS  fully qualified player can promote
+PASS  promotion succeeds
+PASS  rank advanced to E (expected E, got E)
+RESULT player: 95 checks, 1 failures (3 ms)
+!!! tests/test_player.gd exited with 1
+
+=========== tests/test_quests.gd ===========
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Invalid operands "Dictionary" and "String" for "!=" operator.
+          at: GDScript::reload (res://tests/test_quests.gd:32)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "cursor" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/test_quests.gd:45)
+ERROR: Failed to load script "res://tests/test_quests.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+!!! tests/test_quests.gd exited with 1
+
+=========== tests/test_save.gd ===========
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  save writes successfully: 
+PASS  primary save file exists
+PASS  temp file is renamed away
+PASS  save loads back
+PASS  hero name round-trips (expected Test Hero, got Test Hero)
+PASS  level round-trips (expected 2, got 2)
+PASS  gold round-trips (expected 77, got 77)
+PASS  inventory round-trips (expected 5, got 5)
+PASS  equipment round-trips (expected iron_sword, got iron_sword)
+PASS  position round-trips (expected 0.101451 ± 0.000100, got 0.101451)
+PASS  discoveries round-trip
+PASS  waypoints round-trip
+PASS  quest state round-trips (expected 3, got 3)
+PASS  quest progress round-trips (expected 3, got 3)
+PASS  spells round-trip
+PASS  skills round-trip (expected 1, got 1)
+PASS  statistics round-trip (expected 3, got 3)
+PASS  metadata reports level (expected 2, got 2)
+PASS  has_save is true after writing
+PASS  second save creates a backup
+PASS  primary holds the newest generation (expected 999, got 999)
+PASS  corrupt primary falls back to backup
+PASS  backup holds the previous generation (expected 10, got 10)
+PASS  saving over a newer-version save is refused
+PASS  refusal explains the version mismatch: existing save is version 9 (newer than 4)
+PASS  newer save file is preserved (expected 9, got 9)
+PASS  loading missing saves returns null
+FAIL  has_save is false with no files
+PASS  garbage save loads as null
+PASS  corruption path is reachable
+PASS  v1 migrates to the current version (expected 4, got 4)
+FAIL  v1 herbs/potions become inventory rows
+FAIL  v1 forged sword becomes equipment (expected iron_sword, got rusty_sword)
+PASS  v1 quest stage maps to quest state (expected 4, got 4)
+PASS  v1 migration adds reputation
+PASS  migrated v1 save loads
+PASS  migration preserves level (expected 2, got 2)
+PASS  migration preserves gold (expected 30, got 30)
+FAIL  migration preserves herbs (expected 4, got 0)
+FAIL  migration preserves potions (expected 1, got 0)
+FAIL  migration preserves the forged sword (expected iron_sword, got rusty_sword)
+PASS  v3 migrates to the current version (expected 4, got 4)
+PASS  adjacent legacy cells collapse to one region (expected 1, got 1)
+PASS  migrated discovery is a valid region id: pz:6:6
+PASS  migration itself does not drop data
+PASS  level 0 is rejected
+PASS  invalid rank is rejected
+PASS  unknown items are rejected
+PASS  XP above the level threshold is rejected
+FAIL  zero direction is rejected
+PASS  save exists before erase
+PASS  save files can be removed
+RESULT save: 52 checks, 7 failures (9 ms)
+!!! tests/test_save.gd exited with 7
+
+=========== tests/test_scene.gd ===========
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ready" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/test_scene.gd:165)
+ERROR: Failed to load script "res://tests/test_scene.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+!!! tests/test_scene.gd exited with 1
+
+Ran 6 suites.

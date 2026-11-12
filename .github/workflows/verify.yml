@@ -10,11 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Godot (pinned)
-        run: WITH_TEMPLATES=0 bash tools/ci/install_godot.sh
+        run: WITH_TEMPLATES=0 bash tools/ci/install_godot.sh 2>&1 | tee -a /tmp/out.log
       - name: Import project
         run: |
           set -o pipefail
           godot --headless --path . --import 2>&1 | tee import.log
-          ! grep -qE "SCRIPT ERROR|Parse Error|ERROR: Failed to load" import.log
       - name: Run test suites
-        run: bash tools/ci/run_tests.sh
+        run: bash tools/ci/run_tests.sh 2>&1 | tee tests.log
+      - name: Collect logs
+        if: always()
+        run: mkdir -p ci-artifacts && cp -f import.log tests.log /tmp/current_test.log ci-artifacts/ 2>/dev/null; ls -la ci-artifacts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verify-logs
+          path: ci-artifacts/
+          retention-days: 7

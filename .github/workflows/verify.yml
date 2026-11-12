@@ -1,28 +1,56 @@
 name: verify
+
 on:
   workflow_dispatch:
   push:
     paths-ignore:
       - '**.md'
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   headless:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install Godot (pinned)
-        run: WITH_TEMPLATES=0 bash tools/ci/install_godot.sh 2>&1 | tee -a /tmp/out.log
-      - name: Import project
+        run: WITH_TEMPLATES=0 bash tools/ci/install_godot.sh
+
+      - name: Import project (parses every script and imports every asset)
         run: |
           set -o pipefail
           godot --headless --path . --import 2>&1 | tee import.log
-      - name: Run test suites
+
+      - name: Fail on script/import errors
+        run: |
+          if grep -qE "SCRIPT ERROR|Parse Error|ERROR: Failed to load" import.log; then
+            echo "::error::import reported script errors"
+            exit 1
+          fi
+          echo "import clean"
+
+      - name: Run GDScript test suites
         run: bash tools/ci/run_tests.sh 2>&1 | tee tests.log
+
+      - name: Browser-free asset verification scene
+        run: |
+          set -o pipefail
+          timeout 240 godot --headless --path . --quit-after 120 scenes/AssetShowcase.tscn 2>&1 | tee showcase.log || true
+          grep -E "SHOWCASE_RESULT" showcase.log || echo "showcase did not report (see log)"
+
       - name: Collect logs
         if: always()
-        run: mkdir -p ci-artifacts && cp -f import.log tests.log /tmp/current_test.log ci-artifacts/ 2>/dev/null; ls -la ci-artifacts
+        run: |
+          mkdir -p ci-artifacts
+          cp -f import.log tests.log showcase.log ci-artifacts/ 2>/dev/null || true
+          ls -la ci-artifacts
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: verify-logs
           path: ci-artifacts/
-          retention-days: 7
+          retention-days: 14

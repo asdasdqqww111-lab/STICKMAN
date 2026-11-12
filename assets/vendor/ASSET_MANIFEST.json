@@ -1,0 +1,747 @@
+{
+  "files": {
+    "assets/vendor/audio/LICENSE-kenney-rpg-audio.txt": {
+      "bytes": 7048,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "0e259d42c996742e9e3cba14c677129b2c1b6311",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "upstream_path": "LICENSE"
+    },
+    "assets/vendor/audio/book_flip_1.ogg": {
+      "bytes": 18248,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "7c0e80b9133df8bb4d451528d31cb0725ca44984",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "fa81ac2fedc8c641661b87e349630a36c9800e795e0c800e029214efdbe26a7d",
+      "upstream_path": "addons/kenney rpg audio/book_flip_1.ogg"
+    },
+    "assets/vendor/audio/cloth_1.ogg": {
+      "bytes": 16508,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "b76853a893383a0facfb230a368404d136eff1a3",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "ddb93a3671233f95da0e0b10367f082f7eb42fa6caaddcf776410aa8833c747d",
+      "upstream_path": "addons/kenney rpg audio/cloth_1.ogg"
+    },
+    "assets/vendor/audio/door_close_1.ogg": {
+      "bytes": 18564,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "21021c5f8c13c2fbc74e83de8c5fce5d8709b70b",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "834d29c60a8a8bfb50b158cdb6b7dfa8f02812a408a1ee9703d038dfab0b1aeb",
+      "upstream_path": "addons/kenney rpg audio/door_close_1.ogg"
+    },
+    "assets/vendor/audio/door_open_1.ogg": {
+      "bytes": 22848,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "7df28265312494fc053380002e551b001dea89ad",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "4ab93bab96522d8eb109ff96dc57cb6765deb02448fe14c10472084be5bb2a0b",
+      "upstream_path": "addons/kenney rpg audio/door_open_1.ogg"
+    },
+    "assets/vendor/audio/draw_knife_1.ogg": {
+      "bytes": 11134,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "4141dbf41af81a4e7013a09692f4ac9000d885eb",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "276403e72c3b71c47bc24db3083970c23f8e5551ffa78f436f83483c56f3f0bb",
+      "upstream_path": "addons/kenney rpg audio/draw_knife_1.ogg"
+    },
+    "assets/vendor/audio/footstep_0.ogg": {
+      "bytes": 9475,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "ca5dd2b6aa45f73f53685988aacec0a88f31887b",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "6fe61ef1fc3bcf0e253bf2eb64759db6cb69e2fe452f4d88cc597ecf78a3d601",
+      "upstream_path": "addons/kenney rpg audio/footstep_0.ogg"
+    },
+    "assets/vendor/audio/footstep_1.ogg": {
+      "bytes": 9900,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "e784dbff4808267daebd9297674f6532b1a826f3",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "313472dba31fd0c855376069fa368bb5a198c27251cc8398ef464578b7047a4c",
+      "upstream_path": "addons/kenney rpg audio/footstep_1.ogg"
+    },
+    "assets/vendor/audio/footstep_2.ogg": {
+      "bytes": 9528,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "fffa607622ef1f834244636ceaebfbb60c20fed1",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "2d9575b7dead6e1217ca113991fc5229e9b6d998ea0726ebbb277e7398ab888f",
+      "upstream_path": "addons/kenney rpg audio/footstep_2.ogg"
+    },
+    "assets/vendor/audio/footstep_3.ogg": {
+      "bytes": 10559,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "32ec6265fc61f1aa323ae94c4b6c5b77f39f46f2",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "a86756b9af9f370455ab47844239bb07fd1bee7a113068c91f0fcd9b72703fae",
+      "upstream_path": "addons/kenney rpg audio/footstep_3.ogg"
+    },
+    "assets/vendor/audio/handle_coins.ogg": {
+      "bytes": 25394,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "c84e27d4a9d34588a881d639e563c45473ed5039",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "8a91f969e932df709df80ee124d86a51389eed9b67f22e5e716bc2bbf60d8dab",
+      "upstream_path": "addons/kenney rpg audio/handle_coins.ogg"
+    },
+    "assets/vendor/audio/handle_coins_2.ogg": {
+      "bytes": 13094,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "73d92c5cee6293b9391a8465e75d6bf47be666ff",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "4b857968d64f9ac9336a10ffac6694d7547e1f01566ad6857b30bc8db3ee6c32",
+      "upstream_path": "addons/kenney rpg audio/handle_coins_2.ogg"
+    },
+    "assets/vendor/audio/knife_slice.ogg": {
+      "bytes": 15532,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "86338431259517417132d9b1aaa28eb9a9f36d95",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "4cd96dc630bed9840c15f1dd2306da2cc56a4da26a5d3f1a03c5a7265ac5e54f",
+      "upstream_path": "addons/kenney rpg audio/knife_slice.ogg"
+    },
+    "assets/vendor/audio/knife_slice_2.ogg": {
+      "bytes": 15099,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "cf6098e7395fcfeb537fa83ba41ba9ec0606e362",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "6c2064d0ef988d1ec3d56868e823ea8823a5cac00f2742560052633529407def",
+      "upstream_path": "addons/kenney rpg audio/knife_slice_2.ogg"
+    },
+    "assets/vendor/audio/metal_click.ogg": {
+      "bytes": 13615,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "1a9ee4bd7384ab493b89df0ff10ee142959490be",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "9851a69d0c613e13bceef08060ecc4148f098ef487927cbebe270d642398a3b3",
+      "upstream_path": "addons/kenney rpg audio/metal_click.ogg"
+    },
+    "assets/vendor/audio/metal_pot_1.ogg": {
+      "bytes": 31619,
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "git_blob": "1c5143d308d587fdbb2fca4395d143f465d829a2",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot",
+      "sha256": "159def979e8e386c2c539f5e99cc30a080eb2dcb6c911fa2e4ccc0785b2522fd",
+      "upstream_path": "addons/kenney rpg audio/metal_pot_1.ogg"
+    },
+    "assets/vendor/characters/adventurers/Barbarian.glb": {
+      "bytes": 3613268,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "66d312ab6dc02b35fb648e7585bfdddb4e02eeef",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "cefc311a0e10c7858b6141f5ada7e33268727564fb8ac1347aab97d000669cc6",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Characters/gltf/Barbarian.glb"
+    },
+    "assets/vendor/characters/adventurers/Knight.glb": {
+      "bytes": 3659532,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "717b56ca2b5ff5392679774725201ba03a3eefab",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "60428e3abc09ba83e595d256e3af8c5c976b46cdae599f0802fc82b4a3445168",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Characters/gltf/Knight.glb"
+    },
+    "assets/vendor/characters/adventurers/LICENSE-kaykit-adventurers.txt": {
+      "bytes": 891,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "877e44735b5869c10e17a59e3b757905aa390626",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "ae322141814056dda0deea7540d74c41d87aee1da319977cd1bd84ee5a923629",
+      "upstream_path": "LICENSE.txt"
+    },
+    "assets/vendor/characters/adventurers/Mage.glb": {
+      "bytes": 3589240,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "c89f19f6e707f6e07e4632a08876bd6d0172b082",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "cf898585da33fab50c724d31605fb931eb2912e6d2280092141e98ca81ad507d",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Characters/gltf/Mage.glb"
+    },
+    "assets/vendor/characters/adventurers/Rogue.glb": {
+      "bytes": 3616284,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "c8827661105eef7b2bfbef3bc676d41a47625733",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "e825437cd4d2ee9c1960b517a74a69101e33eb409ae7fa8cedc7134a998fbb7d",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Characters/gltf/Rogue.glb"
+    },
+    "assets/vendor/characters/adventurers/axe_1handed.bin": {
+      "bytes": 12524,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "6f2a1f938805bfc829c8b83851f061179b7ac657",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "0e3e5f009e0706506971fe5b1eae0fa30b0b28c70fd67c4b7943d975a821f4af",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/axe_1handed.bin"
+    },
+    "assets/vendor/characters/adventurers/axe_1handed.gltf": {
+      "bytes": 3087,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "b367258502ed8f8b172d18c72c71d81befbb39f4",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "dbe0ba59abcae66a464809ee281179b10f85e41ef0d69786d39627472ca7e5dd",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/axe_1handed.gltf"
+    },
+    "assets/vendor/characters/adventurers/barbarian_texture.png": {
+      "bytes": 15089,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "29d2db09000ac28e626cf24c3d5ff48f7c324351",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "7329b2ff9709e8d54c886d5ef49c08bd42b12be3bbb2facb1488a6b48b1e8a80",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Textures/barbarian_texture.png"
+    },
+    "assets/vendor/characters/adventurers/dagger.bin": {
+      "bytes": 7656,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "8825c09e4f6cf6cba918770082505ab9cc5d9a48",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "2ef02dbdc53839cd2506f9dea40dcc401cdda830ae6a887f499333cce0d11be3",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/dagger.bin"
+    },
+    "assets/vendor/characters/adventurers/dagger.gltf": {
+      "bytes": 3065,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "f090037e4ecdd0e6e891a412b2c4a9409226825e",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "33c577d4d5d268295f13494c930d20d11bf1a82e862aa7bdab4d7d51bc26fcd0",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/dagger.gltf"
+    },
+    "assets/vendor/characters/adventurers/knight_texture.png": {
+      "bytes": 14172,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "a56eae7514f908862e304620b89dc2d0cb9f362f",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "5d250ccc5da020e6126bfa3839f83bd9a465a951ed223e4d13c08b1925e154d4",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Textures/knight_texture.png"
+    },
+    "assets/vendor/characters/adventurers/mage_texture.png": {
+      "bytes": 16311,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "d0b91fba111e8b9c952aab6698807c0200061100",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "ea49f094b960402635fe51db9f1864960c97271b17f2e3554e5aca1b2bbba144",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Textures/mage_texture.png"
+    },
+    "assets/vendor/characters/adventurers/rogue_texture.png": {
+      "bytes": 16670,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "542954baba7281f028f93306943fc780b1ebcf55",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "a4032e877c3b91939f5cdbb630349c1998fdbc3211bbd587c111125500fe4cc5",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Textures/rogue_texture.png"
+    },
+    "assets/vendor/characters/adventurers/shield_round.bin": {
+      "bytes": 12008,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "9e35d339cfb38425253a3c236de7bdf5da199ae4",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "42da365328fc8804f44cd3db6becc8bc98729f11862b63e51b42820559d6e1e0",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/shield_round.bin"
+    },
+    "assets/vendor/characters/adventurers/shield_round.gltf": {
+      "bytes": 3083,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "d1a20d3ce24239a540236806c4ce424e137439ea",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "ac502d8b193da7b1224139e3b825f856ec9fa15cd5aa6ca10295cc927402c275",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/shield_round.gltf"
+    },
+    "assets/vendor/characters/adventurers/staff.bin": {
+      "bytes": 18576,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "680e289846b61c83a6c10ea444caa34faf43c9e4",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "acf921e547edd8e05e24e0b2edec74fec7c987ccad1ee73549a0726a8059ebce",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/staff.bin"
+    },
+    "assets/vendor/characters/adventurers/staff.gltf": {
+      "bytes": 3061,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "d8bbebc6f3f6fb59e152d6b45de52add254f0697",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "eb2e277510325a242974ee842453882de2d55b09ec94a43148aff1dd4237c67a",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/staff.gltf"
+    },
+    "assets/vendor/characters/adventurers/sword_1handed.bin": {
+      "bytes": 13256,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "1aca5d22ca1dbae65756af6c0b438f251c2c7e45",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "780ebfd002cd181fd5b1626f5a6ae8dda0ff2df58c3ff1fd6e7584f53a969d8a",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/sword_1handed.bin"
+    },
+    "assets/vendor/characters/adventurers/sword_1handed.gltf": {
+      "bytes": 3080,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "ea5115c52ee9c07b2128105c0701fe706add7593",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "f88345d0c89d52710ddb00555964fe7a6f4024874d7ee902ee4c742c048a1958",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/sword_1handed.gltf"
+    },
+    "assets/vendor/characters/adventurers/sword_2handed.bin": {
+      "bytes": 19912,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "11d1a5627499582733d4d5918807415fd0dc2baf",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "0f54186de924388d70b7b5b7b9052c8dda2e20647c4fb36a949723b7ed6b7646",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/sword_2handed.bin"
+    },
+    "assets/vendor/characters/adventurers/sword_2handed.gltf": {
+      "bytes": 3081,
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "git_blob": "593016769c491c37ce4705bc76f80e2a042ccaee",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+      "sha256": "0f67613f6233d637be60cb27e320dd3b855b73d1ca0249df46999f68efb05494",
+      "upstream_path": "addons/kaykit_character_pack_adventures/Assets/gltf/sword_2handed.gltf"
+    },
+    "assets/vendor/characters/skeletons/LICENSE-kaykit-skeletons.txt": {
+      "bytes": 914,
+      "commit": "15b62b9bad122f72926c10fb14d622c73819fa54",
+      "git_blob": "5de5a1e35003680bd6b97b4c247eed71d51a9fb7",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "sha256": "5d822abca4e08c5a91d329e5372b3dc605cba8d994f752cb0f7dfdb7a0a79954",
+      "upstream_path": "LICENSE.txt"
+    },
+    "assets/vendor/characters/skeletons/Skeleton_Mage.glb": {
+      "bytes": 4761048,
+      "commit": "15b62b9bad122f72926c10fb14d622c73819fa54",
+      "git_blob": "5f85aea26b4f33b88080d6eb57d25d1ae5d84d14",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "sha256": "e05b0f5cfa395271c9f75fd07c0a0613c56f401ece4ab644e080001a79971075",
+      "upstream_path": "addons/kaykit_character_pack_skeletons/Characters/gltf/Skeleton_Mage.glb"
+    },
+    "assets/vendor/characters/skeletons/Skeleton_Minion.glb": {
+      "bytes": 4814296,
+      "commit": "15b62b9bad122f72926c10fb14d622c73819fa54",
+      "git_blob": "3b7e7ee4f1c8dd6dd99ddad27824ef1dc52ff12d",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "sha256": "6ffc003f895bed0b074791e0e490846210a2e2f8fc7da300aba53cc185f95968",
+      "upstream_path": "addons/kaykit_character_pack_skeletons/Characters/gltf/Skeleton_Minion.glb"
+    },
+    "assets/vendor/characters/skeletons/Skeleton_Rogue.glb": {
+      "bytes": 4827024,
+      "commit": "15b62b9bad122f72926c10fb14d622c73819fa54",
+      "git_blob": "182403932e4d4e00aa4182f2ac882ac27326dd19",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "sha256": "4003f2b77891bb56f7e0de7d555abcb497aebbcaee35b614211f16275f9ccae3",
+      "upstream_path": "addons/kaykit_character_pack_skeletons/Characters/gltf/Skeleton_Rogue.glb"
+    },
+    "assets/vendor/characters/skeletons/Skeleton_Warrior.glb": {
+      "bytes": 4863620,
+      "commit": "15b62b9bad122f72926c10fb14d622c73819fa54",
+      "git_blob": "769e85c9e4cee8d1bd0952ddb3e9d26293144581",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0",
+      "sha256": "178b6fda810b814c250d8a2010c24dfd9b458b9006dd323353e620b7ff118bbe",
+      "upstream_path": "addons/kaykit_character_pack_skeletons/Characters/gltf/Skeleton_Warrior.glb"
+    },
+    "assets/vendor/city/LICENSE-kaykit-city.txt": {
+      "bytes": 828,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "a311fe646973aa7da11458c3cbfefbb4c671f857",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "b076d86beec660e1550e00796ca24a8b70d7b2187d79954b2e29722b666dce93",
+      "upstream_path": "LICENSE.txt"
+    },
+    "assets/vendor/city/bench.bin": {
+      "bytes": 2824,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "58206243d5cadf202aca63ba2e667ab13c8dc9aa",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "53ac9734110353b244bc409b32e1d4a41d94a86f3aa26884c40a6692dab0f81e",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/bench.bin"
+    },
+    "assets/vendor/city/bench.gltf": {
+      "bytes": 3024,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "33a9bcdac5c62f6c8faaa20140d91e671d313d8f",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "f3b731470c30ed21d7e03f15d28f1937b3e4881efcca57a48e4c82ae582e51e1",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/bench.gltf"
+    },
+    "assets/vendor/city/box_A.bin": {
+      "bytes": 2240,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "0fe36d68df94f6df6e8a8d85810086fa10b6fcdd",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "7d73d90c735ad860f176cc55607e20ca4939c7c9de059b7db127c980f3b5bcec",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/box_A.bin"
+    },
+    "assets/vendor/city/box_A.gltf": {
+      "bytes": 3044,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "2a11c9307305ee989ed60faa2b504fd6d47e77e2",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "fe1fa867aa6aa2933bbe3d232c8dcedffc68d484019f71544ce191e2c8ddc16c",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/box_A.gltf"
+    },
+    "assets/vendor/city/building_A.bin": {
+      "bytes": 49512,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "bdada5abd0bf5d5e42d22b9fad38b5cb49e24efd",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "29feccd24aa7b996e7a5dbeca2e5c724bfbeaa7eebad02e6fb012a92eebb1a33",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/building_A.bin"
+    },
+    "assets/vendor/city/building_A.gltf": {
+      "bytes": 2980,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "71c203c264e37be2e8529459e99d077c4b22b1e4",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "d9d21afb847de1c67a643cc34738f0b71d71f6a8926e8fa7f248bb6a434a22ba",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/building_A.gltf"
+    },
+    "assets/vendor/city/building_B.bin": {
+      "bytes": 65468,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "75181a9f8054bfc8283777500fd265b80c847cdc",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "310c032929c5988dd0ae5d9c15c4ea0d0e69bcbd60d87237cdd56e859639375e",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/building_B.bin"
+    },
+    "assets/vendor/city/building_B.gltf": {
+      "bytes": 2980,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "d5b0f1226e6681d286fd08254674a8b32e8227b0",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "d026df95a16e31d1d50827375db7978099af35eefbb255bf6674855d303fb390",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/building_B.gltf"
+    },
+    "assets/vendor/city/building_C.bin": {
+      "bytes": 61512,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "33bd9d066770547efe8a8111a0e3b66e9e62606f",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "77c6e813fc59631d7866614508220f47800533cda767f55680d393eddd46705d",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/building_C.bin"
+    },
+    "assets/vendor/city/building_C.gltf": {
+      "bytes": 2979,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "bbf598cecffaddf2967984c243580c6b0d5947de",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "d2477afdb8a68507ab862ede37f47a2a7b74df369290bc57712239214c6ae2c8",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/building_C.gltf"
+    },
+    "assets/vendor/city/bush.bin": {
+      "bytes": 3056,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "911f09225654a17c006857bd8469c6f06e536ba8",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "6b00a80ec23cdd55dd1398d648b51f1cf7eb4263cea61d3bf1dc24cc7c171b3e",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/bush.bin"
+    },
+    "assets/vendor/city/bush.gltf": {
+      "bytes": 3022,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "9de86fe3219a8ac27fe0ddc3e534ed509ebfd753",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "b1de478b23e6bcfd08d6c070440582195839f66dfd3afc123118fb6298483183",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/bush.gltf"
+    },
+    "assets/vendor/city/citybits_texture.png": {
+      "bytes": 19885,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "ffffc8998d30b32bdfa6761f33c87bcdfd0ba07f",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "6d2d9a5a13bce32209cd8c04572ab170504d68f34b1519165c9b0c41871e235b",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/fbx(unity)/citybits_texture.png"
+    },
+    "assets/vendor/city/road_straight.bin": {
+      "bytes": 3676,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "96be0b882cad22166a3ec456d171dbc1f2b6203c",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "6509b3509565e250de74a19728b9dd1e1351d40c8a50f4d18a1c6b3edb0bd068",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/road_straight.bin"
+    },
+    "assets/vendor/city/road_straight.gltf": {
+      "bytes": 2974,
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "git_blob": "c20a74e205206f497941816a98b3f75859bc9896",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sha256": "35c74b311a04e5682dfc7fc823867aa53de1cc19b86fa801730496ee69b52e68",
+      "upstream_path": "addons/kaykit_city_builder_bits/Assets/gltf/road_straight.gltf"
+    },
+    "assets/vendor/dungeon/LICENSE-kaykit-dungeon.txt": {
+      "bytes": 829,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "686cf4ee3931b75d4ecfac6308f9d3287553748c",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "c5f17abf619731f57f6bbff450f6484214605c13aa96bb75bbcfc70930941ff7",
+      "upstream_path": "LICENSE.txt"
+    },
+    "assets/vendor/dungeon/banner_red.gltf.glb": {
+      "bytes": 24216,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "aa438c0140ed09f613e3334264d0df58e83f0575",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "c69c6eaffc834d6dcc7d19f8fd87145af4323265755588bf5bde85d71e0e3ff3",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/banner_red.gltf.glb"
+    },
+    "assets/vendor/dungeon/barrel_large.gltf.glb": {
+      "bytes": 44292,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "7a88d9bcca79d21b2033a1681b71577fe06e8717",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "9fae6a79056241baf253fe9272dc7a7ddb174e1caf153eb5013c58a596722148",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/barrel_large.gltf.glb"
+    },
+    "assets/vendor/dungeon/candle_lit.gltf.glb": {
+      "bytes": 22648,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "b79333506e47e0288472b770a11c2e4b5ded93cc",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "a884f27540b8b91e3d47914453cbf2c4d48f4ca8504ace9960a8d9b4e79a6c48",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/candle_lit.gltf.glb"
+    },
+    "assets/vendor/dungeon/chest.glb": {
+      "bytes": 81412,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "534c76a794d4b531a91619871845e92e3ca6e432",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "f72fd2201cd42ad399928a0b7bcc34d5b0e6d0624aeaf824fef81852109955f8",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/chest.glb"
+    },
+    "assets/vendor/dungeon/chest_gold.glb": {
+      "bytes": 140140,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "8dd05d691d4954009c94b9bb052e56db5c4f3432",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "04708d5f88ed59d361c8a6cec1efe8b7028dbc641dfae0a1467f272e14a94b6e",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/chest_gold.glb"
+    },
+    "assets/vendor/dungeon/coin.gltf.glb": {
+      "bytes": 21776,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "f7cdef3c8bf9d08b6a5c644b049a0bb7e98cd8af",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "97d3abdd239d8fa365b14957f7bf45c892aad9d211b3c3b47b4b2311bf947297",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/coin.gltf.glb"
+    },
+    "assets/vendor/dungeon/coin_stack_small.gltf.glb": {
+      "bytes": 38404,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "0a07fbd0b1890e19ee42db256a472941f1dcfd22",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "b7395adb0c3f8d392f42f483d667af672232a25de4e0cdb23c58fca8bab1dd8f",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/coin_stack_small.gltf.glb"
+    },
+    "assets/vendor/dungeon/crates_stacked.gltf.glb": {
+      "bytes": 103704,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "7f273be5ebd143b58135ecc1d061d22a633cad92",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "43182b077ead9b033804300ef453b7402bdc979f00cfce2d7f0c91dcf6bb5d3c",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/crates_stacked.gltf.glb"
+    },
+    "assets/vendor/dungeon/floor_tile_big_grate.gltf.glb": {
+      "bytes": 36296,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "56ff3f57b0130ecf695fdce200b94d1505b4a638",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "6c393b10cb00ad69177f58d1b30af05f3c7f350bc331508529ef6323ff9efae3",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_big_grate.gltf.glb"
+    },
+    "assets/vendor/dungeon/floor_tile_big_grate_open.gltf.glb": {
+      "bytes": 35740,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "4d55430ad3fefc7e191be1ae3723e8f27788e73d",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "96d1e7a6b519ebe614e66342e0e43b3689017c339f586c5e783d9edf7631e7df",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_big_grate_open.gltf.glb"
+    },
+    "assets/vendor/dungeon/floor_tile_big_spikes.glb": {
+      "bytes": 80644,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "e4ea4b93de249a365238787b06cf9f7b4c19106f",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "7a4e94decf860b64456a45cc1c2d7bb26f0b3ca75824ccf2c4d0addee088d9ad",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_big_spikes.glb"
+    },
+    "assets/vendor/dungeon/pillar.gltf.glb": {
+      "bytes": 25552,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "3b228d747c4ef1f9552743880906fc647dabcec3",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "e31da496461921475384c62ce761cd23924892bd6f32aeea68bd913545caee33",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/pillar.gltf.glb"
+    },
+    "assets/vendor/dungeon/rubble_half.gltf.glb": {
+      "bytes": 38836,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "4a4c48135629764469ab6570a2f118cb92df532c",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "7514ccbda643c13d5a782579e4f01ee6402eec5519590d3f048d396cdaedec24",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/rubble_half.gltf.glb"
+    },
+    "assets/vendor/dungeon/stairs.gltf.glb": {
+      "bytes": 43368,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "e780d3d62d3fb62055ded1f0c7aaf0e917f60e32",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "5ba16e5d919aaa8958435c4b73c1f8a94c98febeacf716faa1359f24e6b27d70",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/stairs.gltf.glb"
+    },
+    "assets/vendor/dungeon/torch_lit.gltf.glb": {
+      "bytes": 31244,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "7976a030114d40da7e46ca719f35d973d9d9f55c",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "45fcfeb3b129722019d42aef0acae8f6c5f8f6dbdf5d3346ceea1f084b69b396",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/torch_lit.gltf.glb"
+    },
+    "assets/vendor/dungeon/torch_mounted.gltf.glb": {
+      "bytes": 33220,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "5c3892703d75e029192aa63b9cbfb1c1f11efa01",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "a617c159e02932db48ca81ec46f1f100acc8904fb6ece43e919d2f93c13950e9",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/torch_mounted.gltf.glb"
+    },
+    "assets/vendor/dungeon/wall.gltf.glb": {
+      "bytes": 53132,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "5bb502fe4392ee9813760794b583acbfa71814a3",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "f2f343a7bdf2d45947e3f354494e16095a923485e05637e3804e3b81ce11d921",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb"
+    },
+    "assets/vendor/dungeon/wall_corner.gltf.glb": {
+      "bytes": 49212,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "e594aa8ebfedf0bb92ebc5d1603cd4a18ef3f637",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "3c8cbcbf3abf78c9dc49f440b152340ef681fee9cccf9ca6ed27b6670a34eb81",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb"
+    },
+    "assets/vendor/dungeon/wall_doorway_scaffold.glb": {
+      "bytes": 109416,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "0ca509f6b36e82c4eb7591f947f149cc4f786782",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "0fb7b7c22561f7c4e4a6585488e38d2a5a2811befaad3548f3e24ac6358f379a",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_scaffold.glb"
+    },
+    "assets/vendor/dungeon/wall_pillar.gltf.glb": {
+      "bytes": 55156,
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "git_blob": "6f50b79deb38f243f9a87893f01dea839e1d1558",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+      "sha256": "f85030386f9f183bbc03a0817a1967a40758f24828295ed2a1c88d4c004eb5eb",
+      "upstream_path": "addons/kaykit_dungeon_remastered/Assets/gltf/wall_pillar.gltf.glb"
+    }
+  },
+  "sources": {
+    "kaykit-adventurers": {
+      "attribution": "Kay Lousberg (kaylousberg.com) \u2014 KayKit Adventurers Character Pack",
+      "commit": "672074b73ba276876a19e8816ecdc5241817ab47",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"
+    },
+    "kaykit-city": {
+      "attribution": "Kay Lousberg (kaylousberg.com) \u2014 KayKit City Builder Bits",
+      "commit": "63976910ca04d16f0fc531b9c614244be8128713",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0"
+    },
+    "kaykit-dungeon": {
+      "attribution": "Kay Lousberg (kaylousberg.com) \u2014 KayKit Dungeon Remastered",
+      "commit": "b0ca9bd96a8072ab36a3a5464f00ed1e06a16d07",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0"
+    },
+    "kaykit-skeletons": {
+      "attribution": "Kay Lousberg (kaylousberg.com) \u2014 KayKit Skeletons Character Pack",
+      "commit": "15b62b9bad122f72926c10fb14d622c73819fa54",
+      "licence": "CC0-1.0",
+      "repo": "KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0"
+    },
+    "kenney-rpg-audio": {
+      "attribution": "Kenney.nl (kenney.nl) \u2014 RPG Audio, Godot port by Boyquotes",
+      "commit": "22eb79bb843bbcadcaa6ed119353a33265ffad11",
+      "licence": "CC0-1.0",
+      "repo": "Boyquotes/kenney-rpg-audio-for-godot"
+    }
+  }
+}

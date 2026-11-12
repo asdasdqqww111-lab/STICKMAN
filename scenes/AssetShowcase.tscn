@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://scripts/asset_showcase.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/debug/asset_showcase.gd" id="1_showcase"]
 
 [node name="AssetShowcase" type="Node3D"]
-script = ExtResource("1")
+script = ExtResource("1_showcase")

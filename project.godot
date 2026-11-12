@@ -1,18 +1,56 @@
-; MICRO WORLD: LIVING — experimental playable foundation
+; MICRO WORLD: LIVING — Godot 4.7 project configuration
+; Main scene = main menu. Export preset = Android (landscape).
+
 config_version=5
 
 [application]
+
 config/name="MICRO WORLD: LIVING"
-run/main_scene="res://scenes/Main.tscn"
+config/version="0.4.0"
+config/description="A Third-Person Open-World RPG on a living, streamed planet."
+run/main_scene="res://scenes/App.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.039, 0.078, 0.141, 1)
+boot_splash/show_image=false
+
+[autoload]
 
 [display]
+
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/handheld/orientation=1
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/size/resizable=true
 
 [rendering]
+
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=false
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=1
+shadows/positional_shadow/atlas_size=2048
+limits/opengl/max_renderable_elements=65536
+
+[input_devices]
+
+pointer/emulate_mouse_from_touch=true
+
+[physics]
+
+common/physics_ticks_per_second=30
+common/max_fps=60
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
+[debug]
+
+settings/stdout/print_fps=false
+settings/stdout/verbose_stdout=false

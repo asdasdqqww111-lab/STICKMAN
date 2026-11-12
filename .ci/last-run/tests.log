@@ -187,7 +187,7 @@ PASS  item model exists: battle_axe
 PASS  item model exists: apprentice_staff
 PASS  item model exists: frost_staff
 PASS  item model exists: round_shield
-RESULT combat: 185 checks, 0 failures (5 ms)
+RESULT combat: 185 checks, 0 failures (3 ms)
 
 =========== tests/test_planet.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -257,7 +257,7 @@ PASS  every vertex has a colour (expected 25, got 25)
 PASS  all vertices stay near the planet radius
 PASS  index buffer is in range
 PASS  adjacent cube faces meet at the seam (expected 0.000000 ± 0.010000, got 0.000000)
-RESULT planet: 65 checks, 0 failures (12 ms)
+RESULT planet: 65 checks, 0 failures (6 ms)
 
 =========== tests/test_player.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -342,6 +342,7 @@ PASS  healing works
 PASS  healing is capped at max health (expected 13.400000 ± 0.010000, got 13.400000)
 PASS  lethal damage kills the player
 PASS  death is counted (expected 1, got 1)
+PASS  passive regeneration never resurrects a dead player
 PASS  revive restores the player
 PASS  revive restores partial health
 PASS  revive restores full mana (expected 60.000000 ± 0.010000, got 60.000000)
@@ -357,7 +358,7 @@ PASS  description names the next rank
 PASS  fully qualified player can promote
 PASS  promotion succeeds
 PASS  rank advanced to E (expected E, got E)
-RESULT player: 95 checks, 0 failures (4 ms)
+RESULT player: 96 checks, 0 failures (2 ms)
 
 =========== tests/test_quests.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -598,7 +599,7 @@ PASS  ready state survives using collected items (expected 3, got 3)
 PASS  most quests are gated at the start
 PASS  rank quest remains gated
 PASS  objective text shows progress
-RESULT quests: 236 checks, 0 failures (4 ms)
+RESULT quests: 236 checks, 0 failures (3 ms)
 
 =========== tests/test_save.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -655,7 +656,7 @@ PASS  XP above the level threshold is rejected
 PASS  zero direction falls back to the spawn direction (expected 1.000000 ± 0.000100, got 1.000000)
 PASS  save exists before erase
 PASS  save files can be removed
-RESULT save: 52 checks, 0 failures (10 ms)
+RESULT save: 52 checks, 0 failures (6 ms)
 
 =========== tests/test_scene.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -731,23 +732,22 @@ PASS  panel renders: crafting
 PASS  panel renders: equipment
 PASS  panel renders: pause
 PASS  panel renders: settings
-FAIL  player can die
+PASS  player can die
 PASS  respawn restores the player
 PASS  respawn grants health
-RESULT scene: 74 checks, 1 failures
+RESULT scene: 74 checks, 0 failures
 ERROR: Pages in use exist at exit in PagedAllocator: N20RasterizerSceneDummy21GeometryInstanceDummyE
    at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
 WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
    at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
-WARNING: 35 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+WARNING: 49 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2536)
-ERROR: 4 resources still in use at exit (run with --verbose for details).
+ERROR: 10 resources still in use at exit (run with --verbose for details).
    at: clear (core/io/resource.cpp:822)
 ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage13DummyMaterialE' were leaked at exit.
 ERROR: 1 RID allocations of type 'N13RendererDummy15MaterialStorage11DummyShaderE' were leaked at exit.
 ERROR: 2 RID allocations of type 'N13RendererDummy9DummyMeshE' were leaked at exit.
 ERROR: 1 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
 ERROR: 15 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.
-!!! tests/test_scene.gd exited with 1
 
 Ran 6 suites.

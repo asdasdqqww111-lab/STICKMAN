@@ -187,7 +187,7 @@ PASS  item model exists: battle_axe
 PASS  item model exists: apprentice_staff
 PASS  item model exists: frost_staff
 PASS  item model exists: round_shield
-RESULT combat: 185 checks, 0 failures (4 ms)
+RESULT combat: 185 checks, 0 failures (5 ms)
 
 =========== tests/test_planet.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -257,7 +257,7 @@ PASS  every vertex has a colour (expected 25, got 25)
 PASS  all vertices stay near the planet radius
 PASS  index buffer is in range
 PASS  adjacent cube faces meet at the seam (expected 0.000000 ± 0.010000, got 0.000000)
-RESULT planet: 65 checks, 0 failures (13 ms)
+RESULT planet: 65 checks, 0 failures (12 ms)
 
 =========== tests/test_player.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -598,7 +598,7 @@ PASS  ready state survives using collected items (expected 3, got 3)
 PASS  most quests are gated at the start
 PASS  rank quest remains gated
 PASS  objective text shows progress
-RESULT quests: 236 checks, 0 failures (6 ms)
+RESULT quests: 236 checks, 0 failures (8 ms)
 
 =========== tests/test_save.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -655,7 +655,7 @@ PASS  XP above the level threshold is rejected
 PASS  zero direction falls back to the spawn direction (expected 1.000000 ± 0.000100, got 1.000000)
 PASS  save exists before erase
 PASS  save files can be removed
-RESULT save: 52 checks, 0 failures (11 ms)
+RESULT save: 52 checks, 0 failures (12 ms)
 
 =========== tests/test_scene.gd ===========
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org

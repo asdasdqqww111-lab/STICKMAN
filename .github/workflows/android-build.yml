@@ -78,6 +78,18 @@ jobs:
           strings /tmp/manifest.bin >> /tmp/manifest-strings.txt 2>/dev/null || true
           echo "--- manifest strings ---"; head -40 /tmp/manifest-strings.txt
           grep -q "com.microworld.living" /tmp/manifest-strings.txt || { echo "::error::package id missing from manifest"; FAIL=1; }
+          # Record the real SDK levels baked into the APK.  The Gradle-less export path
+          # ships the prebuilt template's values, so they are measured, not overridden.
+          AAPT2=$(find "${ANDROID_HOME}/build-tools" -name aapt2 -type f 2>/dev/null | head -1)
+          if [ -n "${AAPT2}" ]; then
+            "${AAPT2}" dump badging "${APK}" > build/badging.txt 2>&1 || true
+            head -12 build/badging.txt || true
+            grep -o "sdkVersion:'[0-9]*'" build/badging.txt | head -1 >> build/apk-facts.txt || true
+            grep -o "targetSdkVersion:'[0-9]*'" build/badging.txt | head -1 >> build/apk-facts.txt || true
+          else
+            echo "::warning::aapt2 not found; SDK level not recorded"
+          fi
+          [ "${FAIL}" -eq 0 ] || exit 1
           # Record the real SDK levels baked into the APK.  The Gradle-less export
           # path uses the prebuilt template's values, so we measure instead of
           # pretending we can override them (Godot refuses the override without Gradle).
@@ -110,6 +122,8 @@ jobs:
           mkdir -p .ci/android
           cp -f build.log .ci/android/ 2>/dev/null || true
           cp -f apk-inspect.txt .ci/android/ 2>/dev/null || true
+          cp -f build/apk-facts.txt .ci/android/ 2>/dev/null || true
+          cp -f build/badging.txt .ci/android/ 2>/dev/null || true
           cp -f export.log .ci/android/ 2>/dev/null || true
           cat > .ci/android/summary.txt <<SUMMARY
           run=${GITHUB_RUN_ID}
@@ -121,6 +135,7 @@ jobs:
           SUMMARY
           if [ -f build/apk.sha256 ]; then cp build/apk.sha256 .ci/android/; fi
           echo "APK_SIZE=${APK_SIZE_BYTES:-0}" >> .ci/android/summary.txt
+          if [ -f build/apk-facts.txt ]; then echo "facts:" >> .ci/android/summary.txt; cat build/apk-facts.txt >> .ci/android/summary.txt; fi
           echo "ls:" >> .ci/android/summary.txt
           ls -la build >> .ci/android/summary.txt 2>&1 || true
           echo "manifest_raw:" >> .ci/android/summary.txt

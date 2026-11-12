@@ -129,7 +129,7 @@ static func create(id: String) -> Resource:
 	quest.required_level = spec.get("level", 1)
 	quest.xp_reward = spec.get("xp", 0)
 	quest.gold_reward = spec.get("gold", 0)
-	quest.item_rewards = spec.get("items", [])
+	quest.item_rewards.assign(spec.get("items", []))
 	quest.giver = spec.get("giver", "registrar")
 	quest.giver_text = spec.get("giver_text", "")
 	quest.sort_order = spec.get("order", 0)

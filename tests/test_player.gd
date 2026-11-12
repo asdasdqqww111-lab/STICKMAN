@@ -74,7 +74,6 @@ func _test_inventory() -> void:
 	state.add_item("warden_sigil", 1)
 	check_eq(state.item_count("warden_sigil"), 2, "non-stackable items accumulate as rows")
 	# Consumables heal for their declared amount.
-	var health_before := state.health
 	state.health = 10.0
 	state.add_item("healing_potion", 1)
 	var message := state.use_item("healing_potion")
@@ -161,7 +160,8 @@ func _test_damage_and_healing() -> void:
 	check_near(applied, 30.0 - defence * 0.55, 0.01, "mitigation formula matches defence")
 	var healed := state.heal(10.0)
 	check_true(healed > 0.0, "healing works")
-	check_near(state.heal(9999.0), state.max_health() - state.health, 0.01, "healing is capped at max health")
+	var missing := state.max_health() - state.health
+	check_near(state.heal(9999.0), missing, 0.01, "healing is capped at max health")
 	# Death.
 	var deaths := int(state.stats.get("deaths", 0))
 	state.take_damage(9999.0)

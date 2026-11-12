@@ -343,7 +343,7 @@ func _build_npcs() -> void:
 		{"id": "scout_ivy", "name": "Ivy the Scout", "role": "scout", "offset": Vector2(0.010, 0.008), "colour": Color("8ecae6")},
 	]
 	for row in rows:
-		var home := (village + Math3D.east(village) * row["offset"].x + Math3D.north(village) * row["offset"].y).normalized()
+		var home: Vector3 = (village + Math3D.east(village) * row["offset"].x + Math3D.north(village) * row["offset"].y).normalized()
 		var npc := NpcActor.new()
 		npc.name = "NPC_" + row["id"]
 		entities_root.add_child(npc)
@@ -1011,7 +1011,7 @@ func _save_now(announce: bool) -> void:
 	state.time_of_day = clock.time_of_day
 	state.day = clock.day
 	state.stats["played_seconds"] = play_seconds
-	var result: Dictionary = SaveGame.save(state)
+	var result := SaveGame.save(state)
 	var ok: bool = result.ok
 	if announce or not ok:
 		hud.show_notice("Game saved." if ok else "Save failed: " + result.reason, 3.0)

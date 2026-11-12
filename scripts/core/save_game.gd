@@ -132,6 +132,8 @@ static func load_state(primary: String = PRIMARY, backup: String = BACKUP) -> Pl
 
 
 static func _restore_into(data: Dictionary) -> bool:
+	if data.is_empty():
+		return false
 	var probe := PlayerState.new()
 	return probe.restore(migrate(data))
 
@@ -147,6 +149,8 @@ static func _quarantine(path: String) -> void:
 
 
 static func has_save(primary: String = PRIMARY, backup: String = BACKUP) -> bool:
+	if not FileAccess.file_exists(primary) and not FileAccess.file_exists(backup):
+		return false
 	return _restore_into(_parse(primary)) or _restore_into(_parse(backup))
 
 
@@ -194,10 +198,8 @@ static func migrate(input: Dictionary) -> Dictionary:
 		data["quests"] = quests
 		data["gathered"] = data.get("gathered", [])
 		data["defeated"] = data.get("defeated", [])
+		# herbs / potions / sword_forged are consumed by the v2 -> v3 step below.
 		data.erase("kills")
-		data.erase("herbs")
-		data.erase("potions")
-		data.erase("sword_forged")
 		data["version"] = 2
 
 	# v2 -> v3: flat stats -> inventory rows, equipment dict, reputation.
@@ -216,8 +218,12 @@ static func migrate(input: Dictionary) -> Dictionary:
 			"armour": "",
 		}
 		data["reputation"] = 0
-		if data.has("mana"):
+		if not data.has("stamina"):
 			data["stamina"] = 100.0
+		data.erase("herbs")
+		data.erase("potions")
+		data.erase("sword_forged")
+		data.erase("herb_quest")
 		data["version"] = 3
 
 	# v3 -> v4: region ids moved from cube-cell grid (SIZE 64) to streamed regions (SIZE 12).

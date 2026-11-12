@@ -1,0 +1,57 @@
+==> Godot: 4.7.2.stable.official.ed1daf0bf
+==> Java: openjdk version "17.0.21" 2026-10-20
+==> SDK: /home/runner/android-sdk
+35.0.0
+==> creating debug keystore
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+	for: CN=Android Debug, O=Android, C=US
+[Storing /home/runner/.android/debug.keystore]
+==> importing project
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+==> exporting APK
+Saving project files from res://scripts/world/npc_actor.gd.remap into assets/scripts/world/npc_actor.gd.remap
+Saving project files from res://scripts/world/resource_node.gd.remap into assets/scripts/world/resource_node.gd.remap
+Saving project files from res://scripts/world/world_builder.gd.remap into assets/scripts/world/world_builder.gd.remap
+Saving project files from res://scripts/world/world_clock.gd.remap into assets/scripts/world/world_clock.gd.remap
+Saving project files from res://scripts/world/world_simulation.gd.remap into assets/scripts/world/world_simulation.gd.remap
+Saving project files from res://.godot/global_script_class_cache.cfg into assets/.godot/global_script_class_cache.cfg
+Saving project files from res://icon.svg into assets/icon.svg
+Saving project files from res://.godot/uid_cache.bin into assets/.godot/uid_cache.bin
+Saving project files from res://project.binary into assets/project.binary
+[  97% ] [90m[1mexport[22m | Aligning APK...[39m[0m
+[  98% ] [90m[1mexport[22m | Signing debug APK...[39m[0m
+Could not find version of build tools that matches Target SDK, using 35.0.0
+Starting signing of the APK binary using /home/runner/android-sdk/build-tools/35.0.0/apksigner
+Signing debug binary using: 
+/home/runner/android-sdk/build-tools/35.0.0/apksigner sign --verbose --ks /home/runner/.android/debug.keystore --ks-pass pass:android --ks-key-alias androiddebugkey /home/runner/work/STICKMAN/STICKMAN/build/microworld-living-debug.apk
+Signed
+
+[  99% ] [90m[1mexport[22m | Verifying APK...[39m[0m
+Verifying signed build using: 
+/home/runner/android-sdk/build-tools/35.0.0/apksigner verify --verbose /home/runner/work/STICKMAN/STICKMAN/build/microworld-living-debug.apk
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+
+Successfully completed signing build.
+[92m[ DONE ][39m [1mexport[22m
+[0m
+Script docs haven't been properly loaded or regenerated, so don't save them to disk.
+cannot connect to daemon at tcp:5037: Connection refused
+EditorSettings: Save OK!
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Orphan StringName: Node (static: 3, total: 4)
+StringName: 1 unclaimed string names at exit.
+==> APK produced:
+-rw-r--r-- 1 runner runner 101212863 Nov 12 16:09 build/microworld-living-debug.apk

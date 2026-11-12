@@ -1,0 +1,10 @@
+# Known issues and omissions
+
+- This is a small experimental foundation, not the specified full game or MVP. Zero continents, kingdoms, explorable cities/interiors, dungeons, bosses, general inventory/equipment/crafting systems, social simulation or offline progression.
+- The planet is a smooth 250-unit-radius sphere. No elevated terrain, terrain physics, planet-scale streaming or terrain LOD. The six-face partition streams only props; it is not cube-sphere terrain. Pole movement and cube-corner streaming need further testing and refinement. Props and houses have no collision; monsters use analytic range checks, not hitboxes or pathfinding.
+- Combat has no animation, line-of-sight, lock-on, dodge, block, status effects, elemental resistance or audiovisual feedback. Slimes can hit through obstacles. The one spell is immediate, not a projectile.
+- Only F–D and two short linked contracts are implemented; promotion checks are not separate exam encounters. One spell, one potion recipe and one forgeable sword exist. Slimes and herbs are finite and do not respawn. A general inventory, quest database, economy and additional ranks are absent.
+- UI is English, uses fixed-size buttons, and needs responsive layout, Arabic localization, safe-area support, camera orbit and a proper touch joystick. The map is a sparse global diagram, not a detailed terrain map or minimap. There is no settings menu or customization.
+- The day/night cycle changes only the light rotation; weather and time-dependent AI are absent.
+- Save backup is a previous generation and backup writes are not atomic; migrations cover only versions 1 and 2, and stronger durability is absent. Legacy discovered-cell mapping is approximate and may change future discovery XP; original IDs and the old discovery-count milestone are retained. Full platform recovery testing is needed.
+- Imported visuals, desktop playability, Android build/device support and real performance are not guaranteed; consult `TEST_REPORT.md` and `ASSET_INTEGRATION_REPORT.md`.

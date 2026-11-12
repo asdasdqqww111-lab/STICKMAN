@@ -1,2 +1,41 @@
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
+ASSET SHOWCASE — 34 loaded, 0 failed
+Loaded:
+  ✔ Knight.glb
+  ✔ Mage.glb
+  ✔ Rogue.glb
+  ✔ Barbarian.glb
+  ✔ Skeleton_Minion.glb
+  ✔ Skeleton_Warrior.glb
+  ✔ Skeleton_Mage.glb
+  ✔ Skeleton_Rogue.glb
+  ✔ sword_1handed.gltf
+  ✔ sword_2handed.gltf
+  ✔ staff.gltf
+  ✔ axe_1handed.gltf
+  ✔ dagger.gltf
+  ✔ shield_round.gltf
+  ✔ building_A.gltf
+  ✔ building_B.gltf
+  ✔ building_C.gltf
+  ✔ bush.gltf
+  ✔ bench.gltf
+  ✔ box_A.gltf
+  ✔ road_straight.gltf
+  ✔ floor_tile_big_grate.gltf.glb
+  ✔ wall.gltf.glb
+  ✔ wall_corner.gltf.glb
+  ✔ pillar.gltf.glb
+  ✔ torch_lit.gltf.glb
+  ✔ chest.glb
+  ✔ chest_gold.glb
+  ✔ barrel_large.gltf.glb
+  ✔ crates_stacked.gltf.glb
+  ✔ candle_lit.gltf.glb
+  ✔ banner_red.gltf.glb
+  ✔ rubble_half.gltf.glb
+  ✔ knife_slice.ogg
+Animators: 8
+Oscillating through clips; see ASSET_INTEGRATION_REPORT.md
+SHOWCASE_RESULT: PASS

@@ -15,7 +15,27 @@ benchmark that CI runs on every push (`tests/benchmark.gd`, log at `.ci/last-run
 
 Command: `godot --headless --path . --script tests/benchmark.gd`
 
-<!-- BENCHMARK_RESULTS -->
+Run `43258628395`+ (Godot 4.7.2 headless, GitHub Actions `ubuntu-latest`, dummy renderer — **CPU only,
+no GPU**):
+
+| Measurement | Result |
+| --- | --- |
+| Terrain `elevation` + `moisture`, 20,000 directions | 620.6 ms total → **31.0 µs per sample** |
+| Region lookup `region_of`, 50,000 directions | 66.5 ms total → **1.33 µs per lookup**, 832 distinct regions hit |
+| Full 6-face planet mesh @ 12×12 (Low preset) | **121.9 ms**, 1,014 verts / 1,728 tris |
+| Full 6-face planet mesh @ 16×16 (default) | **215.4 ms**, 1,734 verts / 3,072 tris |
+| Total planet generation pipeline (terrain + regions + both meshes) | **1,024.6 ms** |
+
+Interpretation, conservative and explicit:
+
+- Terrain sampling dominates at ~31 µs per evaluation. That is why prop scatter and world building
+  only sample a bounded set of directions instead of the whole sphere per frame.
+- **The planet mesh itself costs ~215 ms of CPU time for all 3,072 triangles.** A mid-range phone
+  runs this GDScript roughly 2–4× slower than a desktop runner, so expect 0.5–1 s of one-time work
+  when `Game.tscn` loads. This is a **startup cost**, was already moved onto a worker thread in
+  `planet_mesh.gd`, and is the single number most worth improving before increasing world size.
+- These are CPU measurements. They say nothing about GPU fill rate, draw-call cost, thermal
+  behaviour or Android I/O. Do not read them as a frame-rate estimate.
 
 ## Structural budgets (by construction, not by benchmark)
 

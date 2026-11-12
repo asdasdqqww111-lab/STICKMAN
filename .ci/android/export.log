@@ -471,7 +471,6 @@ Successfully completed signing build.
 [92m[ DONE ][39m [1mexport[22m
 [0m
 Script docs haven't been properly loaded or regenerated, so don't save them to disk.
-cannot connect to daemon at tcp:5037: Connection refused
 EditorSettings: Save OK!
 XR: Clearing primary interface
 XR: Removed interface "Native mobile"

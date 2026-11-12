@@ -92,7 +92,7 @@ jobs:
       - name: Publish build report into the repository
         if: always()
         run: |
-          set -euo pipefail
+          set -eo pipefail
           mkdir -p .ci/android
           cp -f build.log .ci/android/ 2>/dev/null || true
           cp -f apk-inspect.txt .ci/android/ 2>/dev/null || true

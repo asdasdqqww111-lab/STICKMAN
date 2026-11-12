@@ -1,0 +1,270 @@
+PASS  present: assets/vendor/audio/LICENSE-kenney-rpg-audio.txt
+PASS  sha256 matches source: assets/vendor/audio/LICENSE-kenney-rpg-audio.txt
+PASS  present: assets/vendor/audio/book_flip_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/book_flip_1.ogg
+PASS  present: assets/vendor/audio/cloth_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/cloth_1.ogg
+PASS  present: assets/vendor/audio/door_close_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/door_close_1.ogg
+PASS  present: assets/vendor/audio/door_open_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/door_open_1.ogg
+PASS  present: assets/vendor/audio/draw_knife_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/draw_knife_1.ogg
+PASS  present: assets/vendor/audio/footstep_0.ogg
+PASS  sha256 matches source: assets/vendor/audio/footstep_0.ogg
+PASS  present: assets/vendor/audio/footstep_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/footstep_1.ogg
+PASS  present: assets/vendor/audio/footstep_2.ogg
+PASS  sha256 matches source: assets/vendor/audio/footstep_2.ogg
+PASS  present: assets/vendor/audio/footstep_3.ogg
+PASS  sha256 matches source: assets/vendor/audio/footstep_3.ogg
+PASS  present: assets/vendor/audio/handle_coins.ogg
+PASS  sha256 matches source: assets/vendor/audio/handle_coins.ogg
+PASS  present: assets/vendor/audio/handle_coins_2.ogg
+PASS  sha256 matches source: assets/vendor/audio/handle_coins_2.ogg
+PASS  present: assets/vendor/audio/knife_slice.ogg
+PASS  sha256 matches source: assets/vendor/audio/knife_slice.ogg
+PASS  present: assets/vendor/audio/knife_slice_2.ogg
+PASS  sha256 matches source: assets/vendor/audio/knife_slice_2.ogg
+PASS  present: assets/vendor/audio/metal_click.ogg
+PASS  sha256 matches source: assets/vendor/audio/metal_click.ogg
+PASS  present: assets/vendor/audio/metal_pot_1.ogg
+PASS  sha256 matches source: assets/vendor/audio/metal_pot_1.ogg
+PASS  present: assets/vendor/characters/adventurers/Barbarian.glb
+PASS  sha256 matches source: assets/vendor/characters/adventurers/Barbarian.glb
+PASS  present: assets/vendor/characters/adventurers/Knight.glb
+PASS  sha256 matches source: assets/vendor/characters/adventurers/Knight.glb
+PASS  present: assets/vendor/characters/adventurers/LICENSE-kaykit-adventurers.txt
+PASS  sha256 matches source: assets/vendor/characters/adventurers/LICENSE-kaykit-adventurers.txt
+PASS  present: assets/vendor/characters/adventurers/Mage.glb
+PASS  sha256 matches source: assets/vendor/characters/adventurers/Mage.glb
+PASS  present: assets/vendor/characters/adventurers/Rogue.glb
+PASS  sha256 matches source: assets/vendor/characters/adventurers/Rogue.glb
+PASS  present: assets/vendor/characters/adventurers/axe_1handed.bin
+PASS  sha256 matches source: assets/vendor/characters/adventurers/axe_1handed.bin
+PASS  present: assets/vendor/characters/adventurers/axe_1handed.gltf
+PASS  sha256 matches source: assets/vendor/characters/adventurers/axe_1handed.gltf
+PASS  present: assets/vendor/characters/adventurers/barbarian_texture.png
+PASS  sha256 matches source: assets/vendor/characters/adventurers/barbarian_texture.png
+PASS  present: assets/vendor/characters/adventurers/dagger.bin
+PASS  sha256 matches source: assets/vendor/characters/adventurers/dagger.bin
+PASS  present: assets/vendor/characters/adventurers/dagger.gltf
+PASS  sha256 matches source: assets/vendor/characters/adventurers/dagger.gltf
+PASS  present: assets/vendor/characters/adventurers/knight_texture.png
+PASS  sha256 matches source: assets/vendor/characters/adventurers/knight_texture.png
+PASS  present: assets/vendor/characters/adventurers/mage_texture.png
+PASS  sha256 matches source: assets/vendor/characters/adventurers/mage_texture.png
+PASS  present: assets/vendor/characters/adventurers/rogue_texture.png
+PASS  sha256 matches source: assets/vendor/characters/adventurers/rogue_texture.png
+PASS  present: assets/vendor/characters/adventurers/shield_round.bin
+PASS  sha256 matches source: assets/vendor/characters/adventurers/shield_round.bin
+PASS  present: assets/vendor/characters/adventurers/shield_round.gltf
+PASS  sha256 matches source: assets/vendor/characters/adventurers/shield_round.gltf
+PASS  present: assets/vendor/characters/adventurers/staff.bin
+PASS  sha256 matches source: assets/vendor/characters/adventurers/staff.bin
+PASS  present: assets/vendor/characters/adventurers/staff.gltf
+PASS  sha256 matches source: assets/vendor/characters/adventurers/staff.gltf
+PASS  present: assets/vendor/characters/adventurers/sword_1handed.bin
+PASS  sha256 matches source: assets/vendor/characters/adventurers/sword_1handed.bin
+PASS  present: assets/vendor/characters/adventurers/sword_1handed.gltf
+PASS  sha256 matches source: assets/vendor/characters/adventurers/sword_1handed.gltf
+PASS  present: assets/vendor/characters/adventurers/sword_2handed.bin
+PASS  sha256 matches source: assets/vendor/characters/adventurers/sword_2handed.bin
+PASS  present: assets/vendor/characters/adventurers/sword_2handed.gltf
+PASS  sha256 matches source: assets/vendor/characters/adventurers/sword_2handed.gltf
+PASS  present: assets/vendor/characters/skeletons/LICENSE-kaykit-skeletons.txt
+PASS  sha256 matches source: assets/vendor/characters/skeletons/LICENSE-kaykit-skeletons.txt
+PASS  present: assets/vendor/characters/skeletons/Skeleton_Mage.glb
+PASS  sha256 matches source: assets/vendor/characters/skeletons/Skeleton_Mage.glb
+PASS  present: assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  sha256 matches source: assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  present: assets/vendor/characters/skeletons/Skeleton_Rogue.glb
+PASS  sha256 matches source: assets/vendor/characters/skeletons/Skeleton_Rogue.glb
+PASS  present: assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  sha256 matches source: assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  present: assets/vendor/city/LICENSE-kaykit-city.txt
+PASS  sha256 matches source: assets/vendor/city/LICENSE-kaykit-city.txt
+PASS  present: assets/vendor/city/bench.bin
+PASS  sha256 matches source: assets/vendor/city/bench.bin
+PASS  present: assets/vendor/city/bench.gltf
+PASS  sha256 matches source: assets/vendor/city/bench.gltf
+PASS  present: assets/vendor/city/box_A.bin
+PASS  sha256 matches source: assets/vendor/city/box_A.bin
+PASS  present: assets/vendor/city/box_A.gltf
+PASS  sha256 matches source: assets/vendor/city/box_A.gltf
+PASS  present: assets/vendor/city/building_A.bin
+PASS  sha256 matches source: assets/vendor/city/building_A.bin
+PASS  present: assets/vendor/city/building_A.gltf
+PASS  sha256 matches source: assets/vendor/city/building_A.gltf
+PASS  present: assets/vendor/city/building_B.bin
+PASS  sha256 matches source: assets/vendor/city/building_B.bin
+PASS  present: assets/vendor/city/building_B.gltf
+PASS  sha256 matches source: assets/vendor/city/building_B.gltf
+PASS  present: assets/vendor/city/building_C.bin
+PASS  sha256 matches source: assets/vendor/city/building_C.bin
+PASS  present: assets/vendor/city/building_C.gltf
+PASS  sha256 matches source: assets/vendor/city/building_C.gltf
+PASS  present: assets/vendor/city/bush.bin
+PASS  sha256 matches source: assets/vendor/city/bush.bin
+PASS  present: assets/vendor/city/bush.gltf
+PASS  sha256 matches source: assets/vendor/city/bush.gltf
+PASS  present: assets/vendor/city/citybits_texture.png
+PASS  sha256 matches source: assets/vendor/city/citybits_texture.png
+PASS  present: assets/vendor/city/road_straight.bin
+PASS  sha256 matches source: assets/vendor/city/road_straight.bin
+PASS  present: assets/vendor/city/road_straight.gltf
+PASS  sha256 matches source: assets/vendor/city/road_straight.gltf
+PASS  present: assets/vendor/dungeon/LICENSE-kaykit-dungeon.txt
+PASS  sha256 matches source: assets/vendor/dungeon/LICENSE-kaykit-dungeon.txt
+PASS  present: assets/vendor/dungeon/banner_red.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/banner_red.gltf.glb
+PASS  present: assets/vendor/dungeon/barrel_large.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/barrel_large.gltf.glb
+PASS  present: assets/vendor/dungeon/candle_lit.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/candle_lit.gltf.glb
+PASS  present: assets/vendor/dungeon/chest.glb
+PASS  sha256 matches source: assets/vendor/dungeon/chest.glb
+PASS  present: assets/vendor/dungeon/chest_gold.glb
+PASS  sha256 matches source: assets/vendor/dungeon/chest_gold.glb
+PASS  present: assets/vendor/dungeon/coin.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/coin.gltf.glb
+PASS  present: assets/vendor/dungeon/coin_stack_small.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/coin_stack_small.gltf.glb
+PASS  present: assets/vendor/dungeon/crates_stacked.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/crates_stacked.gltf.glb
+PASS  present: assets/vendor/dungeon/floor_tile_big_grate.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/floor_tile_big_grate.gltf.glb
+PASS  present: assets/vendor/dungeon/floor_tile_big_grate_open.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/floor_tile_big_grate_open.gltf.glb
+PASS  present: assets/vendor/dungeon/floor_tile_big_spikes.glb
+PASS  sha256 matches source: assets/vendor/dungeon/floor_tile_big_spikes.glb
+PASS  present: assets/vendor/dungeon/pillar.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/pillar.gltf.glb
+PASS  present: assets/vendor/dungeon/rubble_half.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/rubble_half.gltf.glb
+PASS  present: assets/vendor/dungeon/stairs.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/stairs.gltf.glb
+PASS  present: assets/vendor/dungeon/torch_lit.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/torch_lit.gltf.glb
+PASS  present: assets/vendor/dungeon/torch_mounted.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/torch_mounted.gltf.glb
+PASS  present: assets/vendor/dungeon/wall.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/wall.gltf.glb
+PASS  present: assets/vendor/dungeon/wall_corner.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/wall_corner.gltf.glb
+PASS  present: assets/vendor/dungeon/wall_doorway_scaffold.glb
+PASS  sha256 matches source: assets/vendor/dungeon/wall_doorway_scaffold.glb
+PASS  present: assets/vendor/dungeon/wall_pillar.gltf.glb
+PASS  sha256 matches source: assets/vendor/dungeon/wall_pillar.gltf.glb
+PASS  asset catalog lists 56 paths
+PASS  catalogued asset exists: res://assets/vendor/audio/book_flip_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/cloth_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/door_close_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/door_open_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/draw_knife_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/footstep_0.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/footstep_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/footstep_2.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/footstep_3.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/handle_coins.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/handle_coins_2.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/knife_slice.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/knife_slice_2.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/metal_click.ogg
+PASS  catalogued asset exists: res://assets/vendor/audio/metal_pot_1.ogg
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/Barbarian.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/Knight.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/Mage.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/Rogue.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/axe_1handed.gltf
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/dagger.gltf
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/shield_round.gltf
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/staff.gltf
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/sword_1handed.gltf
+PASS  catalogued asset exists: res://assets/vendor/characters/adventurers/sword_2handed.gltf
+PASS  catalogued asset exists: res://assets/vendor/characters/skeletons/Skeleton_Mage.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/skeletons/Skeleton_Rogue.glb
+PASS  catalogued asset exists: res://assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  catalogued asset exists: res://assets/vendor/city/bench.gltf
+PASS  catalogued asset exists: res://assets/vendor/city/box_A.gltf
+PASS  catalogued asset exists: res://assets/vendor/city/building_A.gltf
+PASS  catalogued asset exists: res://assets/vendor/city/building_B.gltf
+PASS  catalogued asset exists: res://assets/vendor/city/building_C.gltf
+PASS  catalogued asset exists: res://assets/vendor/city/bush.gltf
+PASS  catalogued asset exists: res://assets/vendor/city/road_straight.gltf
+PASS  catalogued asset exists: res://assets/vendor/dungeon/banner_red.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/barrel_large.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/candle_lit.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/chest.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/chest_gold.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/coin.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/coin_stack_small.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/crates_stacked.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/floor_tile_big_grate.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/floor_tile_big_grate_open.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/floor_tile_big_spikes.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/pillar.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/rubble_half.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/stairs.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/torch_lit.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/torch_mounted.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/wall.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/wall_corner.gltf.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/wall_doorway_scaffold.glb
+PASS  catalogued asset exists: res://assets/vendor/dungeon/wall_pillar.gltf.glb
+PASS  valid GLB: assets/vendor/characters/adventurers/Knight.glb
+PASS  Knight.glb has all 11 gameplay clips
+PASS  Knight.glb exposes hand bones for weapons
+PASS  Knight.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/adventurers/Mage.glb
+PASS  Mage.glb has all 11 gameplay clips
+PASS  Mage.glb exposes hand bones for weapons
+PASS  Mage.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/adventurers/Rogue.glb
+PASS  Rogue.glb has all 11 gameplay clips
+PASS  Rogue.glb exposes hand bones for weapons
+PASS  Rogue.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/adventurers/Barbarian.glb
+PASS  Barbarian.glb has all 11 gameplay clips
+PASS  Barbarian.glb exposes hand bones for weapons
+PASS  Barbarian.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/skeletons/Skeleton_Minion.glb
+PASS  Skeleton_Minion.glb has all 11 gameplay clips
+PASS  Skeleton_Minion.glb exposes hand bones for weapons
+PASS  Skeleton_Minion.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/skeletons/Skeleton_Warrior.glb
+PASS  Skeleton_Warrior.glb has all 11 gameplay clips
+PASS  Skeleton_Warrior.glb exposes hand bones for weapons
+PASS  Skeleton_Warrior.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/skeletons/Skeleton_Mage.glb
+PASS  Skeleton_Mage.glb has all 11 gameplay clips
+PASS  Skeleton_Mage.glb exposes hand bones for weapons
+PASS  Skeleton_Mage.glb is skinned (rigged)
+PASS  valid GLB: assets/vendor/characters/skeletons/Skeleton_Rogue.glb
+PASS  Skeleton_Rogue.glb has all 11 gameplay clips
+PASS  Skeleton_Rogue.glb exposes hand bones for weapons
+PASS  Skeleton_Rogue.glb is skinned (rigged)
+PASS  weapon mesh: sword_1handed.gltf
+PASS  weapon mesh: sword_2handed.gltf
+PASS  weapon mesh: staff.gltf
+PASS  weapon mesh: dagger.gltf
+PASS  weapon mesh: axe_1handed.gltf
+PASS  weapon mesh: shield_round.gltf
+PASS  valid Ogg container: book_flip_1.ogg
+PASS  valid Ogg container: cloth_1.ogg
+PASS  valid Ogg container: door_close_1.ogg
+PASS  valid Ogg container: door_open_1.ogg
+PASS  valid Ogg container: draw_knife_1.ogg
+PASS  valid Ogg container: footstep_0.ogg
+PASS  valid Ogg container: footstep_1.ogg
+PASS  valid Ogg container: footstep_2.ogg
+PASS  valid Ogg container: footstep_3.ogg
+PASS  valid Ogg container: handle_coins.ogg
+PASS  valid Ogg container: handle_coins_2.ogg
+PASS  valid Ogg container: knife_slice.ogg
+PASS  valid Ogg container: knife_slice_2.ogg
+PASS  valid Ogg container: metal_click.ogg
+PASS  valid Ogg container: metal_pot_1.ogg
+
+all asset checks passed

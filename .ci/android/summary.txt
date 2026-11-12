@@ -1,25 +1,23 @@
-run=43256932575
-sha=b64f75557bf8c3ce4f4246670c8d1582b1326df2
-status=success
-apk_size_bytes=101212863
+run=43257603551
+sha=88b17198bb7e00a8391f878686c3de5cc4ed344f
+status=cancelled
+apk_size_bytes=0
 godot=4.7.2-stable
 java=openjdk version "17.0.21" 2026-10-20
-APK_SIZE=101212863
+APK_SIZE=0
 ls:
-total 198492
-drwxr-xr-x  2 runner runner      4096 Nov 12 16:18 .
-drwxr-xr-x 12 runner runner      4096 Nov 12 16:18 ..
--rw-r--r--  1 runner runner 101212863 Nov 12 16:18 MICRO-WORLD-LIVING-8-debug.apk
--rw-r--r--  1 runner runner       100 Nov 12 16:18 apk.sha256
--rw-r--r--  1 runner runner 101212863 Nov 12 16:18 microworld-living-debug.apk
--rw-r--r--  1 runner runner    808370 Nov 12 16:18 microworld-living-debug.apk.idsig
+total 99644
+drwxr-xr-x  2 runner runner      4096 Nov 12 16:21 .
+drwxr-xr-x 12 runner runner      4096 Nov 12 16:21 ..
+-rw-r--r--  1 runner runner 101212863 Nov 12 16:21 microworld-living-debug.apk
+-rw-r--r--  1 runner runner    808371 Nov 12 16:21 microworld-living-debug.apk.idsig
 manifest_raw:
 ### APK listing
 total 99644
-drwxr-xr-x  2 runner runner      4096 Nov 12 16:18 .
-drwxr-xr-x 12 runner runner      4096 Nov 12 16:18 ..
--rw-r--r--  1 runner runner 101212863 Nov 12 16:18 microworld-living-debug.apk
--rw-r--r--  1 runner runner    808370 Nov 12 16:18 microworld-living-debug.apk.idsig
+drwxr-xr-x  2 runner runner      4096 Nov 12 16:21 .
+drwxr-xr-x 12 runner runner      4096 Nov 12 16:21 ..
+-rw-r--r--  1 runner runner 101212863 Nov 12 16:21 microworld-living-debug.apk
+-rw-r--r--  1 runner runner    808371 Nov 12 16:21 microworld-living-debug.apk.idsig
 
 ### zip contents
 Archive:  build/microworld-living-debug.apk

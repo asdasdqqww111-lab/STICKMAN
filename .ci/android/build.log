@@ -54,4 +54,4 @@ XR: Removed interface "OpenXR"
 Orphan StringName: Node (static: 3, total: 4)
 StringName: 1 unclaimed string names at exit.
 ==> APK produced:
--rw-r--r-- 1 runner runner 101212863 Nov 12 16:18 build/microworld-living-debug.apk
+-rw-r--r-- 1 runner runner 101212863 Nov 12 16:21 build/microworld-living-debug.apk

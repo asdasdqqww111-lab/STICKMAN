@@ -166,7 +166,7 @@ func _resize() -> void:
 	var column := get_node_or_null("ActionColumn") as Control
 	if column != null:
 		column.offset_left = viewport.x - 380.0
-		column.offset_right = -maxf(20.0, float(safe.end_position and 0 or 0) + 20.0)
+		column.offset_right = -20.0
 		column.offset_top = viewport.y - 300.0
 		column.offset_bottom = -bottom_offset
 		column.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_MINSIZE, 20)

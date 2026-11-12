@@ -51,7 +51,7 @@ func build_visual(model_path: String = "") -> void:
 		instance.scale = Vector3.ONE * model_scale
 		instance.rotation.y = PI   # KayKit models face -Z; turn them to +Z.
 		_body.add_child(instance)
-		animator = CharacterAnimator.new()
+		animator = (load("res://scripts/core/character_animator.gd") as GDScript).new()
 		add_child(animator)
 		if not animator.setup(instance):
 			animator = null

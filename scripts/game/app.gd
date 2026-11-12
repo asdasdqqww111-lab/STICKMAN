@@ -22,7 +22,7 @@ var _menu_layer: CanvasLayer
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	theme = UITheme.build()
-	settings = GameSettings.new()
+	settings = (load("res://scripts/core/game_settings.gd") as GDScript).new()
 	settings.load_settings()
 	_build_backdrop()
 	_show_menu()
@@ -95,7 +95,7 @@ func _process(delta: float) -> void:
 func _show_menu() -> void:
 	if menu != null:
 		menu.queue_free()
-	menu = MainMenu.new()
+	menu = (load("res://scripts/ui/main_menu.gd") as GDScript).new()
 	add_child(menu)
 	menu.new_game_requested.connect(_start_new_game)
 	menu.continue_requested.connect(_continue_game)
@@ -106,7 +106,7 @@ func _show_menu() -> void:
 func _show_settings() -> void:
 	if settings_panel != null:
 		settings_panel.queue_free()
-	settings_panel = GamePanels.new()
+	settings_panel = (load("res://scripts/ui/game_panels.gd") as GDScript).new()
 	add_child(settings_panel)
 	settings_panel.bind(null, null, null, settings)
 	settings_panel.open_settings_only(settings)

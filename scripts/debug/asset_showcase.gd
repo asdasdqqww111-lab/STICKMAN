@@ -72,7 +72,7 @@ func _spawn(path: String, position: Vector3, scale_value: float = 1.0, animate: 
 	add_child(instance)
 	_loaded.append(path.get_file())
 	if animate:
-		var animator := CharacterAnimator.new()
+		var animator: Node = (load("res://scripts/core/character_animator.gd") as GDScript).new()
 		add_child(animator)
 		if animator.setup(instance):
 			animator.play("idle")

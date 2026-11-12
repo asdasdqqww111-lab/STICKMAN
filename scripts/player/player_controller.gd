@@ -60,7 +60,7 @@ func setup(player_state: RefCounted, body_path: String = AssetCatalog.PLAYER_BOD
 		var instance: Node3D = scene.instantiate()
 		instance.rotation.y = PI
 		model_root.add_child(instance)
-		animator = CharacterAnimator.new()
+		animator = (load("res://scripts/core/character_animator.gd") as GDScript).new()
 		add_child(animator)
 		if not animator.setup(instance):
 			animator = null

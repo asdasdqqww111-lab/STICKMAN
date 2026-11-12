@@ -65,7 +65,7 @@ func build_visual() -> void:
 		instance.rotation.y = PI
 		instance.scale = Vector3.ONE * data.model_scale
 		model_root.add_child(instance)
-		animator = CharacterAnimator.new()
+		animator = (load("res://scripts/core/character_animator.gd") as GDScript).new()
 		add_child(animator)
 		if not animator.setup(instance):
 			animator = null
@@ -150,7 +150,7 @@ func _tick_patrol(delta: float, distance: float) -> void:
 	if _should_aggro(distance):
 		state = State.CHASE
 		return
-	var metres := data.move_speed * 0.45 * delta
+	var metres: float = data.move_speed * 0.45 * delta
 	var to_target := (patrol_direction - current_direction * current_direction.dot(patrol_direction)).normalized()
 	var angle := metres / Math3D.RADIUS
 	current_direction = (current_direction * cos(angle) + to_target * sin(angle)).normalized()
@@ -170,8 +170,8 @@ func _tick_chase(delta: float, distance: float) -> void:
 	if distance <= data.attack_range:
 		state = State.ATTACK
 		return
-	var speed := data.move_speed * (0.55 if slow_timer > 0.0 else 1.0)
-	var metres := speed * delta
+	var speed: float = data.move_speed * (0.55 if slow_timer > 0.0 else 1.0)
+	var metres: float = speed * delta
 	var target_up: Vector3 = player.current_direction
 	var to_target := (target_up - current_direction * current_direction.dot(target_up)).normalized()
 	var angle := metres / Math3D.RADIUS
@@ -212,7 +212,7 @@ func _tick_return(delta: float) -> void:
 		if health < data.max_health:
 			health = data.max_health
 		return
-	var metres := data.move_speed * 0.8 * delta
+	var metres: float = data.move_speed * 0.8 * delta
 	var to_target := (home_direction - current_direction * current_direction.dot(home_direction)).normalized()
 	var angle := metres / Math3D.RADIUS
 	current_direction = (current_direction * cos(angle) + to_target * sin(angle)).normalized()
@@ -270,7 +270,7 @@ func apply_slow(seconds: float) -> void:
 
 
 func _update_boss_phase() -> void:
-	var ratio := health / data.max_health
+	var ratio: float = health / data.max_health
 	if boss_phase <= 1 and ratio < 0.7:
 		_enter_phase(2)
 	elif boss_phase <= 2 and ratio < 0.35:

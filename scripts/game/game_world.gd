@@ -78,7 +78,7 @@ var _session_death_handled := false
 
 func _ready() -> void:
 	Engine.max_fps = 60
-	settings = GameSettings.new()
+	settings = (load("res://scripts/core/game_settings.gd") as GDScript).new()
 	settings.load_settings()
 	if start_mode == "continue":
 		var loaded := SaveGame.load_state()
@@ -132,7 +132,7 @@ func _build_environment() -> void:
 	sky_material.sky_horizon_color = Color("9fc6d8")
 	sky_material.ground_bottom_color = Color("1a2233")
 	sky_material.ground_horizon_color = Color("51708a")
-	sky.material = sky_material
+	sky.set_material(sky_material)
 	environment.sky = sky
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	environment.ambient_light_energy = 0.9
@@ -202,7 +202,7 @@ func _build_planet() -> void:
 
 
 func _build_clock() -> void:
-	clock = WorldClock.new()
+	clock = (load("res://scripts/world/world_clock.gd") as GDScript).new()
 	clock.name = "WorldClock"
 	clock.add_to_group("world_clock")
 	add_child(clock)
@@ -212,7 +212,7 @@ func _build_clock() -> void:
 
 
 func _build_audio() -> void:
-	audio = AudioManager.new()
+	audio = (load("res://scripts/core/audio_manager.gd") as GDScript).new()
 	audio.name = "Audio"
 	audio.add_to_group("audio")
 	add_child(audio)
@@ -222,11 +222,11 @@ func _build_player() -> void:
 	entities_root = Node3D.new()
 	entities_root.name = "Entities"
 	add_child(entities_root)
-	player = PlayerController.new()
+	player = (load("res://scripts/player/player_controller.gd") as GDScript).new()
 	player.name = "Player"
 	entities_root.add_child(player)
 	player.setup(state, AssetCatalog.PLAYER_BODY)
-	camera_rig = CameraRig.new()
+	camera_rig = (load("res://scripts/player/camera_rig.gd") as GDScript).new()
 	camera_rig.name = "CameraRig"
 	add_child(camera_rig)
 	camera_rig.setup(player)
@@ -312,7 +312,7 @@ func _build_resources() -> void:
 		if spec["id"] in state.gathered:
 			continue
 		var direction := WorldBuilder.resource_direction(spec)
-		var node := ResourceNodeScript.new()
+		var node: Node3D = (load("res://scripts/world/resource_node.gd") as GDScript).new()
 		node.name = "Resource_" + spec["id"]
 		entities_root.add_child(node)
 		node.configure(spec["id"], spec["item"], 1, Terrain.ground_point(direction), Math3D.frame_at(direction), ItemDB.display_name(spec["item"]))
@@ -344,7 +344,7 @@ func _build_npcs() -> void:
 	]
 	for row in rows:
 		var home: Vector3 = (village + Math3D.east(village) * row["offset"].x + Math3D.north(village) * row["offset"].y).normalized()
-		var npc := NpcActor.new()
+		var npc: Node3D = (load("res://scripts/world/npc_actor.gd") as GDScript).new()
 		npc.name = "NPC_" + row["id"]
 		entities_root.add_child(npc)
 		npc.configure(row["id"], row["name"], row["role"], home, [
@@ -411,7 +411,7 @@ var _dungeon_chest_data: Dictionary
 
 
 func _build_simulation() -> void:
-	simulation = WorldSimulation.new()
+	simulation = (load("res://scripts/world/world_simulation.gd") as GDScript).new()
 	simulation.name = "WorldSimulation"
 	add_child(simulation)
 	simulation.bind(player, state)
@@ -419,16 +419,17 @@ func _build_simulation() -> void:
 	simulation.max_active_monsters = int(settings.preset().get("max_active_monsters", 16))
 	simulation.region_entered.connect(_on_region_entered)
 	# Register all props already built (they carry their region in metadata).
-	for child in props_root.get_children():
-		if child.has_meta("region"):
-			simulation.register_prop(String(child.get_meta("region")), child)
+	if props_root != null:
+		for child in props_root.get_children():
+			if child.has_meta("region"):
+				simulation.register_prop(String(child.get_meta("region")), child)
 
 
 func _build_vfx_and_combat() -> void:
-	vfx = Vfx.new()
+	vfx = (load("res://scripts/combat/vfx.gd") as GDScript).new()
 	vfx.name = "Vfx"
 	add_child(vfx)
-	combat = CombatSystem.new()
+	combat = (load("res://scripts/combat/combat_system.gd") as GDScript).new()
 	combat.name = "Combat"
 	add_child(combat)
 	combat.bind(player, state)
@@ -443,12 +444,12 @@ func _build_ui() -> void:
 	canvas.name = "UI"
 	canvas.layer = 10
 	add_child(canvas)
-	hud = Hud.new()
+	hud = (load("res://scripts/ui/hud.gd") as GDScript).new()
 	canvas.add_child(hud)
 	hud.bind(state, quest_log)
-	controls = TouchControls.new()
+	controls = (load("res://scripts/ui/touch_controls.gd") as GDScript).new()
 	canvas.add_child(controls)
-	panels = GamePanels.new()
+	panels = (load("res://scripts/ui/game_panels.gd") as GDScript).new()
 	canvas.add_child(panels)
 	panels.bind(state, quest_log, player, settings)
 
@@ -512,7 +513,7 @@ func _update_camera_immediately() -> void:
 
 
 func _add_interactable(kind: int, id: String, direction: Vector3, label: String, prompt: String, colour: Color, marker_height: float = 2.2) -> Node3D:
-	var node := InteractableScript.new()
+	var node: Node3D = (load("res://scripts/world/interactable.gd") as GDScript).new()
 	node.name = "Interact_" + id
 	entities_root.add_child(node)
 	node.configure(kind, id, Terrain.ground_point(direction), Math3D.frame_at(direction), label)
@@ -531,7 +532,7 @@ func _spawn_enemy_at_position(archetype: String, world_position: Vector3, instan
 	var data: Resource = MonsterDefinitions.create(archetype)
 	if data == null:
 		return null
-	var enemy := EnemyActor.new()
+	var enemy: Node3D = (load("res://scripts/combat/enemy_actor.gd") as GDScript).new()
 	enemy.name = "Enemy_" + instance_id
 	entities_root.add_child(enemy)
 	enemy.configure(data, instance_id, world_position.normalized())
@@ -682,7 +683,7 @@ func _open_chest(node: Node3D) -> void:
 		return
 	state.opened_chests.append(node.id)
 	node.set_used(true)
-	var table := LootTable.new()
+	var table: Resource = (load("res://scripts/data/loot_table.gd") as GDScript).new()
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	table.min_rolls = 2
@@ -808,7 +809,7 @@ func _on_enemy_defeated(enemy: Node, archetype: String) -> void:
 
 
 func _loot_for(table_id: String) -> Resource:
-	var table := LootTable.new()
+	var table: Resource = (load("res://scripts/data/loot_table.gd") as GDScript).new()
 	match table_id:
 		"slime":
 			table.entries = [{"item_id": "purple_herb", "weight": 3.0, "min": 1, "max": 1}, {"item_id": "healing_potion", "weight": 1.0, "min": 1, "max": 1}]
